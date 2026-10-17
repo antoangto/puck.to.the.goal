@@ -9,8 +9,8 @@
 <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800;900&family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-:root{font-family:'Noto Sans KR',sans-serif}
 *{box-sizing:border-box}
+:root{font-family:'Noto Sans KR',sans-serif}
 body{margin:0;color:#26323a}
 button,input,select{font:inherit}
 button{cursor:pointer}
@@ -157,10 +157,21 @@ p{line-height:1.85}
 .pin-dot{width:19px;height:19px;border:3px solid white;border-radius:50%;background:var(--pin);outline:1px solid #53616b}
 .fiction-pin:hover .pin-name,.fiction-pin.selected .pin-name{background:var(--pin);border-color:var(--pin);color:white}
 .fiction-pin.selected .pin-dot{width:23px;height:23px}
+.editing .fiction-pin{cursor:grab}
+.editing .pin-name{border:2px dashed #f47a22}
 .maplibregl-popup-content{color:#26323b;border-radius:9px;padding:15px;max-width:240px;font-family:'Noto Sans KR',sans-serif}
 .maplibregl-popup-content strong{font-size:14px}
 .maplibregl-popup-content p{font-size:11px;margin:8px 0 0}
 .maplibregl-popup-close-button{font-size:19px;padding:2px 7px}
+
+.map-tools{display:flex;flex-wrap:wrap;gap:9px;margin-top:15px}
+.map-tools button{border:1px solid #b9c6cc;background:#fff;color:#26323a;border-radius:6px;padding:10px 14px;font-size:12px;font-weight:800}
+.map-tools button.primary{background:#244b67;color:white;border-color:#244b67}
+.k .map-tools button.primary{background:#f47a22;color:#111;border-color:#f47a22}
+.edit-help{font-size:12px;line-height:1.8;margin:10px 0;color:#788891}
+.k .edit-help{color:#aab7be}
+#edit-status{font-size:12px;min-height:18px;margin:10px 0;color:var(--accent)}
+#coordinate-output{width:100%;min-height:95px;resize:vertical;background:#fff;color:#26323a;border:1px solid #b8c5cc;border-radius:6px;padding:12px;font:11px/1.6 monospace;display:none}
 
 .lightbox{position:fixed;inset:0;z-index:999;background:#000e;display:none;align-items:center;justify-content:center;padding:30px}
 .lightbox.open{display:flex}
@@ -207,7 +218,6 @@ p{line-height:1.85}
 </div>
 
 <script>
-/* 이미지 경로 */
 const BASE='https://pub-19e3891ce94f4c209eb7264ad1339087.r2.dev/%ED%8D%BD%EC%9D%84%20%ED%96%A5%ED%95%B4/';
 
 const ASSET={
@@ -227,7 +237,6 @@ wear:'코가_유니폼2.jpg'
 }
 };
 
-/* 학교 및 선수 데이터 */
 const DATA={
 h:{
 name:'호쿠레이학원',
@@ -268,13 +277,18 @@ players:[
 };
 
 /*
-지도 데이터
-[ID, 가상 장소명, 카테고리, 경도, 위도, 설명]
-
-코가: 사용자 캡처 기준으로 7개 위치 보정.
-캡처 기반 추정 좌표이므로 세부 오차가 있을 수 있음.
-호쿠레이: 기존 값 유지.
-*/
+ * 장소 좌표 형식:
+ * [ID, 가상 장소명, 카테고리, 경도, 위도, 설명]
+ *
+ * 이번 캡처를 기준으로 조정한 위치:
+ * - 블록4 커피: 주황색 건물
+ * - 시티 북스: 보라색 건물
+ * - 오렌지 디저트 카페: 주황색 건물
+ * - 기타4조 정류장: 검은색 표시 도로변
+ *
+ * 캡처로부터 환산한 근사 좌표.
+ * 정확한 위치는 아래 '핀 위치 편집'에서 직접 조정 가능.
+ */
 const PLACES={
 h:[
 ['school','호쿠레이학원','학교',144.3895,42.9808,'1970년 설립된 구시로의 전통 있는 사립 고등학교'],
@@ -289,36 +303,29 @@ h:[
 ['book','오카다 서점','상점',144.3905,42.9849,'참고서와 잡지를 판매하는 서점']
 ],
 k:[
-/* 파란색 1: 코가학원 */
 ['school','코가학원','학교',141.33323,43.09106,'2018년 설립된 삿포로의 신흥 사립 고등학교'],
-
-/* 파란색 2: 코가 학생 기숙사 */
 ['dorm','코가 학생 기숙사','학교',141.33465,43.09138,'타이가와 에이스케 등이 생활하는 학생 기숙사'],
-
-/* 주황색 표시: 코가 아이스 아레나 */
 ['rink','코가 아이스 아레나','훈련',141.33079,43.09137,'외부 대관이 금지된 교내 전용 아이스 아레나'],
 
-/* 변경 없음 */
-['cafe','블록4 커피','음식점',141.3355,43.0888,'학생들이 자주 찾는 커피 전문점'],
+/* 캡처 1: 블록4 커피, 왼쪽 주황색 표시 건물 */
+['cafe','블록4 커피','음식점',141.33505,43.08880,'학생들이 자주 찾는 커피 전문점'],
 
-/* 초록색 1: 웨스트 코트 */
 ['square','웨스트 코트','생활',141.33174,43.09068,'가벼운 산책과 만남의 장소'],
-
-/* 초록색 2: 나카지마 녹지 */
 ['park','나카지마 녹지','생활',141.32897,43.09252,'학교 주변의 녹지 공간'],
 
-/* 변경 없음 */
-['dessert','오렌지 디저트 카페','음식점',141.3378,43.0874,'달콤한 디저트와 음료를 판매하는 카페'],
+/* 캡처 2: 오렌지 디저트 카페, 주황색 표시 건물 */
+['dessert','오렌지 디저트 카페','음식점',141.33755,43.08753,'달콤한 디저트와 음료를 판매하는 카페'],
+
 ['sports','노스11 스포츠','상점',141.3302,43.0925,'하키 장비와 스포츠용품을 취급하는 매장'],
 
-/* 새 캡처 초록색 표시: 기타4조 정류장 */
-['bus','기타4조 정류장','교통',141.33639,43.09248,'학교 주변 버스 정류장'],
+/* 캡처 3: 기타4조 정류장, 검은색 표시 도로변 */
+['bus','기타4조 정류장','교통',141.33570,43.09244,'학교 주변 도로변 버스 정류장'],
 
-/* 변경 없음 */
 ['food','식당 마루야','음식점',141.3263,43.0907,'학생들이 찾는 식당'],
-['book','시티 북스','상점',141.3370,43.0890,'서적과 문구류를 판매하는 서점'],
 
-/* 첫 번째 캡처 빨간색 표시: 니시11 교통센터 */
+/* 캡처 1: 시티 북스, 오른쪽 보라색 표시 건물 */
+['book','시티 북스','상점',141.33664,43.08943,'서적과 문구류를 판매하는 서점'],
+
 ['station','니시11 교통센터','교통',141.32725,43.08615,'지역 교통의 연결 지점']
 ]
 };
@@ -344,14 +351,36 @@ let markers=[];
 let activePlace=null;
 let activePopup=null;
 let mapToken=0;
+let editMode=false;
+let draftCoords={};
+
+/* 저장된 좌표는 사용자 브라우저에만 적용 */
+const STORAGE_KEY='puck-map-coordinates-v1';
+
+function readSavedCoords(){
+try{
+return JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}');
+}catch(e){
+return {};
+}
+}
+
+function effectiveCoords(school,id,original){
+const saved=readSavedCoords();
+const value=saved[school]?.[id];
+if(Array.isArray(value)&&
+value.length===2&&
+Number.isFinite(value[0])&&
+Number.isFinite(value[1])){
+return value;
+}
+return original;
+}
 
 function esc(s){
 return String(s).replace(/[&<>"']/g,c=>({
-'&':'&amp;',
-'<':'&lt;',
-'>':'&gt;',
-'"':'&quot;',
-"'":'&#39;'
+'&':'&amp;','<':'&lt;','>':'&gt;',
+'"':'&quot;',"'":'&#39;'
 })[c]);
 }
 
@@ -816,6 +845,22 @@ aria-label="학교 주변 세계관 지도">
 실제 지도를 바탕으로 하되, 장소와 위치는 창작 요소입니다.
 </p>
 
+<div class="map-tools">
+<button id="edit-toggle" class="primary" onclick="toggleEdit()">
+핀 위치 편집
+</button>
+<button onclick="savePositions()">위치 저장</button>
+<button onclick="copyCoordinates()">좌표 복사</button>
+<button onclick="resetPositions()">저장 위치 초기화</button>
+</div>
+
+<p class="edit-help">
+편집 모드에서는 핀을 마우스나 손가락으로 끌어 원하는 건물 또는 도로변에 놓을 수 있습니다.
+위치 저장은 현재 브라우저에만 적용됩니다.
+</p>
+<p id="edit-status" aria-live="polite"></p>
+<textarea id="coordinate-output" readonly aria-label="핀 좌표 출력"></textarea>
+
 <div class="map-legend">
 ${Object.entries(COLORS).map(([name,color])=>`
 <span class="legend-item">
@@ -850,17 +895,17 @@ ${Object.keys(COLORS).map(c=>`
 
 function clearMap(){
 mapToken++;
+editMode=false;
+draftCoords={};
 
 if(activePopup){
 activePopup.remove();
 activePopup=null;
 }
-
 if(realMap){
 realMap.remove();
 realMap=null;
 }
-
 markers=[];
 activePlace=null;
 }
@@ -919,7 +964,6 @@ showZoom:true
 
 realMap.on('load',()=>{
 if(token!==mapToken||!realMap)return;
-
 hideRealLabels(realMap);
 addAllMarkers();
 fitAllMarkers();
@@ -958,7 +1002,7 @@ element.append(name,stem,dot);
 
 element.addEventListener('click',event=>{
 event.stopPropagation();
-focusPlace(place[0]);
+if(!editMode)focusPlace(place[0]);
 });
 
 return element;
@@ -971,10 +1015,14 @@ markers.forEach(item=>item.marker.remove());
 markers=[];
 
 PLACES[sid].forEach(place=>{
-const coordinates=[
+const original=[
 Number(place[3]),
 Number(place[4])
 ];
+
+const coordinates=effectiveCoords(
+sid,place[0],original
+);
 
 if(!Number.isFinite(coordinates[0])||
 !Number.isFinite(coordinates[1]))return;
@@ -984,18 +1032,36 @@ const element=markerElement(place);
 const marker=new maplibregl.Marker({
 element:element,
 anchor:'bottom',
-offset:[0,0]
+offset:[0,0],
+draggable:false
 })
 .setLngLat(coordinates)
 .addTo(realMap);
 
-markers.push({
+const item={
 id:place[0],
-place:place,
-coords:coordinates,
-marker:marker,
-element:element
+place,
+coords:[...coordinates],
+marker,
+element
+};
+
+marker.on('dragend',()=>{
+const pos=marker.getLngLat();
+
+item.coords=[
+Number(pos.lng.toFixed(7)),
+Number(pos.lat.toFixed(7))
+];
+
+draftCoords[item.id]=[...item.coords];
+
+setEditStatus(
+place[1]+' 위치 변경됨 · 위치 저장을 눌러주세요.'
+);
 });
+
+markers.push(item);
 });
 }
 
@@ -1098,6 +1164,149 @@ onclick="focusPlace('${place[0]}')">
 
 </button>
 `).join('')||'<p>검색 결과가 없습니다.</p>';
+}
+
+/* =====================================
+   직접 핀 위치 편집
+===================================== */
+
+function setEditStatus(message){
+const el=document.getElementById('edit-status');
+if(el)el.textContent=message;
+}
+
+function toggleEdit(){
+if(!realMap)return;
+
+editMode=!editMode;
+
+const frame=document.querySelector('.real-map-frame');
+if(frame)frame.classList.toggle('editing',editMode);
+
+markers.forEach(item=>{
+item.marker.setDraggable(editMode);
+});
+
+const btn=document.getElementById('edit-toggle');
+if(btn){
+btn.textContent=editMode?'편집 종료':'핀 위치 편집';
+btn.classList.toggle('primary',!editMode);
+}
+
+if(activePopup){
+activePopup.remove();
+activePopup=null;
+}
+
+setEditStatus(editMode?
+'편집 중: 원하는 핀을 드래그한 뒤 위치 저장을 눌러주세요.':
+'편집 모드가 종료되었습니다.');
+}
+
+function savePositions(){
+if(!sid||!realMap)return;
+
+const saved=readSavedCoords();
+saved[sid]=saved[sid]||{};
+
+markers.forEach(item=>{
+const pos=item.marker.getLngLat();
+
+const coords=[
+Number(pos.lng.toFixed(7)),
+Number(pos.lat.toFixed(7))
+];
+
+item.coords=coords;
+saved[sid][item.id]=coords;
+});
+
+try{
+localStorage.setItem(
+STORAGE_KEY,
+JSON.stringify(saved)
+);
+draftCoords={};
+
+setEditStatus(
+'현재 브라우저에 핀 위치를 저장했습니다. 다른 기기에도 적용하려면 좌표 복사 기능을 이용하세요.'
+);
+}catch(e){
+setEditStatus(
+'브라우저 저장에 실패했습니다. 좌표 복사로 위치를 보관해주세요.'
+);
+}
+}
+
+async function copyCoordinates(){
+if(!sid||!realMap)return;
+
+const rows=markers.map(item=>{
+const pos=item.marker.getLngLat();
+return {
+id:item.id,
+name:item.place[1],
+longitude:Number(pos.lng.toFixed(7)),
+latitude:Number(pos.lat.toFixed(7))
+};
+});
+
+const result=JSON.stringify({
+school:sid,
+places:rows
+},null,2);
+
+const output=document.getElementById('coordinate-output');
+if(output){
+output.style.display='block';
+output.value=result;
+output.select();
+}
+
+try{
+await navigator.clipboard.writeText(result);
+setEditStatus(
+'좌표를 복사했습니다. 이 내용을 채팅에 보내주면 홈페이지 기본 좌표로 반영할 수 있습니다.'
+);
+}catch(e){
+setEditStatus(
+'아래 좌표가 표시되었습니다. 전체 선택해서 복사해주세요.'
+);
+}
+}
+
+function resetPositions(){
+if(!sid||!realMap)return;
+
+if(!confirm(
+'현재 학교의 브라우저 저장 좌표를 초기화할까요?'
+))return;
+
+const saved=readSavedCoords();
+delete saved[sid];
+
+try{
+localStorage.setItem(
+STORAGE_KEY,
+JSON.stringify(saved)
+);
+}catch(e){}
+
+draftCoords={};
+
+markers.forEach(item=>{
+const original=[
+Number(item.place[3]),
+Number(item.place[4])
+];
+
+item.coords=[...original];
+item.marker.setLngLat(original);
+});
+
+setEditStatus(
+'저장된 위치를 초기화하고 코드의 기본 좌표로 되돌렸습니다.'
+);
 }
 
 portal();
