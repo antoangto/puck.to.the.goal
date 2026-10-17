@@ -4,164 +4,385 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>北嶺学園 · 虎牙学園</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
+<title>北嶺学園 · 虎牙学園 | 2020</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800;900&family=Noto+Serif+JP:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box}
-body{margin:0;font-family:"Noto Sans KR",sans-serif}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"Noto Sans KR",sans-serif;color:#273640}
 button,input,select{font:inherit}
 button{cursor:pointer}
-img{max-width:100%;display:block}
+button:focus-visible{outline:3px solid #69b2e8;outline-offset:3px}
+img{display:block;max-width:100%}
 .hidden{display:none!important}
-.wrap{max-width:1160px;width:calc(100% - 36px);margin:auto}
+.wrap{width:min(1160px,calc(100% - 36px));margin:auto}
 .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
 .grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}
-.section{margin:55px 0}
-.desc{font-size:14px;line-height:2;color:inherit;opacity:.76}
-.picture img{width:100%;height:auto;cursor:zoom-in}
+.section{margin:60px 0}
+.desc{font-size:14px;line-height:2;opacity:.78}
 .picture{margin:0}
+.picture img{width:100%;height:auto;cursor:zoom-in}
 .picture figcaption{font-size:12px;opacity:.65;padding:12px 0}
-.picture .missing{display:none}
+.picture .missing{display:none;padding:25px;background:#ddd;color:#333}
 .picture.failed img{display:none}
-.picture.failed .missing{display:block;padding:25px;background:#ddd;color:#333}
-.lightbox{position:fixed;inset:0;background:#000e;display:none;z-index:99;align-items:center;justify-content:center;padding:30px}
+.picture.failed .missing{display:block}
+.lightbox{position:fixed;inset:0;background:#000e;display:none;z-index:999;align-items:center;justify-content:center;padding:30px}
 .lightbox.open{display:flex}
 .lightbox img{max-height:90vh;max-width:100%;object-fit:contain}
 .lightbox button{position:absolute;right:15px;top:15px;padding:10px 18px;border:0}
-.portal{min-height:100vh;background:#f0f2f3;color:#273541}
-.portal header{padding:22px;background:white;border-bottom:1px solid #ddd;font-family:"Noto Serif JP",serif}
-.portal-main{text-align:center;padding:65px 0}
-.portal-main h1{font-size:35px}
-.choices{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:35px}
-.choice{background:white;border:1px solid #ddd;text-align:left;padding:0}
-.choice .cover{height:225px;display:grid;place-items:center}
-.choice.h .cover{background:#193b56}
-.choice.k .cover{background:#17191b}
-.choice img{width:145px;height:155px;object-fit:contain}
-.choice .info{padding:25px}
-.choice h2{font-size:24px;margin:8px 0}
-.choice p{font-size:13px;color:#71808b}
-.choice b{display:block;border-top:1px solid #ddd;padding-top:15px}
 
-/* HOKUREI: traditional school */
-.h{--accent:#254862;background:#faf8f1;color:#293943;min-height:100vh}
-.h .top{background:#18354b;color:#eee;padding:10px 0;font-size:11px}
+/* =========================================
+   SCHOOL ENTRANCE
+========================================= */
+.portal{
+min-height:100svh;
+background:radial-gradient(ellipse at 50% 0%,#2c485c,#0d1722 75%);
+color:white;position:relative;overflow:hidden
+}
+.portal:before{
+content:"";position:absolute;inset:0;pointer-events:none;
+opacity:.09;background:repeating-linear-gradient(90deg,transparent 0 58px,#fff 59px 60px)
+}
+.portal header{
+position:relative;background:#0a152480;
+border-bottom:1px solid #ffffff25;padding:15px 0
+}
+.portal header strong{
+font-family:"Noto Serif JP",serif;
+font-size:12px;letter-spacing:.12em
+}
+.portal-main{
+position:relative;text-align:center;
+padding:30px 0 40px
+}
+.portal-main h1{
+font-family:"Noto Serif JP",serif;
+font-size:clamp(25px,4vw,39px);
+font-weight:500;margin:12px 0 6px
+}
+.portal-main>p{font-size:12px;color:#c3d0d8}
+.portal-main>small{color:#a9c0cd;letter-spacing:.2em}
+.choices{
+display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+gap:17px;margin-top:27px
+}
+.choice{
+display:flex;flex-direction:column;min-width:0;
+text-align:left;padding:0;border:1px solid #ffffff38;
+transition:transform .2s
+}
+.choice:hover{transform:translateY(-4px)}
+.choice.h{background:#f6f1e6;color:#20394d}
+.choice.k{background:#171b1e;color:white}
+.choice .cover{
+position:relative;height:230px;
+display:grid;place-items:center;overflow:hidden
+}
+.choice.h .cover{
+background:radial-gradient(circle,#ffffff19 0 35%,transparent 36%),#193d57
+}
+.choice.k .cover{
+background:repeating-linear-gradient(-25deg,#f4772110 0 3px,transparent 3px 36px),#191b1d
+}
+.choice .cover:before{
+position:absolute;top:13px;left:14px;
+font-size:10px;font-weight:900;letter-spacing:.1em;color:#ffffffa8
+}
+.choice.h .cover:before{content:"EST. 1970 · KUSHIRO"}
+.choice.k .cover:before{content:"EST. 2018 · SAPPORO"}
+.choice .cover img{
+width:145px;height:150px;object-fit:contain;
+filter:drop-shadow(0 8px 14px #0004)
+}
+.choice .info{padding:22px 25px;flex:1}
+.choice .info small{font-size:10px;opacity:.65;letter-spacing:.08em}
+.choice .info h2{font-size:24px;margin:8px 0}
+.choice.h .info h2{font-family:"Noto Serif JP",serif}
+.choice .info p{font-size:12px;opacity:.75;line-height:1.7}
+.choice .info b{
+display:block;border-top:1px solid currentColor;
+margin-top:14px;padding-top:13px;font-size:12px
+}
+.choice.k .info b{color:#ff9447}
+
+/* =========================================
+   HOKUREI: TRADITIONAL SCHOOL
+========================================= */
+.h{
+--accent:#254862;
+background:#faf8f1;color:#293943;min-height:100vh
+}
+.h .top{
+background:#18354b;color:#eee;
+padding:10px 0;font-size:11px
+}
 .h .top .wrap{display:flex;justify-content:space-between}
 .h .top button{background:none;border:0;color:white}
-.h .identity{display:flex;align-items:center;gap:20px;padding:30px 0}
+.h .identity{
+display:flex;align-items:center;gap:20px;padding:30px 0
+}
 .h .identity img{width:85px;height:85px;object-fit:contain}
-.h .identity h1{font-family:"Noto Serif JP",serif;font-size:30px;margin:0}
+.h .identity h1{
+font-family:"Noto Serif JP",serif;
+font-size:30px;margin:0
+}
 .h .identity small{font-size:10px;letter-spacing:.15em;color:#849099}
 .h nav{background:#254862;border-bottom:5px solid #8f3947}
 .h nav .wrap{display:grid;grid-template-columns:repeat(5,1fr)}
-.h nav button{background:none;border:0;border-right:1px solid #ffffff22;color:white;padding:19px 3px;font-size:13px;font-weight:700}
+.h nav button{
+background:none;border:0;border-right:1px solid #ffffff22;
+color:white;padding:19px 3px;font-size:13px;font-weight:700
+}
 .h nav button.active{background:#132f45}
-.h .hero{background:linear-gradient(90deg,#19384ef2,#204962bd),url("https://images.unsplash.com/photo-1517299321609-52687d1bc55a?w=1500") center/cover;padding:90px 0;color:white}
-.h .hero h2{font-family:"Noto Serif JP",serif;font-size:clamp(30px,5vw,55px);font-weight:500;line-height:1.55}
+.h .hero{
+background:linear-gradient(90deg,#19384ef2,#204962bd),
+url("https://images.unsplash.com/photo-1517299321609-52687d1bc55a?w=1500") center/cover;
+padding:90px 0;color:white
+}
+.h .hero h2{
+font-family:"Noto Serif JP",serif;
+font-size:clamp(30px,5vw,55px);
+font-weight:500;line-height:1.55
+}
 .h .page-title{background:#e9e7df;padding:35px 0}
 .h .page-title h2{font-family:"Noto Serif JP",serif;font-size:30px}
 .h main{padding:45px 0 90px}
-.h .heading{font-family:"Noto Serif JP",serif;font-size:25px;border-bottom:1px solid #bac5cb;padding-bottom:14px}
-.h .heading:before{content:"◆";color:#8f3947;font-size:13px;margin-right:12px}
-.h .panel{border:1px solid #d9dfe0;background:white;padding:24px}
-.h .news{padding:18px 0;border-bottom:1px solid #ddd;font-size:13px;display:flex;gap:20px}
+.h .heading{
+font-family:"Noto Serif JP",serif;font-size:25px;
+border-bottom:1px solid #bac5cb;padding-bottom:14px
+}
+.h .heading:before{
+content:"◆";color:#8f3947;font-size:13px;margin-right:12px
+}
+.h .panel{border:1px solid #d9dfe1;background:white;padding:24px}
+.h .news{
+padding:18px 0;border-bottom:1px solid #ddd;
+font-size:13px;display:flex;gap:20px
+}
 .h .news time{color:#8f3947;font-weight:800}
-.h .action{background:white;border:1px solid #9eafb9;color:#254862;padding:13px 22px;font-weight:800}
+.h .action{
+background:white;border:1px solid #9eafb9;
+color:#254862;padding:13px 22px;font-weight:800
+}
 .h footer{background:#18354b;color:white;padding:48px 0}
 .h footer strong{font-family:"Noto Serif JP",serif;font-size:22px}
 
-/* KOGA: sports-media site */
-.k{--accent:#f47724;background:#111416;color:white;min-height:100vh}
+/* =========================================
+   KOGA: SPORTS MEDIA
+========================================= */
+.k{
+--accent:#f47724;
+background:#111416;color:white;min-height:100vh
+}
 .k .shell{display:grid;grid-template-columns:88px minmax(0,1fr)}
-.k .rail{position:sticky;top:0;height:100vh;background:#080a0b;border-right:1px solid #333;display:flex;flex-direction:column;align-items:center;padding:20px 5px;gap:10px}
+.k .rail{
+position:sticky;top:0;height:100vh;
+background:#080a0b;border-right:1px solid #333;
+display:flex;flex-direction:column;align-items:center;
+padding:20px 5px;gap:10px
+}
 .k .rail img{width:60px;height:70px;object-fit:contain}
-.k .rail button{background:none;border:0;color:#aaa;writing-mode:vertical-rl;min-height:85px;font-size:11px;font-weight:900;letter-spacing:.1em;padding:12px}
-.k .rail button.active{color:#ff8a35;border-left:3px solid #ff8a35}
+.k .rail button{
+background:none;border:0;color:#aaa;
+writing-mode:vertical-rl;min-height:85px;
+font-size:11px;font-weight:900;
+letter-spacing:.1em;padding:12px
+}
+.k .rail button.active{
+color:#ff8a35;border-left:3px solid #ff8a35
+}
 .k .rail .return{margin-top:auto;color:white;min-height:55px}
-.k .bar{background:#1b1f21;border-bottom:1px solid #333;padding:20px 35px;display:flex;justify-content:space-between}
+.k .bar{
+background:#1b1f21;border-bottom:1px solid #333;
+padding:20px 35px;display:flex;justify-content:space-between
+}
 .k .bar strong{font-weight:900}
 .k .bar small{color:#f47724}
-.k .hero{min-height:540px;background:linear-gradient(90deg,#0b0d0ff2,#15191bc0),url("https://images.unsplash.com/photo-1515703407324-5f753afd8be8?w=1500") center/cover;display:flex;align-items:center}
+.k .hero{
+min-height:540px;
+background:linear-gradient(90deg,#0b0d0ff2,#15191bc0),
+url("https://images.unsplash.com/photo-1515703407324-5f753afd8be8?w=1500") center/cover;
+display:flex;align-items:center
+}
 .k .hero .inner{padding:70px clamp(25px,7vw,110px)}
-.k .hero h2{font-size:clamp(55px,9vw,115px);font-weight:900;letter-spacing:-.08em;line-height:1;margin:22px 0}
+.k .hero h2{
+font-size:clamp(55px,9vw,115px);
+font-weight:900;letter-spacing:-.08em;
+line-height:1;margin:22px 0
+}
 .k .hero em{color:#f47724;font-style:normal}
-.k .stamp{background:#f47724;color:#111;display:inline-block;padding:9px 14px;font-size:11px;font-weight:900}
-.k .page-title{background:repeating-linear-gradient(-45deg,#1c2022,#1c2022 24px,#202426 24px,#202426 25px);border-bottom:7px solid #f47724;padding:65px 50px}
-.k .page-title h2{font-size:clamp(39px,6vw,70px);font-weight:900;letter-spacing:-.06em}
-.k main{max-width:1200px;width:calc(100% - 70px);margin:auto;padding:65px 0 100px}
-.k .heading{font-size:clamp(25px,4vw,38px);font-weight:900;letter-spacing:-.05em}
+.k .stamp{
+background:#f47724;color:#111;
+display:inline-block;padding:9px 14px;
+font-size:11px;font-weight:900
+}
+.k .page-title{
+background:repeating-linear-gradient(-45deg,#1c2022,#1c2022 24px,#202426 24px,#202426 25px);
+border-bottom:7px solid #f47724;padding:65px 50px
+}
+.k .page-title h2{
+font-size:clamp(39px,6vw,70px);
+font-weight:900;letter-spacing:-.06em
+}
+.k main{
+max-width:1200px;width:calc(100% - 70px);
+margin:auto;padding:65px 0 100px
+}
+.k .heading{
+font-size:clamp(25px,4vw,38px);
+font-weight:900;letter-spacing:-.05em
+}
 .k .heading:before{content:"// ";color:#f47724}
-.k .panel{background:#202527;border:1px solid #394043;padding:25px}
-.k .news{display:flex;gap:20px;border-bottom:1px solid #394043;padding:19px;font-size:13px}
+.k .panel{
+background:#202527;border:1px solid #394043;padding:25px
+}
+.k .news{
+display:flex;gap:20px;border-bottom:1px solid #394043;
+padding:19px;font-size:13px
+}
 .k .news time{color:#f47724;font-weight:900}
-.k .action{background:#f47724;border:0;padding:15px 24px;font-weight:900}
-.k footer{background:#080a0b;border-top:2px solid #f47724;padding:50px}
+.k .action{
+background:#f47724;border:0;padding:15px 24px;font-weight:900
+}
+.k footer{
+background:#080a0b;border-top:2px solid #f47724;padding:50px
+}
 .k footer strong{font-size:24px}
-.k .picture figcaption{border-left:4px solid #f47724;padding-left:12px}
+.k .picture figcaption{
+border-left:4px solid #f47724;padding-left:12px
+}
 
-/* Shared content, distinct school skins */
+/* =========================================
+   CONTENT
+========================================= */
 table{border-collapse:collapse;width:100%;font-size:13px}
-th,td{padding:15px;text-align:left;border-bottom:1px solid #a1aab044;line-height:1.8}
+th,td{
+padding:15px;text-align:left;
+border-bottom:1px solid #a1aab044;line-height:1.8
+}
 th{width:145px;background:#8e9ca016}
 .coach{border:1px solid #a1aab055;padding:27px}
 .coach strong{font-size:23px}
 .coach p{font-size:13px;line-height:1.9;opacity:.8}
-.player{border:1px solid #d9dfe1;background:white;color:#283744;text-align:left;padding:0;min-height:415px}
+.player{
+border:1px solid #d9dfe1;background:white;color:#283744;
+text-align:left;padding:0;min-height:415px
+}
 .player:hover{outline:2px solid var(--accent)}
-.front,.back{min-height:415px;padding:22px;display:flex;flex-direction:column;gap:10px}
+.front,.back{
+min-height:415px;padding:22px;
+display:flex;flex-direction:column;gap:10px
+}
 .back{display:none}
 .player.flipped .front{display:none}
 .player.flipped .back{display:flex}
-.number{font-size:54px;font-weight:900;color:var(--accent);line-height:1}
+.number{
+font-size:54px;font-weight:900;
+color:var(--accent);line-height:1
+}
 .pname{font-size:20px;font-weight:900}
 .jp,.meta,.stats{font-size:12px;opacity:.7}
-.playstyle{font-size:12px;line-height:1.9;background:#edf1f2;padding:14px;margin-top:14px}
-.hint{font-size:11px;opacity:.55;margin-top:auto;padding-top:12px}
-.tags{font-size:12px;line-height:1.9;font-weight:900;color:var(--accent)}
+.playstyle{
+font-size:12px;line-height:1.9;
+background:#edf1f2;padding:14px;margin-top:14px
+}
+.hint{
+font-size:11px;opacity:.55;
+margin-top:auto;padding-top:12px
+}
+.tags{
+font-size:12px;line-height:1.9;
+font-weight:900;color:var(--accent)
+}
 .detail{font-size:12px;line-height:1.8}
 .detail b{display:block}
 .detail p{margin:0;opacity:.8}
 .h .front{border-top:5px solid #254862}
 .h .back{border-top:5px solid #8f3947}
 .h .pname{font-family:"Noto Serif JP",serif}
-.k .player{background:#202527;border-color:#394043;color:white;clip-path:polygon(0 0,100% 0,100% calc(100% - 14px),calc(100% - 14px) 100%,0 100%)}
+.k .player{
+background:#202527;border-color:#394043;color:white
+}
 .k .number{font-size:72px}
 .k .playstyle{background:#303638;color:white}
 .k .tags{color:#ff9a52}
 
-/* Map */
-.mapbox{position:relative;background:#e6eae7;border:1px solid #aab9c1;overflow:hidden}
+/* =========================================
+   MAP
+========================================= */
+.mapbox{
+position:relative;background:#e6eae7;
+border:1px solid #aab9c1;overflow:hidden
+}
 .k .mapbox{border:5px solid #333}
-.mapview{width:100%;height:510px;overflow:hidden;touch-action:none;cursor:grab}
+.mapview{
+width:100%;height:510px;overflow:hidden;
+touch-action:none;cursor:grab
+}
 .mapview:active{cursor:grabbing}
 .mapview svg{display:block;width:100%;height:100%}
-.map-controls{position:absolute;right:12px;top:12px;display:flex;flex-direction:column;gap:5px}
-.map-controls button{width:40px;height:40px;border:1px solid #ccc;background:white;color:#222;font-size:21px}
+.map-controls{
+position:absolute;right:12px;top:12px;
+display:flex;flex-direction:column;gap:5px
+}
+.map-controls button{
+width:40px;height:40px;border:1px solid #ccc;
+background:white;color:#222;font-size:21px
+}
 .map-controls button:last-child{font-size:13px}
-.map-pop{position:absolute;top:12px;left:12px;background:white;color:#25323c;padding:13px 16px;max-width:300px;width:calc(100% - 100px);box-shadow:0 5px 20px #0002;pointer-events:none}
+.map-pop{
+position:absolute;top:12px;left:12px;
+background:white;color:#25323c;padding:13px 16px;
+max-width:300px;width:calc(100% - 100px);
+box-shadow:0 5px 20px #0002;pointer-events:none
+}
 .map-pop p{font-size:12px;line-height:1.7}
-.map-help{position:absolute;left:12px;bottom:12px;background:#fffffff0;color:#333;font-size:11px;padding:9px}
-.map-caption{font-size:12px;opacity:.65;text-align:center;line-height:1.9}
+.map-help{
+position:absolute;left:12px;bottom:12px;
+background:#fffffff0;color:#333;
+font-size:11px;padding:9px
+}
+.map-caption{
+font-size:12px;opacity:.65;
+text-align:center;line-height:1.9
+}
 .search{display:flex;gap:10px;margin:22px 0}
-.search input,.search select{padding:12px;border:1px solid #aaa;background:white;color:#222}
+.search input,.search select{
+padding:12px;border:1px solid #aaa;
+background:white;color:#222
+}
 .search input{flex:1;min-width:0}
-.places{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.place{text-align:left;border:1px solid #c8d0d4;background:white;color:#25323c;padding:16px}
+.places{
+display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px
+}
+.place{
+text-align:left;border:1px solid #c8d0d4;
+background:white;color:#25323c;padding:16px
+}
 .place:hover,.place.selected{border-color:#f47724}
 .place small{font-size:11px;color:#72808a}
 .place strong{display:block;font-size:14px;margin:5px 0}
 .place p{font-size:12px;color:#657580;margin:0}
 .k .place{border-left:5px solid #f47724}
 
+/* =========================================
+   MOBILE
+========================================= */
 @media(max-width:850px){
 .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media(max-width:700px){
-.choices,.grid,.grid.two,.places{grid-template-columns:1fr}
+.grid,.grid.two,.places{grid-template-columns:1fr}
 .k .shell{display:block}
-.k .rail{position:static;width:100%;height:auto;flex-direction:row;justify-content:space-around;padding:8px}
+.k .rail{
+position:static;width:100%;height:auto;
+flex-direction:row;justify-content:space-around;padding:8px
+}
 .k .rail img{width:37px;height:40px}
-.k .rail button{writing-mode:horizontal-tb;min-height:45px;padding:7px 3px;font-size:10px;letter-spacing:0}
+.k .rail button{
+writing-mode:horizontal-tb;min-height:45px;
+padding:7px 3px;font-size:10px;letter-spacing:0
+}
 .k .rail .return{margin:0;min-height:40px}
 .k .bar{padding:15px}
 .k .hero{min-height:390px}
@@ -177,12 +398,66 @@ th{width:145px;background:#8e9ca016}
 .h main{padding:35px 0 70px}
 .mapview{height:360px}
 }
+
+/* Mobile entrance: two schools in one screen */
+@media(max-width:650px){
+.portal{height:100svh;min-height:0;overflow:hidden}
+.portal header{padding:8px 0}
+.portal header strong{font-size:10px}
+.portal-main{
+height:calc(100svh - 37px);
+display:flex;flex-direction:column;
+min-height:0;padding:12px 0
+}
+.portal-main>small{font-size:8px}
+.portal-main h1{font-size:21px;margin:5px 0 3px}
+.portal-main>p{font-size:10px;margin:2px 0}
+.choices{
+grid-template-columns:1fr;
+grid-template-rows:repeat(2,minmax(0,1fr));
+flex:1;min-height:0;gap:9px;margin-top:10px
+}
+.choice{
+display:grid;grid-template-columns:39% minmax(0,1fr);
+min-height:0;height:100%
+}
+.choice .cover{height:100%;min-height:0}
+.choice .cover img{
+width:75%;height:64%;max-width:105px;max-height:125px
+}
+.choice .cover:before{
+font-size:7px;letter-spacing:0;left:6px;top:7px
+}
+.choice .info{
+display:flex;flex-direction:column;justify-content:center;
+padding:9px 12px;min-width:0
+}
+.choice .info small{font-size:8px}
+.choice .info h2{
+font-size:clamp(15px,4.3vw,20px);margin:5px 0
+}
+.choice .info p{font-size:10px;line-height:1.5;margin:0}
+.choice .info b{
+font-size:10px;padding-top:7px;margin-top:8px
+}
+}
+@media(max-width:650px) and (max-height:600px){
+.portal-main>p{display:none}
+.portal-main h1{font-size:18px}
+.choice .info h2{font-size:15px;margin:2px 0}
+.choice .info p{font-size:9px}
+.choice .info b{margin-top:4px;padding-top:4px}
+}
 </style>
 </head>
 <body>
 
 <div id="portal" class="portal">
-<header><div class="wrap"><strong>北海道 私立高等学校案内</strong></div></header>
+<header>
+<div class="wrap">
+<strong>北海道 私立高等学校案内</strong>
+</div>
+</header>
 <div class="wrap portal-main">
 <small>HOKKAIDO SCHOOL INFORMATION · 2020</small>
 <h1>학교 홈페이지 안내</h1>
@@ -203,9 +478,12 @@ th{width:145px;background:#8e9ca016}
 
 const BASE="https://pub-19e3891ce94f4c209eb7264ad1339087.r2.dev/%ED%8D%BD%EC%9D%84%20%ED%96%A5%ED%95%B4/";
 const asset=n=>BASE+encodeURIComponent(n);
+
 const NAV=[
-["home","홈"],["about","학교 소개"],
-["campus","학교 시설"],["hockey","하키부 안내"],
+["home","홈"],
+["about","학교 소개"],
+["campus","학교 시설"],
+["hockey","하키부 안내"],
 ["map","오시는 길"]
 ];
 
@@ -217,7 +495,9 @@ en:"HOKUREI GAKUEN HIGH SCHOOL",
 address:"北海道釧路市緑ヶ岡",
 year:"1970",
 desc:"1970년 설립된 구시로의 사립 고등학교. 오랜 전통과 지역사회와의 유대를 바탕으로 교육 활동을 이어 오고 있습니다. 아이스하키부는 조직적인 수비와 협동을 중시하는 전통 강호입니다.",
-coach:"사에키 토시오",coachJP:"佐伯 俊夫",age:56,
+coach:"사에키 토시오",
+coachJP:"佐伯 俊夫",
+age:56,
 images:{
 logo:"호쿠레이_엠블럼.png",
 campus:"호쿠레이_캠퍼스.jpg",
@@ -241,7 +521,9 @@ en:"KOGA GAKUEN HIGH SCHOOL",
 address:"北海道札幌市中央区",
 year:"2018",
 desc:"2018년 설립된 삿포로의 사립 스포츠 특성화 학교. 기업의 지원을 바탕으로 최신 교육 및 훈련 시설을 갖추고 있으며, 아이스하키부는 빠른 공격과 개인 기량을 강점으로 성장하고 있습니다.",
-coach:"나루세 켄토",coachJP:"成瀬 健斗",age:41,
+coach:"나루세 켄토",
+coachJP:"成瀬 健斗",
+age:41,
 images:{
 logo:"코가_엠블럼.png",
 campus:"코가_캠퍼스.jpg",
@@ -260,106 +542,226 @@ roster:[
 }
 };
 
+/* =========================================
+   PLAYER PROFILES
+========================================= */
 const D={
 h:{
-"10":["08.18","O","ENFJ","2w1","#든든한주장 #책임감만렙 #다정한리더","가족, 따뜻한 음식, 동료 챙기기","책임 회피, 동료의 고립","13세·10세·7세인 동생 셋을 둔 장남. 어려서부터 동생들을 돌보며 자라 남을 챙기고 책임지는 일에 익숙하다. 하키부에서도 좋은 주장이 되고 싶어 하지만, 정작 자신이 힘들 때 남에게 기대는 법은 잘 모른다.","동료를 살리는 패스와 경기 조율, 협동 중심의 센터 플레이"],
-"17":["11.06","A","ISTJ","1w9","#불굴의근성 #노력파 #원칙주의","새벽 달리기, 규칙, 실력 향상","지각, 무성의, 약속 위반","다섯 살 여동생이 있다. 평소에는 무뚝뚝하고 엄격하지만 어린 여동생 앞에서는 한결 부드러워진다. 고교 마지막 시즌에 그동안 쌓아 온 노력의 성과를 증명하고 싶어 하며, 스스로에게 엄격한 탓에 실패를 쉽게 용납하지 못한다.","꾸준한 압박과 강한 체력, 끝까지 포기하지 않는 윙 플레이"],
-"30":["07.23","B","ENTP","7w8","#능청스러운골리 #장난꾸러기 #강심장","낮잠, 장난, 예상 밖의 반응","지루함, 간섭","삿포로에서 자라다 중학교 시절 구시로로 이주했다. 전학 후 아오이와 리쿠를 만나 친해졌다. 중학생 때부터 아키토의 가족 기업에서 아이스하키 후원을 받고 있다. 아키토를 장난스럽게 ‘도련님’이라 부르며, 후원에 대한 고마움도 농담으로 표현하는 편이다. 자신만의 골리 스타일을 완성하는 것이 목표다.","상대의 허를 찌르는 반응과 과감한 세이브"],
-"4":["09.14","A","ISFJ","9w1","#수줍은수비수 #배려형 #평화주의","따뜻한 음료, 동물, 귀여운 물건","다툼, 무서운 이야기","구시로에서 태어나고 자란 토박이로, 조부모와 함께 생활한다. 리쿠와는 어릴 때부터 함께 자란 소꿉친구이며, 중학교 때 전학 온 나기와도 친해졌다. 다툼을 피하려다 자신의 의견을 참는 일이 많지만, 하키부에서는 누구에게나 믿음직한 수비수가 되고 싶어 한다.","안정적인 위치 선정과 동료를 받쳐 주는 수비"],
-"19":["12.05","O","ESFP","7w6","#인간확성기 #분위기메이커 #외로움쟁이","게임, 간식, 친구들과 떠들기","정적, 잔소리, 외로움","아버지가 돌아가신 뒤 어머니, 스무 살 형과 함께 가족을 이루고 있다. 아오이와는 어릴 때부터 알고 지낸 소꿉친구이며, 중학교 때 나기와도 친해졌다. 외롭거나 진지한 마음이 들 때에도 장난으로 넘기는 편이다. 경기의 결정적인 순간에 팀에 힘이 되는 공격수가 되고 싶어 한다.","빠른 돌파와 즉흥적인 공격 전개"],
-"6":["10.28","AB","INTJ","1w9","#냉정한관찰자 #원칙주의 #도시에서온막내","독서, 정돈, 고요함","무질서, 소란, 비효율","열네 살 여동생이 있다. 아이스하키를 위해 도쿄에서 구시로로 이주해 호쿠레이학원에 진학했다. 같은 팀의 3학년 슈헤이를 존경하며, 실력을 인정받는 주전 수비수가 되는 것이 목표다. 아직 어린 후배로만 취급받는 것이 고민이다.","정확한 판단과 효율적인 수비 전개"]
+"10":["08.18","O","ENFJ","2w1",
+"#든든한주장 #책임감만렙 #다정한리더",
+"가족, 따뜻한 음식, 동료 챙기기",
+"책임 회피, 동료의 고립",
+"13세·10세·7세인 동생 셋을 둔 장남. 어려서부터 동생들을 돌보며 자라 남을 챙기고 책임지는 일에 익숙하다. 하키부에서도 좋은 주장이 되고 싶어 하지만, 정작 자신이 힘들 때 남에게 기대는 법은 잘 모른다.",
+"동료를 살리는 패스와 경기 조율, 협동 중심의 센터 플레이"],
+
+"17":["11.06","A","ISTJ","1w9",
+"#불굴의근성 #노력파 #원칙주의",
+"새벽 달리기, 규칙, 실력 향상",
+"지각, 무성의, 약속 위반",
+"다섯 살 여동생이 있다. 평소에는 무뚝뚝하고 엄격하지만 어린 여동생 앞에서는 한결 부드러워진다. 고교 마지막 시즌에 그동안 쌓아 온 노력의 성과를 증명하고 싶어 하며, 스스로에게 엄격한 탓에 실패를 쉽게 용납하지 못한다.",
+"꾸준한 압박과 강한 체력, 끝까지 포기하지 않는 윙 플레이"],
+
+"30":["07.23","B","ENTP","7w8",
+"#능청스러운골리 #장난꾸러기 #강심장",
+"낮잠, 장난, 예상 밖의 반응",
+"지루함, 간섭",
+"삿포로에서 자라다 중학교 시절 구시로로 이주했다. 전학 후 아오이와 리쿠를 만나 친해졌다. 중학생 때부터 아키토의 가족 기업에서 아이스하키 후원을 받고 있다. 아키토를 장난스럽게 ‘도련님’이라 부르며, 후원에 대한 고마움도 농담으로 표현하는 편이다. 자신만의 골리 스타일을 완성하는 것이 목표다.",
+"상대의 허를 찌르는 반응과 과감한 세이브"],
+
+"4":["09.14","A","ISFJ","9w1",
+"#수줍은수비수 #배려형 #평화주의",
+"따뜻한 음료, 동물, 귀여운 물건",
+"다툼, 무서운 이야기",
+"구시로에서 태어나고 자란 토박이로, 조부모와 함께 생활한다. 리쿠와는 어릴 때부터 함께 자란 소꿉친구이며, 중학교 때 전학 온 나기와도 친해졌다. 다툼을 피하려다 자신의 의견을 참는 일이 많지만, 하키부에서는 누구에게나 믿음직한 수비수가 되고 싶어 한다.",
+"안정적인 위치 선정과 동료를 받쳐 주는 수비"],
+
+"19":["12.05","O","ESFP","7w6",
+"#인간확성기 #분위기메이커 #외로움쟁이",
+"게임, 간식, 친구들과 떠들기",
+"정적, 잔소리, 외로움",
+"아버지가 돌아가신 뒤 어머니, 스무 살 형과 함께 가족을 이루고 있다. 아오이와는 어릴 때부터 알고 지낸 소꿉친구이며, 중학교 때 나기와도 친해졌다. 외롭거나 진지한 마음이 들 때에도 장난으로 넘기는 편이다. 경기의 결정적인 순간에 팀에 힘이 되는 공격수가 되고 싶어 한다.",
+"빠른 돌파와 즉흥적인 공격 전개"],
+
+"6":["10.28","AB","INTJ","1w9",
+"#냉정한관찰자 #원칙주의 #도시에서온막내",
+"독서, 정돈, 고요함",
+"무질서, 소란, 비효율",
+"열네 살 여동생이 있다. 아이스하키를 위해 도쿄에서 구시로로 이주해 호쿠레이학원에 진학했다. 같은 팀의 3학년 슈헤이를 존경하며, 실력을 인정받는 주전 수비수가 되는 것이 목표다. 아직 어린 후배로만 취급받는 것이 고민이다.",
+"정확한 판단과 효율적인 수비 전개"]
 },
 k:{
-"9":["07.17","O","ESTP","8w7","#승부욕폭발 #카리스마주장 #칭찬에약함","경쟁, 칭찬, 푸짐한 식사","패배, 무시","삿포로 출신 외동아들로, 다정한 부모님 밑에서 자랐다. 하루와 같은 중학교 출신으로 오랫동안 알고 지낸 선후배 사이다. 현재 코가학원 기숙사에서 1학년 에이스케와 같은 방을 사용한다. 2018년 하키부 창단 때부터 주장을 맡아 왔으며, 팀을 전국 정상으로 이끌고 싶어 한다. 다만 주장으로서 패배에 대한 두려움은 남들에게 드러내지 않는다.","공격적인 경기 운영과 거침없는 돌파"],
-"27":["12.12","AB","ENFJ","3w2","#여우같은도련님 #냉철한전략가 #관찰력만렙","전략 게임, 차, 사람 관찰","무례함, 계획 실패","코가학원을 설립한 기업의 협력사를 운영하는 부유한 집안의 외동아들. 가족 기업은 나기를 비롯한 아이스하키 유망주들을 후원하고 있다. 현재는 가족과 떨어져 학교 밖에서 혼자 생활한다. 뛰어난 전술과 실력으로 승리하는 것이 목표지만, 계산할 수 없는 진심 앞에서는 의외로 약한 모습을 보인다.","상대 움직임을 읽고 경기를 설계하는 전략형 수비"],
-"11":["06.21","B","ENFP","7w6","#반짝이는스타 #칭찬장인 #친화력만렙","패션, SNS, 사진, 디저트","소외, 무관심","삿포로의 본가에서 통학하며, 스물세 살 누나가 있다. 타이가와는 같은 중학교 출신으로, 코가학원에서도 같은 팀에서 뛰고 있다. 후배인 이오리를 자주 챙긴다. 밝고 인기 많은 이미지 때문에 자신의 노력을 가볍게 평가받는 것이 고민이며, 실력으로 인정받는 핵심 공격수가 되고 싶어 한다.","순간적인 스피드와 화려한 공격 전개"],
-"1":["11.19","A","ISTJ","1w2","#철벽골리 #완벽주의 #깔끔쟁이","디저트, 청결, 고요함","소음, 지저분함, 무책임","어머니의 외도로 부모님이 이혼했으며, 아버지와는 관계를 유지하고 있다. 현재 코가학원 기숙사에서 1인실을 사용한다. 아키토와 특히 친하게 지내며, 혼자 조용히 보내는 시간을 좋아한다. 실수와 타인에 대한 신뢰에 민감한 편으로, 어떤 상황에서도 흔들리지 않는 골텐더가 되는 것이 목표다.","침착한 위치 선정과 빈틈없는 골문 방어"],
-"16":["12.24","AB","INTP","5w4","#천재형센터 #분석형두뇌 #숨은경쟁심","퍼즐, 분석, 독서","비논리, 강요","대학교수인 아버지와 의사인 어머니 사이에서 태어난 외동아들. 현재 가족과 떨어져 학교 밖에서 혼자 생활한다. 아키토와 세이와 친하게 지내며, 같은 1학년 에이스케의 예측하기 어려운 재능을 의식하고 있다. 자신만의 경기 방식을 증명하고 싶어 하지만 감정을 이해하거나 표현하는 일에는 서툴다.","상황 분석과 예측을 바탕으로 한 지능형 공격"],
-"10":["08.08","B","ESTP","7w8","#무서운신예 #천부적재능 #거침없는승부사","경쟁, 칭찬, 음식","패배, 무시, 지루한 훈련","평범한 가정에서 자랐으며, 열여덟 살 누나와 열다섯 살 남동생이 있다. 현재 코가학원 기숙사에서 주장 타이가와 같은 방을 사용한다. 타이가를 뛰어넘는 공격수가 되는 것이 목표이며, 타고난 재능뿐 아니라 꾸준히 쌓아 온 노력도 인정받고 싶어 한다.","예측하기 어려운 움직임과 본능적인 득점 감각"]
+"9":["07.17","O","ESTP","8w7",
+"#승부욕폭발 #카리스마주장 #칭찬에약함",
+"경쟁, 칭찬, 푸짐한 식사",
+"패배, 무시",
+"삿포로 출신 외동아들로, 다정한 부모님 밑에서 자랐다. 하루와 같은 중학교 출신으로 오랫동안 알고 지낸 선후배 사이다. 현재 코가학원 기숙사에서 1학년 에이스케와 같은 방을 사용한다. 2018년 하키부 창단 때부터 주장을 맡아 왔으며, 팀을 전국 정상으로 이끌고 싶어 한다. 다만 주장으로서 패배에 대한 두려움은 남들에게 드러내지 않는다.",
+"공격적인 경기 운영과 거침없는 돌파"],
+
+"27":["12.12","AB","ENFJ","3w2",
+"#여우같은도련님 #냉철한전략가 #관찰력만렙",
+"전략 게임, 차, 사람 관찰",
+"무례함, 계획 실패",
+"코가학원을 설립한 기업의 협력사를 운영하는 부유한 집안의 외동아들. 가족 기업은 나기를 비롯한 아이스하키 유망주들을 후원하고 있다. 현재는 가족과 떨어져 학교 밖에서 혼자 생활한다. 뛰어난 전술과 실력으로 승리하는 것이 목표지만, 계산할 수 없는 진심 앞에서는 의외로 약한 모습을 보인다.",
+"상대 움직임을 읽고 경기를 설계하는 전략형 수비"],
+
+"11":["06.21","B","ENFP","7w6",
+"#반짝이는스타 #칭찬장인 #친화력만렙",
+"패션, SNS, 사진, 디저트",
+"소외, 무관심",
+"삿포로의 본가에서 통학하며, 스물세 살 누나가 있다. 타이가와는 같은 중학교 출신으로, 코가학원에서도 같은 팀에서 뛰고 있다. 후배인 이오리를 자주 챙긴다. 밝고 인기 많은 이미지 때문에 자신의 노력을 가볍게 평가받는 것이 고민이며, 실력으로 인정받는 핵심 공격수가 되고 싶어 한다.",
+"순간적인 스피드와 화려한 공격 전개"],
+
+"1":["11.19","A","ISTJ","1w2",
+"#철벽골리 #완벽주의 #깔끔쟁이",
+"디저트, 청결, 고요함",
+"소음, 지저분함, 무책임",
+"어머니의 외도로 부모님이 이혼했으며, 아버지와는 관계를 유지하고 있다. 현재 코가학원 기숙사에서 1인실을 사용한다. 아키토와 특히 친하게 지내며, 혼자 조용히 보내는 시간을 좋아한다. 실수와 타인에 대한 신뢰에 민감한 편으로, 어떤 상황에서도 흔들리지 않는 골텐더가 되는 것이 목표다.",
+"침착한 위치 선정과 빈틈없는 골문 방어"],
+
+"16":["12.24","AB","INTP","5w4",
+"#천재형센터 #분석형두뇌 #숨은경쟁심",
+"퍼즐, 분석, 독서",
+"비논리, 강요",
+"대학교수인 아버지와 의사인 어머니 사이에서 태어난 외동아들. 현재 가족과 떨어져 학교 밖에서 혼자 생활한다. 아키토와 세이와 친하게 지내며, 같은 1학년 에이스케의 예측하기 어려운 재능을 의식하고 있다. 자신만의 경기 방식을 증명하고 싶어 하지만 감정을 이해하거나 표현하는 일에는 서툴다.",
+"상황 분석과 예측을 바탕으로 한 지능형 공격"],
+
+"10":["08.08","B","ESTP","7w8",
+"#무서운신예 #천부적재능 #거침없는승부사",
+"경쟁, 칭찬, 음식",
+"패배, 무시, 지루한 훈련",
+"평범한 가정에서 자랐으며, 열여덟 살 누나와 열다섯 살 남동생이 있다. 현재 코가학원 기숙사에서 주장 타이가와 같은 방을 사용한다. 타이가를 뛰어넘는 공격수가 되는 것이 목표이며, 타고난 재능뿐 아니라 꾸준히 쌓아 온 노력도 인정받고 싶어 한다.",
+"예측하기 어려운 움직임과 본능적인 득점 감각"]
 }
 };
 
-let school=null,page="home",camera=null,selected=null;
+let school=null;
+let page="home";
+let camera=null;
+let selected=null;
 
 function esc(v){
 return String(v).replace(/[&<>"']/g,c=>({
-"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+"&":"&amp;","<":"&lt;",">":"&gt;",
+'"':"&quot;","'":"&#39;"
 })[c]);
 }
-function title(t){return `<h2 class="heading">${t}</h2>`}
+
+function title(t){
+return `<h2 class="heading">${t}</h2>`;
+}
+
 function picture(key,caption){
 return `<figure class="picture">
 <img src="${asset(S[school].images[key])}"
-alt="${esc(caption)}" onclick="showImage(this.src)"
+alt="${esc(caption)}"
+onclick="showImage(this.src)"
 onerror="this.parentElement.classList.add('failed')">
 <div class="missing">이미지를 불러오지 못했습니다.</div>
-<figcaption>${esc(caption)}</figcaption></figure>`;
+<figcaption>${esc(caption)}</figcaption>
+</figure>`;
 }
+
 function showImage(src){
 document.getElementById("lightboxImage").src=src;
 document.getElementById("lightbox").classList.add("open");
 }
+
 function closeLightbox(){
 document.getElementById("lightbox").classList.remove("open");
 }
+
 function portal(){
 document.getElementById("choices").innerHTML=
 Object.entries(S).map(([id,s])=>`
 <button class="choice ${id}" onclick="openSchool('${id}')">
-<div class="cover"><img src="${asset(s.images.logo)}" alt=""></div>
-<div class="info"><small>${s.en}</small>
-<h2>${s.name}</h2><p>${s.jp}</p>
-<b>공식 홈페이지 방문 →</b></div></button>`).join("");
+<div class="cover">
+<img src="${asset(s.images.logo)}" alt="">
+</div>
+<div class="info">
+<small>${s.en}</small>
+<h2>${s.name}</h2>
+<p>${s.jp} · ${id==="h"?"釧路":"札幌"}</p>
+<b>공식 홈페이지 방문 →</b>
+</div>
+</button>`).join("");
 }
+
 function openSchool(id){
-school=id;page="home";
+school=id;
+page="home";
 document.getElementById("portal").classList.add("hidden");
 document.getElementById("site").classList.remove("hidden");
-render();scrollTo(0,0);
+render();
+scrollTo(0,0);
 }
+
 function backPortal(){
 school=null;
 document.getElementById("site").classList.add("hidden");
 document.getElementById("portal").classList.remove("hidden");
 scrollTo(0,0);
 }
-function go(p){page=p;render();scrollTo(0,0)}
+
+function go(p){
+page=p;
+render();
+scrollTo(0,0);
+}
 
 function render(){
-const s=S[school],el=document.getElementById("site");
+const s=S[school];
+const el=document.getElementById("site");
+
 el.className=school;
+
 if(school==="h"){
 el.innerHTML=`
-<div class="top"><div class="wrap">
+<div class="top">
+<div class="wrap">
 <span>北海道 · 2020 SCHOOL INFORMATION</span>
 <button onclick="backPortal()">学校選択へ戻る ↗</button>
-</div></div>
+</div>
+</div>
 <header class="identity wrap">
 <img src="${asset(s.images.logo)}" alt="">
-<div><h1>${s.jp}</h1><small>${s.en}</small></div>
+<div>
+<h1>${s.jp}</h1>
+<small>${s.en}</small>
+</div>
 </header>
-<nav><div class="wrap">${NAV.map(([id,label])=>`
-<button class="${page===id?'active':''}" onclick="go('${id}')">${label}</button>
-`).join("")}</div></nav>
+<nav>
+<div class="wrap">
+${NAV.map(([id,label])=>`
+<button class="${page===id?'active':''}"
+onclick="go('${id}')">${label}</button>
+`).join("")}
+</div>
+</nav>
 ${hero(s)}
 <main class="wrap">${content(s)}</main>
-<footer><div class="wrap">
+<footer>
+<div class="wrap">
 <strong>${s.jp}</strong>
 <p>${s.address} · HOKKAIDO, JAPAN</p>
 <small>© 2020 HOKUREI GAKUEN. ALL RIGHTS RESERVED.</small>
-</div></footer>`;
+</div>
+</footer>`;
 }else{
 el.innerHTML=`
 <div class="shell">
 <aside class="rail">
 <img src="${asset(s.images.logo)}" alt="">
 ${NAV.map(([id,label])=>`
-<button class="${page===id?'active':''}" onclick="go('${id}')">${label}</button>
+<button class="${page===id?'active':''}"
+onclick="go('${id}')">${label}</button>
 `).join("")}
 <button class="return" onclick="backPortal()">BACK ↗</button>
 </aside>
 <div>
-<header class="bar"><strong>${s.jp}</strong><small>SPORTS ACADEMY / 2020</small></header>
+<header class="bar">
+<strong>${s.jp}</strong>
+<small>SPORTS ACADEMY / 2020</small>
+</header>
 ${hero(s)}
 <main>${content(s)}</main>
 <footer>
@@ -367,8 +769,10 @@ ${hero(s)}
 <p>${s.address} · SAPPORO, JAPAN</p>
 <small>© 2020 KOGA GAKUEN ATHLETICS.</small>
 </footer>
-</div></div>`;
+</div>
+</div>`;
 }
+
 if(page==="map")initMap();
 }
 
@@ -381,45 +785,69 @@ ${school==="h"?'<div class="wrap">':''}
 ${school==="h"?'</div>':''}
 </div>`;
 }
+
 return school==="h"?`
-<section class="hero"><div class="wrap">
+<section class="hero">
+<div class="wrap">
 <small>ESTABLISHED 1970 · KUSHIRO</small>
 <h2>전통이,<br>앞으로도 날개가 된다.</h2>
 <p>伝統は、これからも翼になる。</p>
-</div></section>`:`
-<section class="hero"><div class="inner">
+</div>
+</section>`:`
+<section class="hero">
+<div class="inner">
 <span class="stamp">EST. 2018 · SAPPORO</span>
 <h2>THE NEXT<br><em>CHAMPION.</em></h2>
 <p>新たな勝者として、時代に牙を立てる。</p>
-</div></section>`;
+</div>
+</section>`;
 }
 
 function cards(s){
 return `<div class="grid">${s.roster.map(p=>{
 const [n,name,jp,grade,pos,role]=p;
 const d=D[school][n];
-return `<button class="player" onclick="this.classList.toggle('flipped')">
+
+return `<button class="player"
+onclick="this.classList.toggle('flipped')">
 <div class="front">
 <div class="number">#${n}</div>
-<div class="pname">${name}</div><div class="jp">${jp}</div>
-<div class="meta">${grade} · ${pos}${role?' · '+role:''}</div>
-<div class="playstyle"><b>플레이 스타일</b><br>${d[8]}</div>
+<div class="pname">${name}</div>
+<div class="jp">${jp}</div>
+<div class="meta">
+${grade} · ${pos}${role?' · '+role:''}
+</div>
+<div class="playstyle">
+<b>플레이 스타일</b><br>${d[8]}
+</div>
 <div class="hint">상세 정보 보기 ↻</div>
 </div>
+
 <div class="back">
-<div class="pname">${name}</div><div class="jp">${jp} · #${n} · ${pos}</div>
-<div class="stats">${d[0]} · ${d[1]} · ${d[2]} · ${d[3]}</div>
+<div class="pname">${name}</div>
+<div class="jp">${jp} · #${n} · ${pos}</div>
+<div class="stats">
+${d[0]} · ${d[1]} · ${d[2]} · ${d[3]}
+</div>
 <div class="tags">${d[4]}</div>
-<div class="detail"><b>좋아하는 것</b><p>${d[5]}</p></div>
-<div class="detail"><b>싫어하는 것</b><p>${d[6]}</p></div>
-<div class="detail"><b>배경</b><p>${d[7]}</p></div>
+<div class="detail">
+<b>좋아하는 것</b><p>${d[5]}</p>
+</div>
+<div class="detail">
+<b>싫어하는 것</b><p>${d[6]}</p>
+</div>
+<div class="detail">
+<b>배경</b><p>${d[7]}</p>
+</div>
 <div class="hint">앞면으로 돌아가기 ↻</div>
-</div></button>`;
+</div>
+</button>`;
 }).join("")}</div>`;
 }
 
 function content(s){
 const h=school==="h";
+
 if(page==="home"){
 const news=h?[
 ["2020.10.16","2학기 동아리 활동 안내"],
@@ -430,28 +858,48 @@ const news=h?[
 ["2020.10.09","스포츠 시설 안전 점검"],
 ["2020.09.28","가을 학기 학생 활동 소식"]
 ];
+
 return `
-<section>${title(h?"학교 소식":"LATEST NEWS")}
+<section>
+${title(h?"학교 소식":"LATEST NEWS")}
 <div class="grid two">
-<div>${news.map(x=>`<div class="news"><time>${x[0]}</time>${x[1]}</div>`).join("")}</div>
+<div>
+${news.map(x=>`
+<div class="news">
+<time>${x[0]}</time>${x[1]}
+</div>`).join("")}
+</div>
 ${picture("campus","학교 캠퍼스 전경")}
-</div></section>
-<section class="section">${title(h?"학교 소개":"ABOUT KOGA")}
-<p class="desc">${s.desc}</p>
-<button class="action" onclick="go('about')">${h?"학교 소개 보기 →":"EXPLORE SCHOOL →"}</button>
+</div>
 </section>
-<section class="section">${title(h?"학교 안내":"DISCOVER")}
+
+<section class="section">
+${title(h?"학교 소개":"ABOUT KOGA")}
+<p class="desc">${s.desc}</p>
+<button class="action" onclick="go('about')">
+${h?"학교 소개 보기 →":"EXPLORE SCHOOL →"}
+</button>
+</section>
+
+<section class="section">
+${title(h?"학교 안내":"DISCOVER")}
 <div class="grid">
 ${[
 ["학교 시설","campus"],
 ["하키부 안내","hockey"],
 ["오시는 길","map"]
-].map(x=>`<button class="panel" onclick="go('${x[1]}')" style="text-align:left">
-<h3>${x[0]}</h3><p>자세히 보기 →</p></button>`).join("")}
-</div></section>`;
+].map(x=>`
+<button class="panel" onclick="go('${x[1]}')"
+style="text-align:left">
+<h3>${x[0]}</h3>
+<p>자세히 보기 →</p>
+</button>`).join("")}
+</div>
+</section>`;
 }
 
-if(page==="about")return `
+if(page==="about"){
+return `
 ${title(h?"학교 개요":"ABOUT OUR SCHOOL")}
 <p class="desc">${s.desc}</p>
 <table>
@@ -461,10 +909,17 @@ ${title(h?"학교 개요":"ABOUT OUR SCHOOL")}
 <tr><th>유형</th><td>사립 고등학교</td></tr>
 <tr><th>상징</th><td>${h?"참수리":"호랑이"}</td></tr>
 </table>
-<section class="section">${title(h?"학교 전경":"CAMPUS")}
-${picture("campus","학교 캠퍼스 전경")}</section>
-<section class="section">${title(h?"교복 및 체육복":"SCHOOL UNIFORMS")}
-${picture("uniform","교복 및 체육복")}</section>`;
+
+<section class="section">
+${title(h?"학교 전경":"CAMPUS")}
+${picture("campus","학교 캠퍼스 전경")}
+</section>
+
+<section class="section">
+${title(h?"교복 및 체육복":"SCHOOL UNIFORMS")}
+${picture("uniform","교복 및 체육복")}
+</section>`;
+}
 
 if(page==="campus"){
 const facilities=h?[
@@ -482,57 +937,80 @@ const facilities=h?[
 ["학생 기숙사","기숙 학생 생활 공간"],
 ["운동장","야외 스포츠 활동"]
 ];
-return `${title(h?"학교 시설":"SPORTS CAMPUS")}
+
+return `
+${title(h?"학교 시설":"SPORTS CAMPUS")}
 ${picture("campus","학교 캠퍼스")}
+
 <section class="section grid">
-${facilities.map(x=>`<div class="panel"><h3>${x[0]}</h3><p>${x[1]}</p></div>`).join("")}
-</section><div class="panel">
-${h?"호쿠레이에는 교내 링크가 없습니다. 구시로 지역 공용 빙상장을 이용합니다.":
+${facilities.map(x=>`
+<div class="panel">
+<h3>${x[0]}</h3>
+<p>${x[1]}</p>
+</div>`).join("")}
+</section>
+
+<div class="panel">
+${h?
+"호쿠레이에는 교내 링크가 없습니다. 구시로 지역 공용 빙상장을 이용합니다.":
 "코가의 교내 아이스 아레나는 학생 전용 시설이며 외부 대관을 허용하지 않습니다."}
 </div>`;
 }
 
-if(page==="hockey")return `
+if(page==="hockey"){
+return `
 ${title(h?"아이스하키부 안내":"ICE HOCKEY TEAM")}
-<p class="desc">${h?
+<p class="desc">
+${h?
 "호쿠레이는 조직 수비와 패스, 협동을 중시하는 전통 강호입니다.":
-"코가는 빠른 공격과 개인 기량, 과감한 돌파를 중시하는 신생 강호입니다."}</p>
+"코가는 빠른 공격과 개인 기량, 과감한 돌파를 중시하는 신생 강호입니다."}
+</p>
+
 <table>
 <tr><th>감독</th><td>${s.coach} · ${s.coachJP}</td></tr>
 <tr><th>주장</th><td>${s.roster[0][1]}</td></tr>
-<tr><th>훈련 장소</th><td>${h?"구시로 지역 공용 빙상장":"코가학원 교내 아이스 아레나"}</td></tr>
+<tr><th>훈련 장소</th>
+<td>${h?"구시로 지역 공용 빙상장":"코가학원 교내 아이스 아레나"}</td></tr>
 </table>
+
 <section class="section">
 ${title(h?"감독 소개":"HEAD COACH")}
 <div class="coach">
 <strong>${s.coach}</strong>
 <p>${s.coachJP} · ${s.age}세</p>
-<p>${h?
+<p>
+${h?
 "오랜 기간 호쿠레이학원 선수들을 지도해 왔으며 기본기와 스포츠맨십을 중시합니다.":
-"2018년 하키부 창단 때부터 지도해 왔으며 영상 분석과 선수별 전술을 중시합니다."}</p>
-</div></section>
+"2018년 하키부 창단 때부터 지도해 왔으며 영상 분석과 선수별 전술을 중시합니다."}
+</p>
+</div>
+</section>
+
 <section class="section">
 ${title(h?"2020년 주요 선수 명단":"PLAYER ROSTER")}
-<p class="desc">카드를 누르면 선수의 상세 프로필을 확인할 수 있습니다.</p>
+<p class="desc">
+카드를 누르면 선수의 상세 프로필을 확인할 수 있습니다.
+</p>
 ${cards(s)}
 </section>
+
 <section class="section">
 ${title(h?"공식 유니폼":"OFFICIAL UNIFORMS")}
 <div class="grid two">
 ${picture("jersey","아이스하키 유니폼")}
 ${picture("wear","유니폼 착용 예시")}
-</div></section>`;
+</div>
+</section>`;
+}
 
-if(page==="map")return mapPage(s);
+if(page==="map")return mapPage();
+
 return "";
 }
 
-/* =================================================
-   EXPLORE MAPS
-   3000 × 2100 fictional worlds
-   Initial zoom 2.2, minimum zoom 1, maximum 7
-================================================= */
-
+/* =========================================
+   FICTIONAL MAP DATA
+========================================= */
 const MAP={
 h:{
 roads:[
@@ -596,173 +1074,442 @@ places:[
 }
 };
 
-function mapPage(s){
-return `${title(school==="h"?"학교 주변 안내 지도":"EXPLORE / CITY MAP")}
-<p class="desc">작품 세계관에 맞춰 제작한 가상 동네 지도입니다. 실제 도로와 시설 위치를 나타내는 지도가 아닙니다.</p>
+function mapPage(){
+return `
+${title(school==="h"?"학교 주변 안내 지도":"EXPLORE / CITY MAP")}
+<p class="desc">
+작품 세계관에 맞춰 제작한 가상 동네 지도입니다.
+실제 도로와 시설 위치를 나타내는 지도가 아닙니다.
+</p>
+
 <div class="mapbox">
 <div class="mapview" id="mapview">
-<svg id="mapsvg" xmlns="http://www.w3.org/2000/svg"
-viewBox="0 0 1000 700" preserveAspectRatio="none"></svg>
+<svg id="mapsvg"
+xmlns="http://www.w3.org/2000/svg"
+viewBox="0 0 1000 700"
+preserveAspectRatio="xMidYMid meet"></svg>
 </div>
+
 <div class="map-controls">
 <button onclick="zoomMap(1.35)">+</button>
 <button onclick="zoomMap(1/1.35)">−</button>
 <button onclick="resetMap()">⌂</button>
 </div>
+
 <div class="map-pop hidden" id="mappop"></div>
-<div class="map-help">드래그 · 휠/핀치 확대 · 축소하여 탐험</div>
+<div class="map-help">
+드래그 · 휠/핀치 확대 · 축소하여 탐험
 </div>
-<p class="map-caption">처음에는 학교 주변 일부가 보입니다. 축소하면 더 넓은 동네가 드러납니다.</p>
+</div>
+
+<p class="map-caption">
+처음에는 학교 주변 일부가 보입니다.
+축소하면 더 넓은 동네가 드러납니다.
+</p>
+
 ${title(school==="h"?"주변 장소 목록":"CITY DIRECTORY")}
+
 <div class="search">
-<input id="placequery" placeholder="장소 검색" oninput="renderPlaces()">
+<input id="placequery"
+placeholder="장소 검색"
+oninput="renderPlaces()">
+
 <select id="placecat" onchange="renderPlaces()">
 <option value="전체">전체 장소</option>
-${["학교","훈련","상점","음식점","교통","생활"].map(x=>`<option>${x}</option>`).join("")}
+${["학교","훈련","상점","음식점","교통","생활"]
+.map(x=>`<option>${x}</option>`).join("")}
 </select>
 </div>
+
 <div class="places" id="places"></div>`;
 }
 
 function rect(x,y,w,h,fill,stroke="none",radius=3){
-return `<rect x="${x}" y="${y}" width="${w}" height="${h}"
-rx="${radius}" fill="${fill}" stroke="${stroke}" stroke-width="2"/>`;
+return `<rect x="${x}" y="${y}"
+width="${w}" height="${h}" rx="${radius}"
+fill="${fill}" stroke="${stroke}" stroke-width="2"/>`;
 }
 
-function intersects(x,y,w,h,b,pad=0){
-return x<b[1]+b[3]+pad&&x+w>b[1]-pad&&
-y<b[2]+b[4]+pad&&y+h>b[2]-pad;
-}
-
-function distanceToRoad(x,y,a,b){
+function lineDist(x,y,a,b){
 const dx=b[0]-a[0],dy=b[1]-a[1];
 const t=Math.max(0,Math.min(1,
 ((x-a[0])*dx+(y-a[1])*dy)/(dx*dx+dy*dy||1)));
-return Math.hypot(x-a[0]-t*dx,y-a[1]-t*dy);
+return Math.hypot(
+x-(a[0]+dx*t),
+y-(a[1]+dy*t)
+);
 }
 
-function blocked(x,y,w,h,m){
-if(m.special.some(b=>intersects(x,y,w,h,b,35)))return true;
-const points=[
-[x,y],[x+w,y],[x,y+h],[x+w,y+h],
-[x+w/2,y+h/2],
-[x+w/2,y],[x+w/2,y+h],
-[x,y+h/2],[x+w,y+h/2]
+/* Exact distance between a road segment
+   and a rectangular building parcel */
+function pointRectDist(px,py,x,y,w,h){
+return Math.hypot(
+Math.max(x-px,0,px-x-w),
+Math.max(y-py,0,py-y-h)
+);
+}
+
+function segmentIntersects(a,b,c,d){
+const cross=(p,q,r)=>
+(q[0]-p[0])*(r[1]-p[1])-
+(q[1]-p[1])*(r[0]-p[0]);
+
+const p=cross(a,b,c);
+const q=cross(a,b,d);
+const u=cross(c,d,a);
+const v=cross(c,d,b);
+
+return (
+((p>=0&&q<=0)||(p<=0&&q>=0))&&
+((u>=0&&v<=0)||(u<=0&&v>=0))
+);
+}
+
+function segmentRectDist(a,b,x,y,w,h){
+const corners=[
+[x,y],[x+w,y],
+[x+w,y+h],[x,y+h]
 ];
+
+if(pointRectDist(...a,x,y,w,h)===0)return 0;
+if(pointRectDist(...b,x,y,w,h)===0)return 0;
+
+for(let i=0;i<4;i++){
+if(segmentIntersects(
+a,b,corners[i],corners[(i+1)%4]
+))return 0;
+}
+
+return Math.min(
+...corners.map(p=>lineDist(p[0],p[1],a,b)),
+pointRectDist(a[0],a[1],x,y,w,h),
+pointRectDist(b[0],b[1],x,y,w,h)
+);
+}
+
+function rectOverlap(x,y,w,h,b,pad=0){
+return (
+x<b[1]+b[3]+pad &&
+x+w>b[1]-pad &&
+y<b[2]+b[4]+pad &&
+y+h>b[2]-pad
+);
+}
+
+/* Buildings must stay away from roads
+   and reserved school/park/rink parcels */
+function blocked(x,y,w,h,m){
+if(m.special.some(b=>rectOverlap(x,y,w,h,b,26)))
+return true;
+
 return m.roads.some(([a,b,width])=>
-points.some(p=>distanceToRoad(p[0],p[1],a,b)<width/2+23));
+segmentRectDist(a,b,x,y,w,h)<width/2+26
+);
+}
+
+function overlapsBox(a,b,pad=16){
+return (
+a.x<b.x+b.w+pad &&
+a.x+a.w>b.x-pad &&
+a.y<b.y+b.h+pad &&
+a.y+a.h>b.y-pad
+);
+}
+
+function safeBuilding(x,y,w,h,m,occupied){
+const radii=[0,40,80,120,180,250,340,440,550];
+
+for(const radius of radii){
+for(let angle=0;angle<360;angle+=20){
+const rad=angle*Math.PI/180;
+
+const bx=Math.round(
+x-w/2+radius*Math.cos(rad)
+);
+const by=Math.round(
+y-h/2+radius*Math.sin(rad)
+);
+
+if(bx<25||by<25||bx+w>2975||by+h>2075)
+continue;
+
+if(blocked(bx,by,w,h,m))
+continue;
+
+const box={x:bx,y:by,w,h};
+
+if(occupied.some(other=>overlapsBox(box,other,18)))
+continue;
+
+return box;
+}
+}
+return null;
 }
 
 function buildMap(){
-const m=MAP[school],h=school==="h",o=[];
-o.push(rect(0,0,3000,2100,h?"#e5ecdf":"#e5e8e7"));
+const m=MAP[school];
+const h=school==="h";
+const out=[];
+
+const namedBuildings=[
+"shop","cafe","market","food",
+"sports","book","dorm"
+];
+
+const occupied=[];
+const anchors=new Map();
+
+/* Reserve named businesses before generating
+   ordinary buildings */
+for(const p of m.places){
+if(!namedBuildings.includes(p[0]))continue;
+
+const b=safeBuilding(
+p[3],p[4],125,75,m,occupied
+);
+
+if(b){
+occupied.push(b);
+anchors.set(p[0],b);
+}
+}
+
+out.push(rect(
+0,0,3000,2100,
+h?"#e4ebdf":"#e6e7e5"
+));
 
 /* Roads */
 m.roads.forEach(([a,b,w])=>{
-o.push(`<line x1="${a[0]}" y1="${a[1]}" x2="${b[0]}" y2="${b[1]}"
-stroke="${h?"#c3cfc9":"#bcc4c7"}" stroke-width="${w+15}"
+out.push(`
+<line x1="${a[0]}" y1="${a[1]}"
+x2="${b[0]}" y2="${b[1]}"
+stroke="${h?"#c4d0ca":"#bdc2c4"}"
+stroke-width="${w+16}"
 stroke-linecap="round"/>`);
-o.push(`<line x1="${a[0]}" y1="${a[1]}" x2="${b[0]}" y2="${b[1]}"
-stroke="${h?"#faf8f1":"#f8f9f8"}" stroke-width="${w}"/>`);
-});
 
-/* Planned building parcels */
-let index=0;
-for(let y=70;y<2050;y+=h?140:160){
-for(let x=65;x<2950;x+=h?145:155){
-const offset=(index*17)%24;
-const bx=x+offset,by=y+(index*11)%18;
-const w=h?80+(index%3)*12:100+(index%3)*9;
-const ht=h?66+(index%4)*9:88+(index%4)*7;
-index++;
-if(blocked(bx,by,w,ht,m))continue;
-const colors=h?
-["#d8d5ca","#e1ded0","#d1d9d4","#e7dfd5"]:
-["#c7d0d4","#d9dcdd","#bfcbd0","#d3d8d9"];
-o.push(rect(bx,by,w,ht,colors[index%4],
-h?"#bdc8c2":"#abb9c0",h?5:2));
+out.push(`
+<line x1="${a[0]}" y1="${a[1]}"
+x2="${b[0]}" y2="${b[1]}"
+stroke="${h?"#faf8f1":"#fafaf8"}"
+stroke-width="${w}"/>`);
+
 if(!h){
-for(let j=0;j<3;j++)
-o.push(`<line x1="${bx+12}" y1="${by+18+j*20}"
-x2="${bx+w-12}" y2="${by+18+j*20}"
-stroke="#a5b5be" stroke-width="3"/>`);
+out.push(`
+<line x1="${a[0]}" y1="${a[1]}"
+x2="${b[0]}" y2="${b[1]}"
+stroke="#d3d5d3"
+stroke-width="3"
+stroke-dasharray="20 25"/>`);
+}
+});
+
+/* Ordinary buildings */
+let index=0;
+
+for(let gy=70;gy<2040;gy+=(h?125:145)){
+for(let gx=65;gx<2930;gx+=(h?135:145)){
+
+const x=gx+(index*37)%25;
+const y=gy+(index*23)%21;
+const w=h?76+(index%3)*13:94+(index%3)*10;
+const ht=h?61+(index%4)*10:85+(index%4)*8;
+
+index++;
+
+if(blocked(x,y,w,ht,m))continue;
+
+const box={x,y,w,h:ht};
+
+if(occupied.some(b=>overlapsBox(box,b)))
+continue;
+
+const colors=h?
+["#d8d8ca","#e4dfd0","#d1dad7","#e5e1d5"]:
+["#c4cdd1","#d5d9db","#bdc7cc","#d9dcdc"];
+
+out.push(rect(
+x,y,w,ht,colors[index%4],
+h?"#bdc8c1":"#aebac0",
+h?5:1
+));
+
+if(h){
+out.push(`
+<path d="M${x+9} ${y+13} H${x+w-9}"
+stroke="#b5bcb6" stroke-width="3"/>`);
+}else{
+for(let n=0;n<3;n++){
+out.push(`
+<path d="M${x+12} ${y+18+n*20}
+H${x+w-12}"
+stroke="#a8b7bf" stroke-width="3"/>`);
+}
 }
 }
 }
 
-/* Reserved school, rink and parks */
-m.special.forEach(([type,x,y,w,ht])=>{
-if(type==="park"){
-o.push(rect(x,y,w,ht,"#c9dfbf","#a8c99c",12));
-o.push(`<path d="M${x+25} ${y+ht*.65}
-Q${x+w*.4} ${y+25} ${x+w-25} ${y+ht*.5}"
-stroke="#f5f0dc" stroke-width="18" fill="none"/>`);
-for(let i=0;i<7;i++){
-const tx=x+35+(i*71)%(w-65);
-const ty=y+30+(i*83)%(ht-60);
-o.push(`<circle cx="${tx}" cy="${ty}" r="16"
-fill="${i%2?"#96bd87":"#a7ca98"}"/>`);
+/* School, rink and park parcels */
+m.special.forEach(([kind,x,y,w,ht])=>{
+if(kind==="park"){
+out.push(rect(
+x,y,w,ht,
+h?"#c7dfbd":"#d0dfc8",
+"#a7c49e",9
+));
+
+out.push(`
+<path d="M${x+25} ${y+ht*.55}
+Q${x+w*.4} ${y+20}
+${x+w-25} ${y+ht*.6}"
+stroke="#f6f0dd"
+fill="none" stroke-width="17"/>`);
+
+for(let j=0;j<8;j++){
+const tx=x+35+(j*71)%(w-65);
+const ty=y+30+(j*83)%(ht-60);
+
+out.push(`
+<circle cx="${tx}" cy="${ty}" r="16"
+fill="${j%2?"#94bb85":"#a5c994"}"/>`);
 }
-}else if(type==="school"){
-o.push(rect(x,y,w,ht,h?"#e2e9e6":"#dbe4e8","#8caaba",8));
-o.push(rect(x+28,y+28,w*.42,ht*.48,
-h?"#b4c5ce":"#b0c0c9","#90a7b2"));
-o.push(rect(x+28,y+ht*.72,w*.46,ht*.14,
-h?"#d6cfad":"#acbcc5"));
-}else if(type==="rink"){
-o.push(rect(x,y,w,ht,"#c9dce4","#8caaba",10));
-o.push(rect(x+15,y+15,w-30,ht-30,
-"#c4e5f0","#8ab8c9",18));
-o.push(`<line x1="${x+w/2}" y1="${y+15}"
+return;
+}
+
+if(kind==="school"){
+out.push(rect(
+x,y,w,ht,
+h?"#e2e9e5":"#dce5e8",
+"#88a8b8",8
+));
+
+out.push(rect(
+x+24,y+25,w*.42,ht*.48,
+h?"#afc1cb":"#b2c0c8",
+"#90a7b3"
+));
+
+out.push(rect(
+x+24,y+ht*.7,w*.48,ht*.17,
+h?"#d8d0ad":"#a6b7c1",
+"#9fb3b6"
+));
+
+out.push(`
+<text x="${x+22}" y="${y+ht-14}"
+font-size="23" fill="#536a75"
+font-weight="800">SCHOOL</text>`);
+return;
+}
+
+if(kind==="rink"){
+out.push(rect(
+x,y,w,ht,
+h?"#d5e4e9":"#c4d4dd",
+"#8ba8b9",9
+));
+
+out.push(rect(
+x+15,y+15,w-30,ht-30,
+"#c5e5ef","#8ab8c9",18
+));
+
+out.push(`
+<line x1="${x+w/2}" y1="${y+15}"
 x2="${x+w/2}" y2="${y+ht-15}"
-stroke="#d76b73" stroke-width="4"/>`);
+stroke="#d36b72" stroke-width="4"/>`);
+
+out.push(`
+<circle cx="${x+w/2}" cy="${y+ht/2}"
+r="24" fill="none"
+stroke="#82a9c0" stroke-width="3"/>`);
 }
 });
 
-/* Every business has its own visible building */
-const businesses=["shop","cafe","market","sports","food","book","dorm"];
-m.places.forEach(([id,name,cat,x,y])=>{
-if(!businesses.includes(id))return;
-const w=130,ht=85;
-o.push(rect(x-w/2,y-ht/2,w,ht,
-h?"#c9c1b5":"#b7c5cb","#9aa9ad",4));
-o.push(rect(x-w/2+10,y+ht/2-32,w-20,23,
-h?"#7c786e":"#4b5a62"));
+/* Named buildings in safe parcels */
+m.places.forEach(([id,name,cat])=>{
+const b=anchors.get(id);
+if(!b)return;
+
+out.push(rect(
+b.x,b.y,b.w,b.h,
+h?"#cbbfb2":"#aebcc4",
+h?"#9ca6a1":"#849ba7"
+));
+
+out.push(rect(
+b.x+12,b.y+b.h-30,b.w-24,21,
+h?"#7f776b":"#48565d"
+));
+
+const label=cat==="음식점"?"CAFE / FOOD":
+cat==="학교"?"DORM":"SHOP";
+
+out.push(`
+<text x="${b.x+b.w/2}"
+y="${b.y+b.h-15}"
+text-anchor="middle"
+font-size="13" fill="white"
+font-weight="800">${label}</text>`);
 });
 
-/* Location markers */
-m.places.forEach(([id,name,cat,x,y])=>{
+/* Pins */
+m.places.forEach(([id,name,cat,px,py])=>{
+const parcel=anchors.get(id);
+const x=parcel?parcel.x+parcel.w/2:px;
+const y=parcel?parcel.y+parcel.h/2:py;
+
 const color=cat==="학교"?"#244b70":
 cat==="훈련"?"#e4772b":
+cat==="교통"?"#5c7e9c":
 cat==="생활"?"#4b8a6c":"#967044";
-o.push(`<g class="pin" data-id="${id}" style="cursor:pointer">
-<circle cx="${x}" cy="${y}" r="28" fill="#ffffffdd"/>
-<circle cx="${x}" cy="${y}" r="19" fill="${color}"
+
+out.push(`
+<g class="pin" data-id="${id}"
+style="cursor:pointer">
+<circle cx="${x}" cy="${y}"
+r="27" fill="#ffffffdf"/>
+<circle cx="${x}" cy="${y}"
+r="19" fill="${color}"
 stroke="white" stroke-width="3"/>
-<circle cx="${x}" cy="${y}" r="6" fill="white"/>
-<text x="${x}" y="${y-40}" text-anchor="middle"
-font-size="24" font-weight="900"
+<circle cx="${x}" cy="${y}"
+r="6" fill="white"/>
+<text x="${x}" y="${y-39}"
+text-anchor="middle"
+font-size="24"
 font-family="Noto Sans KR,sans-serif"
-fill="#334b59" stroke="white" stroke-width="7"
-paint-order="stroke">${esc(name)}</text></g>`);
+font-weight="900"
+stroke="white"
+stroke-width="7"
+paint-order="stroke"
+fill="#334d59">${esc(name)}</text>
+</g>`);
 });
 
+m.anchors=anchors;
+
 const svg=document.getElementById("mapsvg");
-svg.innerHTML=o.join("");
+svg.innerHTML=out.join("");
+
 svg.querySelectorAll(".pin").forEach(pin=>{
 pin.addEventListener("click",e=>{
-e.stopPropagation();focusPlace(pin.dataset.id);
+e.stopPropagation();
+focusPlace(pin.dataset.id);
 });
 });
+
 updateMap();
 }
 
-/* Camera: zoom out beyond initial view */
+/* =========================================
+   CAMERA
+========================================= */
 function initMap(){
 selected=null;
 camera={
-cx:school==="h"?1250:1400,
-cy:school==="h"?950:1000,
+cx:school==="h"?1250:1470,
+cy:school==="h"?950:900,
 z:2.2
 };
 buildMap();
@@ -774,125 +1521,211 @@ function dimensions(){
 const el=document.getElementById("mapview");
 const aspect=el.clientWidth/Math.max(1,el.clientHeight);
 const world=3000/2100;
+
 let w,h;
-if(aspect>world){w=3000;h=w/aspect}
-else{h=2100;w=h*aspect}
+
+if(aspect>world){
+w=3000;
+h=w/aspect;
+}else{
+h=2100;
+w=h*aspect;
+}
+
 return {w:w/camera.z,h:h/camera.z};
 }
 
 function updateMap(){
 if(!camera)return;
+
 camera.z=Math.max(1,Math.min(7,camera.z));
+
 const {w,h}=dimensions();
-camera.cx=Math.max(w/2,Math.min(3000-w/2,camera.cx));
-camera.cy=Math.max(h/2,Math.min(2100-h/2,camera.cy));
+
+camera.cx=Math.max(
+w/2,Math.min(3000-w/2,camera.cx)
+);
+camera.cy=Math.max(
+h/2,Math.min(2100-h/2,camera.cy)
+);
+
 const svg=document.getElementById("mapsvg");
-if(svg)svg.setAttribute("viewBox",
-`${camera.cx-w/2} ${camera.cy-h/2} ${w} ${h}`);
+
+if(svg){
+svg.setAttribute(
+"viewBox",
+`${camera.cx-w/2} ${camera.cy-h/2} ${w} ${h}`
+);
+}
 }
 
 function zoomMap(factor,anchor){
 if(!camera)return;
-const old=dimensions();
-const left=camera.cx-old.w/2;
-const top=camera.cy-old.h/2;
-camera.z=Math.max(1,Math.min(7,camera.z*factor));
+
+const before=dimensions();
+const left=camera.cx-before.w/2;
+const top=camera.cy-before.h/2;
+
+camera.z=Math.max(
+1,Math.min(7,camera.z*factor)
+);
+
 if(anchor){
-const next=dimensions();
-camera.cx=left+anchor.x*old.w+(0.5-anchor.x)*next.w;
-camera.cy=top+anchor.y*old.h+(0.5-anchor.y)*next.h;
+const after=dimensions();
+
+camera.cx=
+left+anchor.x*before.w+
+(0.5-anchor.x)*after.w;
+
+camera.cy=
+top+anchor.y*before.h+
+(0.5-anchor.y)*after.h;
 }
+
 updateMap();
 }
 
 function resetMap(){
 camera={
-cx:school==="h"?1250:1400,
-cy:school==="h"?950:1000,z:2.2
+cx:school==="h"?1250:1470,
+cy:school==="h"?950:900,
+z:2.2
 };
+
 selected=null;
-document.getElementById("mappop").classList.add("hidden");
-updateMap();renderPlaces();
+
+document.getElementById("mappop")
+.classList.add("hidden");
+
+updateMap();
+renderPlaces();
 }
 
 function focusPlace(id){
-const p=MAP[school].places.find(x=>x[0]===id);
+const p=MAP[school].places.find(v=>v[0]===id);
 if(!p)return;
+
 selected=id;
-camera.z=3;
-camera.cx=p[3];
-camera.cy=p[4];
+camera.z=3.1;
+
+const b=MAP[school].anchors?.get(id);
+
+camera.cx=b?b.x+b.w/2:p[3];
+camera.cy=b?b.y+b.h/2:p[4];
+
 updateMap();
+
 const pop=document.getElementById("mappop");
-pop.innerHTML=`<strong>${esc(p[1])}</strong><p>${esc(p[5])}</p>`;
+
+pop.innerHTML=`
+<strong>${esc(p[1])}</strong>
+<p>${esc(p[5])}</p>`;
+
 pop.classList.remove("hidden");
+
 renderPlaces();
 }
 
 function renderPlaces(){
-const el=document.getElementById("places");
-if(!el)return;
-const q=(document.getElementById("placequery")?.value||"")
-.trim().toLowerCase();
-const cat=document.getElementById("placecat")?.value||"전체";
+const box=document.getElementById("places");
+if(!box)return;
+
+const q=(
+document.getElementById("placequery")?.value||""
+).trim().toLowerCase();
+
+const cat=
+document.getElementById("placecat")?.value||"전체";
+
 const arr=MAP[school].places.filter(p=>
-(cat==="전체"||p[2]===cat)&&p[1].toLowerCase().includes(q));
-el.innerHTML=arr.length?arr.map(p=>`
+(cat==="전체"||cat===p[2])&&
+p[1].toLowerCase().includes(q)
+);
+
+box.innerHTML=arr.length?
+arr.map(p=>`
 <button class="place ${selected===p[0]?"selected":""}"
 onclick="focusPlace('${p[0]}')">
 <small>${p[2]}</small>
 <strong>${esc(p[1])}</strong>
-<p>${esc(p[5])}</p></button>`).join(""):
+<p>${esc(p[5])}</p>
+</button>`).join(""):
 "<p>검색 결과가 없습니다.</p>";
 }
 
 function attachMap(){
 const el=document.getElementById("mapview");
-const pointers=new Map();
-let last=null,lastDistance=null;
+const points=new Map();
+
+let last=null;
+let lastDist=null;
 
 el.addEventListener("pointerdown",e=>{
 el.setPointerCapture(e.pointerId);
-pointers.set(e.pointerId,{x:e.clientX,y:e.clientY});
+points.set(e.pointerId,{
+x:e.clientX,y:e.clientY
+});
 last={x:e.clientX,y:e.clientY};
 });
 
 el.addEventListener("pointermove",e=>{
-if(!pointers.has(e.pointerId))return;
-pointers.set(e.pointerId,{x:e.clientX,y:e.clientY});
+if(!points.has(e.pointerId))return;
 
-if(pointers.size===2){
-const a=[...pointers.values()];
-const distance=Math.hypot(a[0].x-a[1].x,a[0].y-a[1].y);
-if(lastDistance)zoomMap(distance/lastDistance);
-lastDistance=distance;
+points.set(e.pointerId,{
+x:e.clientX,y:e.clientY
+});
+
+if(points.size===2){
+const a=[...points.values()];
+
+const dist=Math.hypot(
+a[0].x-a[1].x,
+a[0].y-a[1].y
+);
+
+if(lastDist)zoomMap(dist/lastDist);
+
+lastDist=dist;
 last=null;
 return;
 }
-lastDistance=null;
+
+lastDist=null;
+
 if(!last){
 last={x:e.clientX,y:e.clientY};
 return;
 }
+
 const d=dimensions();
 const r=el.getBoundingClientRect();
-camera.cx-=(e.clientX-last.x)/r.width*d.w;
-camera.cy-=(e.clientY-last.y)/r.height*d.h;
+
+camera.cx-=
+(e.clientX-last.x)/r.width*d.w;
+
+camera.cy-=
+(e.clientY-last.y)/r.height*d.h;
+
 last={x:e.clientX,y:e.clientY};
+
 updateMap();
 });
 
 const end=e=>{
-pointers.delete(e.pointerId);
-last=null;lastDistance=null;
+points.delete(e.pointerId);
+last=null;
+lastDist=null;
 };
+
 el.addEventListener("pointerup",end);
 el.addEventListener("pointercancel",end);
 el.addEventListener("lostpointercapture",end);
 
 el.addEventListener("wheel",e=>{
 e.preventDefault();
+
 const r=el.getBoundingClientRect();
+
 zoomMap(e.deltaY<0?1.15:1/1.15,{
 x:(e.clientX-r.left)/r.width,
 y:(e.clientY-r.top)/r.height
