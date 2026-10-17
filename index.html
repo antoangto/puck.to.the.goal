@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>北嶺学園高等学校 × 虎牙学園高等学校</title>
+<title>北嶺学園 × 虎牙学園 | 퍽을 향해!</title>
 <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
 <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800;900&family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
@@ -37,7 +37,12 @@ p{line-height:1.85}
 .note{padding:20px 23px;line-height:1.9;font-size:13px}
 .footer{padding:42px 0;margin-top:70px}
 .footer p{font-size:12px}
-#portal{min-height:100svh;background:radial-gradient(ellipse at top,#2b475b,#0b1420 75%);color:white}
+
+#portal{
+min-height:100svh;
+background:radial-gradient(ellipse at top,#2b475b,#0b1420 75%);
+color:white
+}
 .portal-head{padding:17px 0;border-bottom:1px solid #ffffff25;font-size:12px}
 .portal-main{text-align:center;padding:35px 0}
 .portal-main h1{font-family:'Noto Serif JP',serif;font-size:clamp(23px,4vw,38px);font-weight:600}
@@ -57,9 +62,11 @@ p{line-height:1.85}
 .choice-info b{display:block;margin-top:15px;padding-top:12px;border-top:1px solid #8886;font-size:12px}
 .hchoice h2{font-family:'Noto Serif JP',serif}
 .kchoice b{color:#ff963f}
+
 #site{min-height:100vh}
 #site.h{background:#f9f7f0;color:#263744;--accent:#244b67}
 #site.k{background:#111416;color:#f4f5f5;--accent:#f47a22}
+
 .h-top{background:#19374d;color:white;padding:10px 0;font-size:11px}
 .h-top .wrap{display:flex;justify-content:space-between}
 .h-top button{background:none;border:0;color:white}
@@ -72,7 +79,11 @@ p{line-height:1.85}
 .h-nav .wrap{display:grid;grid-template-columns:repeat(5,1fr)}
 .h-nav button{background:none;color:white;border:0;border-right:1px solid #ffffff25;padding:18px 5px;font-size:13px;font-weight:800}
 .h-nav button.active,.h-nav button:hover{background:#17344b}
-.h-hero{padding:80px 0;background:linear-gradient(90deg,#19394fec,#244b65c9),url('https://images.unsplash.com/photo-1517299321609-52687d1bc55a?w=1600') center/cover;color:white}
+.h-hero{
+padding:80px 0;
+background:linear-gradient(90deg,#19394fec,#244b65c9),url('https://images.unsplash.com/photo-1517299321609-52687d1bc55a?w=1600') center/cover;
+color:white
+}
 .h-hero h2{font:600 clamp(30px,5vw,52px)/1.5 'Noto Serif JP',serif}
 .h-hero p{font-size:13px}
 .h-title{background:#eceae1;padding:30px 0}
@@ -82,21 +93,41 @@ p{line-height:1.85}
 .h .section-title:before{content:"◆";font-size:12px;color:#963e50;margin-right:12px}
 .h .note{background:#eeece4;border-left:4px solid #963e50}
 .h .footer{background:#19374d;color:white}
+
 .k-shell{display:grid;grid-template-columns:86px minmax(0,1fr)}
-.k-rail{position:sticky;top:0;height:100vh;background:#080a0b;border-right:1px solid #333;display:flex;flex-direction:column;align-items:center;padding:18px 5px;gap:12px}
+.k-rail{
+position:sticky;top:0;height:100vh;
+background:#080a0b;border-right:1px solid #333;
+display:flex;flex-direction:column;align-items:center;
+padding:18px 5px;gap:12px
+}
 .k-rail img{width:60px;height:66px;object-fit:contain}
-.k-rail button{writing-mode:vertical-rl;background:none;border:0;color:#aeb2b4;padding:13px 8px;font-size:11px;font-weight:900;letter-spacing:.12em}
+.k-rail button{
+writing-mode:vertical-rl;background:none;border:0;
+color:#aeb2b4;padding:13px 8px;
+font-size:11px;font-weight:900;letter-spacing:.12em
+}
 .k-rail button.active{color:#ff8d36;border-left:3px solid #ff8d36}
 .k-rail .back{margin-top:auto;color:white}
-.k-head{padding:20px 34px;background:#1a1e20;display:flex;justify-content:space-between;align-items:center}
+.k-head{
+padding:20px 34px;background:#1a1e20;
+display:flex;justify-content:space-between;align-items:center
+}
 .k-head strong{font-size:17px}
 .k-head span{color:#f47a22;font-size:11px;letter-spacing:.12em}
-.k-hero{min-height:530px;display:flex;align-items:center;background:linear-gradient(90deg,#0a0c0df2,#111719aa),url('https://images.unsplash.com/photo-1515703407324-5f753afd8be8?w=1600') center/cover}
+.k-hero{
+min-height:530px;display:flex;align-items:center;
+background:linear-gradient(90deg,#0a0c0df2,#111719aa),url('https://images.unsplash.com/photo-1515703407324-5f753afd8be8?w=1600') center/cover
+}
 .k-hero .wrap{padding:60px 0}
 .k-hero h2{font-size:clamp(50px,9vw,115px);line-height:1;font-weight:900;letter-spacing:-.08em}
 .k-hero h2 em{color:#f47a22;font-style:normal}
 .k-hero p{color:#c1c5c7}
-.k-title{padding:55px 0;background:repeating-linear-gradient(-45deg,#1c2022 0 24px,#202426 24px 25px);border-bottom:6px solid #f47a22}
+.k-title{
+padding:55px 0;
+background:repeating-linear-gradient(-45deg,#1c2022 0 24px,#202426 24px 25px);
+border-bottom:6px solid #f47a22
+}
 .k-title h2{font-size:clamp(35px,5vw,60px);margin:5px 0;font-weight:900}
 .k-main{padding:55px 0}
 .k .panel{background:#1c2022;border-color:#373e41;color:white}
@@ -105,15 +136,26 @@ p{line-height:1.85}
 .k .section-title{border-color:#41494d}
 .k .note{background:#1d2224;border-left:4px solid #f47a22}
 .k .footer{background:#080a0b;color:#e6e6e6}
-.news{display:grid;grid-template-columns:110px 1fr;gap:15px;border-bottom:1px solid #aab5bc55;padding:17px 0;font-size:13px}
+
+.news{
+display:grid;grid-template-columns:110px 1fr;
+gap:15px;border-bottom:1px solid #aab5bc55;
+padding:17px 0;font-size:13px
+}
 .news time{font-weight:800;color:var(--accent)}
 .coach{padding:28px;border:1px solid #aab5bc55}
 .coach strong{font-size:23px}
 .roster{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}
 .player{min-height:270px;perspective:1000px;cursor:pointer}
-.player-inner{position:relative;width:100%;height:100%;min-height:270px;transition:transform .55s;transform-style:preserve-3d}
+.player-inner{
+position:relative;width:100%;height:100%;min-height:270px;
+transition:transform .55s;transform-style:preserve-3d
+}
 .player.flipped .player-inner{transform:rotateY(180deg)}
-.player-front,.player-back{position:absolute;inset:0;backface-visibility:hidden;padding:22px;overflow:auto;border:1px solid #b3c2ca55}
+.player-front,.player-back{
+position:absolute;inset:0;backface-visibility:hidden;
+padding:22px;overflow:auto;border:1px solid #b3c2ca55
+}
 .h .player-front{background:#fff}
 .h .player-back{background:#e8edf0}
 .k .player-front{background:#1d2326}
@@ -125,28 +167,131 @@ p{line-height:1.85}
 .player-role{font-size:12px;font-weight:800;color:var(--accent);margin-top:15px}
 .player-info{font-size:12px;line-height:1.8}
 .player-hint{font-size:10px;opacity:.55;margin-top:14px}
-.real-map-frame{position:relative;border:1px solid #b6c7cc;overflow:hidden;border-radius:12px}
-#real-map{height:570px;width:100%;background:#e7edf0}
-#map-status{position:absolute;left:10px;bottom:10px;z-index:3;background:#ffffffee;color:#52636d;padding:6px 10px;border-radius:5px;font-size:10px;max-width:calc(100% - 75px)}
-.map-legend{font-size:11px;color:#8a9ba4}
-.fiction-pin{position:relative;display:flex;flex-direction:column;align-items:center;background:none;border:0;transform:translateY(0);white-space:nowrap;padding:0}
-.pin-name{background:white;border:1px solid #d3dee4;color:#25323b;font-size:11px;font-weight:900;padding:5px 8px;border-radius:6px;box-shadow:0 2px 8px #0003}
-.pin-dot{width:19px;height:19px;background:var(--pin);border:3px solid white;outline:1px solid #53616b;border-radius:50%;box-shadow:0 2px 6px #0005;order:2;margin-top:3px}
+
+/* 지도 */
+.real-map-frame{
+position:relative;
+border:1px solid #b6c7cc;
+overflow:hidden;
+border-radius:12px;
+background:#edf0eb
+}
+#real-map{height:570px;width:100%}
+#real-map .maplibregl-canvas{outline:none}
+#real-map .maplibregl-ctrl-attrib{
+font-size:10px;
+background:#ffffffd9
+}
+.map-note{
+font-size:12px;
+line-height:1.9;
+color:#84939c;
+margin:15px 0 0
+}
+.k .map-note{color:#a5b1b6}
+.map-legend{
+display:flex;flex-wrap:wrap;
+gap:10px 17px;margin:20px 0;
+font-size:11px
+}
+.legend-item{display:flex;align-items:center;gap:6px}
+.legend-dot{width:10px;height:10px;border-radius:50%}
 .place-search{display:flex;gap:10px;margin:25px 0 18px}
-.place-search input,.place-search select{padding:12px;border:1px solid #bac6cc;border-radius:5px;background:white;color:#25323b}
+.place-search input,.place-search select{
+padding:12px;border:1px solid #bac6cc;
+border-radius:5px;background:white;color:#25323b
+}
 .place-search input{flex:1;min-width:0}
 .places{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-.place{background:white;color:#25323b;border:1px solid #d2dce0;border-radius:8px;text-align:left;padding:15px}
-.place:hover,.place.selected{border-color:#f28b35;box-shadow:0 0 0 2px #f28b3530}
+.place{
+background:white;color:#25323b;
+border:1px solid #d2dce0;border-radius:8px;
+text-align:left;padding:15px
+}
+.place:hover,.place.selected{
+border-color:#f28b35;
+box-shadow:0 0 0 2px #f28b3530
+}
 .place small{display:block;color:#86959d;font-size:10px}
 .place strong{display:block;font-size:14px;margin:6px 0}
 .place p{font-size:11px;color:#71818a;margin:0}
 .k .place{background:#24292b;color:white;border-color:#3d4549}
 .k .place p{color:#b0bdc3}
-.lightbox{position:fixed;inset:0;z-index:999;background:#000e;display:none;align-items:center;justify-content:center;padding:30px}
+
+/*
+핀의 화면상 위치를 left/top으로 지정하지 않는다.
+MapLibre가 위도/경도에 맞춰 위치를 갱신한다.
+*/
+.fiction-pin{
+--pin:#547da0;
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:0;
+padding:0;
+background:transparent;
+border:0;
+white-space:nowrap;
+cursor:pointer;
+filter:drop-shadow(0 2px 3px #0003)
+}
+.pin-name{
+background:#fff;
+border:1px solid #d5dde1;
+color:#26323b;
+padding:5px 8px;
+border-radius:5px;
+font-size:11px;
+font-weight:900;
+line-height:1.3;
+max-width:150px;
+text-align:center
+}
+.pin-stem{
+width:2px;
+height:8px;
+background:var(--pin)
+}
+.pin-dot{
+width:19px;
+height:19px;
+border:3px solid white;
+border-radius:50%;
+background:var(--pin);
+outline:1px solid #53616b
+}
+.fiction-pin:hover .pin-name,
+.fiction-pin.selected .pin-name{
+background:var(--pin);
+border-color:var(--pin);
+color:white
+}
+.fiction-pin.selected .pin-dot{
+width:23px;height:23px
+}
+.maplibregl-popup-content{
+color:#26323b;
+border-radius:9px;
+padding:15px;
+max-width:240px;
+font-family:'Noto Sans KR',sans-serif
+}
+.maplibregl-popup-content strong{font-size:14px}
+.maplibregl-popup-content p{font-size:11px;margin:8px 0 0}
+.maplibregl-popup-close-button{font-size:19px;padding:2px 7px}
+
+.lightbox{
+position:fixed;inset:0;z-index:999;
+background:#000e;display:none;
+align-items:center;justify-content:center;padding:30px
+}
 .lightbox.open{display:flex}
 .lightbox img{max-width:100%;max-height:90vh;object-fit:contain}
-.lightbox button{position:absolute;right:18px;top:18px;padding:10px 14px;background:white;border:0}
+.lightbox button{
+position:absolute;right:18px;top:18px;
+padding:10px 14px;background:white;border:0
+}
+
 @media(max-width:800px){
 .grid3,.roster,.places{grid-template-columns:repeat(2,minmax(0,1fr))}
 .k-shell{grid-template-columns:65px minmax(0,1fr)}
@@ -178,14 +323,22 @@ p{line-height:1.85}
 </style>
 </head>
 <body>
+
 <div id="portal"></div>
 <div id="site" class="hidden"></div>
+
 <div id="lightbox" class="lightbox" onclick="closeLightbox()">
 <button onclick="closeLightbox()">닫기 ✕</button>
 <img id="lightbox-img" alt="확대 이미지">
 </div>
+
 <script>
+/* =====================================
+   이미지 경로
+===================================== */
+
 const BASE='https://pub-19e3891ce94f4c209eb7264ad1339087.r2.dev/%ED%8D%BD%EC%9D%84%20%ED%96%A5%ED%95%B4/';
+
 const ASSET={
 h:{
 logo:'호쿠레이_엠블럼.png',
@@ -202,6 +355,11 @@ jersey:'코가_유니폼.png',
 wear:'코가_유니폼2.jpg'
 }
 };
+
+/* =====================================
+   학교 및 선수 데이터
+===================================== */
+
 const DATA={
 h:{
 name:'호쿠레이학원',
@@ -240,158 +398,344 @@ players:[
 ]
 }
 };
+
+/* =====================================
+   지도 데이터
+
+   형식:
+   [ID, 가상 장소명, 카테고리, 경도, 위도, 설명]
+
+   주의:
+   아래 위치는 실제 학교 주변을 기준으로 한
+   임시 근사 좌표를 포함한다.
+   정확한 건물 좌표 검증 전에는 실제 위치와
+   완전히 일치한다고 간주하지 않는다.
+
+   모든 핀은 위도·경도에 연결되므로
+   확대/축소/드래그 시 지도를 따라 움직인다.
+===================================== */
+
 const PLACES={
 h:[
-['school','호쿠레이학원','학교','北海道釧路湖陵高等学校','실제 코료 고등학교 부지를 활용한 가상 학교'],
-['rink','구시로 공용 빙상장','훈련','鶴ヶ岱武道館 釧路','스포츠시설 부지를 가상 공용 아이스링크로 설정'],
-['park','와카바 공원','생활','緑ヶ岡公園 釧路','미도리가오카 공원'],
-['walk','시라카바 산책길','생활','春採チャランケチャシ跡 釧路','하루토루 차란케 차시터 주변 산책길'],
-['shop','아오바 문구점','상점','Peppermint Lane Kushiro','문구점으로 설정한 상점'],
-['cafe','찻집 코모레비','음식점','たこ焼き 津毛野 釧路','작은 찻집'],
-['bus','미도리가오카 정류장','교통','湖陵高校 バス停 釧路','코료 고등학교 인근 정류장'],
-['street','하루노 상점가','생활','福司酒造株式会社 釧路','후쿠츠카사 주조 주변 상점가'],
-['food','식당 유키노야','음식점','日光 和菓子 釧路','화과자 가게 자리에 설정한 식당'],
-['book','오카다 서점','상점','学習塾あすなろ会 本部教室 釧路','학원 건물 자리에 설정한 서점']
+['school','호쿠레이학원','학교',144.3895,42.9808,'1970년 설립된 구시로의 전통 있는 사립 고등학교'],
+['rink','구시로 공용 빙상장','훈련',144.3892,42.9843,'호쿠레이 하키부가 사용하는 공용 빙상장'],
+['park','와카바 공원','생활',144.4020,42.9784,'학생들이 산책하고 쉬어 가는 공원'],
+['walk','시라카바 산책길','생활',144.4052,42.9731,'하루토리 일대의 조용한 산책길'],
+['shop','아오바 문구점','상점',144.3938,42.9794,'학교생활에 필요한 문구류를 판매하는 가게'],
+['cafe','찻집 코모레비','음식점',144.3944,42.9847,'따뜻한 차와 간식을 즐길 수 있는 작은 찻집'],
+['bus','미도리가오카 정류장','교통',144.3902,42.9815,'학교 주변 버스 정류장'],
+['street','하루노 상점가','생활',144.3854,42.9859,'오래된 가게들이 모인 작은 상점가'],
+['food','식당 유키노야','음식점',144.3920,42.9871,'학생들에게 친숙한 동네 식당'],
+['book','오카다 서점','상점',144.3905,42.9849,'참고서와 잡지를 판매하는 서점']
 ],
 k:[
-['school','코가학원','학교','北海道札幌北高等学校','첨부 이미지의 파란 표시'],
-['dorm','코가 학생 기숙사','학교','','첨부 이미지의 빨간 표시'],
-['rink','코가 아이스 아레나','훈련','','첨부 이미지의 노란 표시 · 교내 전용 링크'],
-['cafe','블록4 커피','음식점','御やつ屋 民 札幌','작은 커피 전문점'],
-['square','웨스트 코트','생활','エルム緑道 札幌','엘름 녹도'],
-['park','나카지마 녹지','생활','エルムの森公園 札幌','엘름의 숲 공원'],
-['dessert','오렌지 디저트 카페','음식점','Masa Sushi Sapporo Kita','디저트 카페'],
-['sports','노스11 스포츠','상점','スーパーアークス北24条店','스포츠용품 전문점'],
-['bus','기타4조 정류장','교통','北26条西8丁目 バス停 札幌','기타26조 니시8초메 정류장'],
-['food','식당 마루야','음식점','板そば なみ喜 本店 札幌','소바집 자리에 설정한 식당'],
-['book','시티 북스','상점','北海道札幌市北区北24条西5丁目1','가상의 서점'],
-['station','니시11 교통센터','교통','北海道大学 外国人研究者等宿泊施設 札幌','가상의 교통센터']
+['school','코가학원','학교',141.3318,43.0897,'2018년 설립된 삿포로의 신흥 사립 고등학교'],
+['dorm','코가 학생 기숙사','학교',141.3345,43.0918,'타이가와 에이스케 등이 생활하는 학생 기숙사'],
+['rink','코가 아이스 아레나','훈련',141.3352,43.0908,'외부 대관이 금지된 교내 전용 아이스 아레나'],
+['cafe','블록4 커피','음식점',141.3355,43.0888,'학생들이 자주 찾는 커피 전문점'],
+['square','웨스트 코트','생활',141.3279,43.0896,'가벼운 산책과 만남의 장소'],
+['park','나카지마 녹지','생활',141.3272,43.0933,'학교 주변의 녹지 공간'],
+['dessert','오렌지 디저트 카페','음식점',141.3378,43.0874,'달콤한 디저트와 음료를 판매하는 카페'],
+['sports','노스11 스포츠','상점',141.3302,43.0925,'하키 장비와 스포츠용품을 취급하는 매장'],
+['bus','기타4조 정류장','교통',141.3284,43.0920,'학교 주변 버스 정류장'],
+['food','식당 마루야','음식점',141.3263,43.0907,'학생들이 찾는 식당'],
+['book','시티 북스','상점',141.3370,43.0890,'서적과 문구류를 판매하는 서점'],
+['station','니시11 교통센터','교통',141.3267,43.0864,'지역 교통의 연결 지점']
 ]
 };
+
 const COLORS={
-학교:'#284f83',
-훈련:'#ee8126',
+학교:'#315e9d',
+훈련:'#ef8427',
 생활:'#48a46e',
 상점:'#a45bc0',
 음식점:'#e65e3f',
 교통:'#687d91'
 };
-const CENTERS={h:[144.391,42.982],k:[141.333,43.09]};
-let sid=null,page='home',map=null,markers=[],activePlace=null,mapSession=0;
-const geoCache={};
+
+const CENTERS={
+h:[144.393,42.982],
+k:[141.332,43.09]
+};
+
+/* =====================================
+   공통 상태
+===================================== */
+
+let sid=null;
+let page='home';
+let realMap=null;
+let markers=[];
+let activePlace=null;
+let activePopup=null;
+let mapToken=0;
+
 function esc(s){
 return String(s).replace(/[&<>"']/g,c=>({
-'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+'&':'&amp;',
+'<':'&lt;',
+'>':'&gt;',
+'"':'&quot;',
+"'":'&#39;'
 })[c]);
 }
-function url(type){
+
+function assetUrl(type){
 return BASE+encodeURIComponent(ASSET[sid][type]);
 }
+
 function picture(type,alt){
-return `<figure>
-<img class="photo" src="${url(type)}" alt="${esc(alt)}" onclick="openLightbox(this.src)" onerror="this.style.display='none'">
+return `
+<figure>
+<img class="photo"
+src="${assetUrl(type)}"
+alt="${esc(alt)}"
+onclick="openLightbox(this.src)"
+onerror="this.style.display='none'">
 <figcaption class="photo-caption">${esc(alt)}</figcaption>
 </figure>`;
 }
+
 function openLightbox(src){
 document.getElementById('lightbox-img').src=src;
 document.getElementById('lightbox').classList.add('open');
 }
+
 function closeLightbox(){
 document.getElementById('lightbox').classList.remove('open');
 }
+
+/* =====================================
+   첫 화면
+===================================== */
+
 function portal(){
 clearMap();
 sid=null;
+
 document.getElementById('site').className='hidden';
 document.getElementById('portal').className='';
+
 document.getElementById('portal').innerHTML=`
-<div class="portal-head"><div class="wrap"><strong>PUCK TO THE GOAL! · SCHOOL DIRECTORY</strong></div></div>
+<div class="portal-head">
+<div class="wrap">
+<strong>PUCK TO THE GOAL! · SCHOOL DIRECTORY</strong>
+</div>
+</div>
+
 <div class="portal-main wrap">
 <div class="eyebrow">HOKKAIDO HIGH SCHOOL ICE HOCKEY</div>
 <h1>氷上のライバルたち</h1>
 <p>2020 HOKKAIDO · 두 학교, 하나의 빙판</p>
+
 <div class="choices">
+
 <button class="choice hchoice" onclick="enter('h')">
-<div class="choice-cover"><img src="${BASE+encodeURIComponent(ASSET.h.logo)}" alt="호쿠레이 엠블럼"></div>
-<div class="choice-info"><div class="eyebrow">EST. 1970 · KUSHIRO</div>
-<h2>北嶺学園</h2><p>전통과 협동, 구시로의 푸른 독수리</p><b>호쿠레이학원 입장 →</b></div>
+<div class="choice-cover">
+<img src="${BASE+encodeURIComponent(ASSET.h.logo)}" alt="호쿠레이 엠블럼">
+</div>
+<div class="choice-info">
+<div class="eyebrow">EST. 1970 · KUSHIRO</div>
+<h2>北嶺学園</h2>
+<p>전통과 협동, 구시로의 푸른 독수리</p>
+<b>호쿠레이학원 입장 →</b>
+</div>
 </button>
+
 <button class="choice kchoice" onclick="enter('k')">
-<div class="choice-cover"><img src="${BASE+encodeURIComponent(ASSET.k.logo)}" alt="코가 엠블럼"></div>
-<div class="choice-info"><div class="eyebrow">EST. 2018 · SAPPORO</div>
-<h2>虎牙学園</h2><p>도전과 야망, 삿포로의 검은 호랑이</p><b>코가학원 입장 →</b></div>
+<div class="choice-cover">
+<img src="${BASE+encodeURIComponent(ASSET.k.logo)}" alt="코가 엠블럼">
+</div>
+<div class="choice-info">
+<div class="eyebrow">EST. 2018 · SAPPORO</div>
+<h2>虎牙学園</h2>
+<p>도전과 야망, 삿포로의 검은 호랑이</p>
+<b>코가학원 입장 →</b>
+</div>
 </button>
+
 </div>
 </div>`;
+
 window.scrollTo(0,0);
 }
+
 function enter(id){
-sid=id;page='home';render();
+sid=id;
+page='home';
+render();
 }
+
 function go(p){
-page=p;render();
+page=p;
+render();
 }
+
 function navItems(){
-return [['home','홈'],['about','학교 소개'],['campus','학교 시설'],['hockey','하키부'],['map','주변 지도']];
+return [
+['home','홈'],
+['about','학교 소개'],
+['campus','학교 시설'],
+['hockey','하키부'],
+['map','주변 지도']
+];
 }
+
+/* =====================================
+   홈페이지 렌더링
+===================================== */
+
 function render(){
 clearMap();
+
 document.getElementById('portal').className='hidden';
+
 const site=document.getElementById('site');
 site.className=sid;
-const s=DATA[sid],h=sid==='h';
+
+const s=DATA[sid];
+const h=sid==='h';
 const nav=navItems();
 const content=pageContent(s);
+
 if(h){
 site.innerHTML=`
-<div class="h-top"><div class="wrap"><span>北海道 · 釧路市 · EST. 1970</span><button onclick="portal()">학교 선택으로 돌아가기 ↗</button></div></div>
-<header class="h-brand"><div class="wrap">
-<img src="${url('logo')}" alt="학교 엠블럼">
-<div><h1>${s.jp}</h1><p>HOKUREI GAKUEN HIGH SCHOOL</p></div>
-</div></header>
-<nav class="h-nav"><div class="wrap">
-${nav.map(([id,label])=>`<button class="${page===id?'active':''}" onclick="go('${id}')">${label}</button>`).join('')}
-</div></nav>
-${page==='home'?`<section class="h-hero"><div class="wrap">
+<div class="h-top">
+<div class="wrap">
+<span>北海道 · 釧路市 · EST. 1970</span>
+<button onclick="portal()">학교 선택으로 돌아가기 ↗</button>
+</div>
+</div>
+
+<header class="h-brand">
+<div class="wrap">
+<img src="${assetUrl('logo')}" alt="학교 엠블럼">
+<div>
+<h1>${s.jp}</h1>
+<p>HOKUREI GAKUEN HIGH SCHOOL</p>
+</div>
+</div>
+</header>
+
+<nav class="h-nav">
+<div class="wrap">
+${nav.map(([id,label])=>`
+<button class="${page===id?'active':''}"
+onclick="go('${id}')">${label}</button>
+`).join('')}
+</div>
+</nav>
+
+${page==='home'?`
+<section class="h-hero">
+<div class="wrap">
 <div class="eyebrow">TRADITION · PRIDE · TOGETHER</div>
 <h2>푸른 겨울을 함께<br>걸어가는 우리들</h2>
 <p>北嶺学園高等学校 · 1970 —</p>
-</div></section>`:`<section class="h-title"><div class="wrap"><div class="eyebrow">HOKUREI SCHOOL GUIDE</div><h2>${nav.find(x=>x[0]===page)?.[1]||''}</h2></div></section>`}
+</div>
+</section>
+`:`
+<section class="h-title">
+<div class="wrap">
+<div class="eyebrow">HOKUREI SCHOOL GUIDE</div>
+<h2>${nav.find(x=>x[0]===page)?.[1]||''}</h2>
+</div>
+</section>
+`}
+
 <main class="h-main wrap">${content}</main>
-<footer class="footer"><div class="wrap"><strong>${s.jp}</strong><p>© 2020 HOKUREI GAKUEN · FICTIONAL SCHOOL WEBSITE</p></div></footer>`;
+
+<footer class="footer">
+<div class="wrap">
+<strong>${s.jp}</strong>
+<p>© 2020 HOKUREI GAKUEN · FICTIONAL SCHOOL WEBSITE</p>
+</div>
+</footer>`;
 }else{
 site.innerHTML=`
 <div class="k-shell">
+
 <aside class="k-rail">
-<img src="${url('logo')}" alt="코가 엠블럼">
-${nav.map(([id,label])=>`<button class="${page===id?'active':''}" onclick="go('${id}')">${label}</button>`).join('')}
+<img src="${assetUrl('logo')}" alt="코가 엠블럼">
+
+${nav.map(([id,label])=>`
+<button class="${page===id?'active':''}"
+onclick="go('${id}')">${label}</button>
+`).join('')}
+
 <button class="back" onclick="portal()">EXIT ↗</button>
 </aside>
+
 <div>
-<header class="k-head"><strong>${s.jp}</strong><span>EST. 2018 / SAPPORO</span></header>
-${page==='home'?`<section class="k-hero"><div class="wrap">
-<span style="background:#f47a22;color:#111;padding:9px 14px;font-weight:900;font-size:11px">THE NEXT GENERATION</span>
+<header class="k-head">
+<strong>${s.jp}</strong>
+<span>EST. 2018 / SAPPORO</span>
+</header>
+
+${page==='home'?`
+<section class="k-hero">
+<div class="wrap">
+<span style="background:#f47a22;color:#111;padding:9px 14px;font-weight:900;font-size:11px">
+THE NEXT GENERATION
+</span>
 <h2>OWN<br>THE <em>ICE.</em></h2>
 <p>虎牙学園高等学校 · 2018 —</p>
-</div></section>`:`<section class="k-title"><div class="wrap">
-<div class="eyebrow" style="color:#f47a22">KOGA ACADEMY / SCHOOL GUIDE</div>
+</div>
+</section>
+`:`
+<section class="k-title">
+<div class="wrap">
+<div class="eyebrow" style="color:#f47a22">
+KOGA ACADEMY / SCHOOL GUIDE
+</div>
 <h2>${nav.find(x=>x[0]===page)?.[1]||''}</h2>
-</div></section>`}
+</div>
+</section>
+`}
+
 <main class="k-main wrap">${content}</main>
-<footer class="footer"><div class="wrap"><strong>${s.jp}</strong><p>© 2020 KOGA GAKUEN · FICTIONAL SCHOOL WEBSITE</p></div></footer>
-</div></div>`;
+
+<footer class="footer">
+<div class="wrap">
+<strong>${s.jp}</strong>
+<p>© 2020 KOGA GAKUEN · FICTIONAL SCHOOL WEBSITE</p>
+</div>
+</footer>
+
+</div>
+</div>`;
 }
+
 window.scrollTo(0,0);
-if(page==='map')setTimeout(initMap,80);
+
+if(page==='map'){
+requestAnimationFrame(()=>{
+if(sid&&page==='map')initMap();
+});
 }
+}
+
 function sectionTitle(t){
 return `<h2 class="section-title">${t}</h2>`;
 }
+
+/* =====================================
+   선수 카드
+===================================== */
+
 function cards(s){
-return `<div class="roster">${s.players.map(p=>`
-<div class="player" tabindex="0" role="button" aria-label="${p[1]} 프로필 뒤집기" onclick="this.classList.toggle('flipped')" onkeydown="if(event.key==='Enter')this.click()">
+return `
+<div class="roster">
+${s.players.map(p=>`
+<div class="player"
+tabindex="0"
+role="button"
+aria-label="${p[1]} 프로필 뒤집기"
+onclick="this.classList.toggle('flipped')"
+onkeydown="if(event.key==='Enter')this.click()">
+
 <div class="player-inner">
+
 <div class="player-front">
 <div class="player-number">${p[0]}</div>
 <div class="player-name">${p[1]}</div>
@@ -399,6 +743,7 @@ return `<div class="roster">${s.players.map(p=>`
 <div class="player-role">${p[3]} · ${p[4]} · ${p[5]}</div>
 <p class="player-hint">CLICK TO FLIP ↻</p>
 </div>
+
 <div class="player-back">
 <div class="player-name">${p[1]}</div>
 <div class="player-jp">${p[2]}</div>
@@ -414,11 +759,20 @@ MBTI · ${p[8]}<br>
 <p class="player-info">${p[10]}</p>
 <p class="player-hint">CLICK TO RETURN ↻</p>
 </div>
+
 </div>
-</div>`).join('')}</div>`;
+</div>
+`).join('')}
+</div>`;
 }
+
+/* =====================================
+   페이지 내용
+===================================== */
+
 function pageContent(s){
 const h=sid==='h';
+
 if(page==='home'){
 const news=h?[
 ['2020.04.08','신입생 학교생활 안내'],
@@ -429,42 +783,76 @@ const news=h?[
 ['2020.04.03','신입생 기숙사 생활 안내'],
 ['2020.03.25','2020학년도 학사 일정 안내']
 ];
+
 return `
-<section>${sectionTitle(h?'학교 소식':'LATEST NEWS')}
-${news.map(n=>`<div class="news"><time>${n[0]}</time><span>${n[1]}</span></div>`).join('')}
+<section>
+${sectionTitle(h?'학교 소식':'LATEST NEWS')}
+${news.map(n=>`
+<div class="news">
+<time>${n[0]}</time>
+<span>${n[1]}</span>
+</div>
+`).join('')}
 </section>
-<section class="section">${sectionTitle(h?'교육의 전통':'BUILT FOR THE FUTURE')}
+
+<section class="section">
+${sectionTitle(h?'교육의 전통':'BUILT FOR THE FUTURE')}
 <p>${s.desc}</p>
-<button class="action" onclick="go('about')">학교 소개 자세히 보기 →</button>
+<button class="action" onclick="go('about')">
+학교 소개 자세히 보기 →
+</button>
 </section>
-<section class="section">${sectionTitle(h?'학교 안내':'EXPLORE KOGA')}
+
+<section class="section">
+${sectionTitle(h?'학교 안내':'EXPLORE KOGA')}
 <div class="grid3">
-${[['학교 시설','campus','캠퍼스와 생활 공간'],['하키부 안내','hockey','아이스하키부와 선수 소개'],['오시는 길','map','학교 주변 가상 장소 탐색']].map(x=>`
-<button class="panel" style="text-align:left;color:inherit" onclick="go('${x[1]}')">
-<h3>${x[0]}</h3><p>${x[2]}</p><b>자세히 보기 →</b>
-</button>`).join('')}
-</div></section>`;
+${[
+['학교 시설','campus','캠퍼스와 생활 공간'],
+['하키부 안내','hockey','아이스하키부와 선수 소개'],
+['오시는 길','map','학교 주변 가상 장소 탐색']
+].map(x=>`
+<button class="panel"
+style="text-align:left;color:inherit"
+onclick="go('${x[1]}')">
+<h3>${x[0]}</h3>
+<p>${x[2]}</p>
+<b>자세히 보기 →</b>
+</button>
+`).join('')}
+</div>
+</section>`;
 }
-if(page==='about')return `
+
+if(page==='about'){
+return `
 ${sectionTitle(h?'학교 개요':'OUR SCHOOL')}
 <p>${s.desc}</p>
+
 <table class="table">
 <tr><th>학교명</th><td>${s.jp}</td></tr>
 <tr><th>설립</th><td>${s.year}년</td></tr>
 <tr><th>소재지</th><td>${s.address}</td></tr>
 <tr><th>학교 유형</th><td>사립 고등학교</td></tr>
 <tr><th>상징</th><td>${h?'독수리':'호랑이'}</td></tr>
-<tr><th>교육 방향</th><td>${h?'전통과 협동, 지역사회와의 유대':'학업과 스포츠의 균형, 도전과 성장'}</td></tr>
+<tr><th>교육 방향</th>
+<td>${h?'전통과 협동, 지역사회와의 유대':'학업과 스포츠의 균형, 도전과 성장'}</td></tr>
 </table>
-<section class="section">${sectionTitle(h?'학교 전경':'THE CAMPUS')}
-${picture('campus','학교 캠퍼스')}
-</section>
-<section class="section">${sectionTitle(h?'교복 및 체육복':'SCHOOL UNIFORMS')}
+
+<section class="section">
+${sectionTitle(h?'학교생활':'STUDENT LIFE')}
 <div class="grid2">
 ${picture('uniform','학교 교복 및 체육복')}
-<div class="panel"><h3>${h?'학교생활 안내':'STUDENT LIFE'}</h3>
-<p>${h?'오랜 학교 문화와 지역 공동체의 유대를 중요하게 생각하며 구시로의 겨울철 기후에 맞춘 안전한 학교생활을 지원합니다.':'일반 수업과 스포츠 훈련을 병행할 수 있도록 학사 일정과 시설 이용을 운영합니다.'}</p>
-</div></div></section>`;
+<div class="panel">
+<h3>${h?'학교생활 안내':'STUDENT LIFE'}</h3>
+<p>${h?
+'오랜 학교 문화와 지역 공동체의 유대를 중요하게 생각하며 구시로의 겨울철 기후에 맞춘 안전한 학교생활을 지원합니다.':
+'일반 수업과 스포츠 훈련을 병행할 수 있도록 학사 일정과 시설 이용을 운영합니다.'
+}</p>
+</div>
+</div>
+</section>`;
+}
+
 if(page==='campus'){
 const facilities=h?[
 ['본관','일반 교실과 행정실'],
@@ -481,227 +869,448 @@ const facilities=h?[
 ['학생 기숙사','기숙 학생 생활 공간'],
 ['운동장','야외 체육 활동']
 ];
-return `${sectionTitle(h?'학교 시설 안내':'CAMPUS FACILITIES')}
+
+return `
+${sectionTitle(h?'학교 시설 안내':'CAMPUS FACILITIES')}
 ${picture('campus','학교 전경')}
+
 <div class="grid3" style="margin-top:28px">
-${facilities.map(f=>`<div class="panel"><h3>${f[0]}</h3><p>${f[1]}</p></div>`).join('')}
+${facilities.map(f=>`
+<div class="panel">
+<h3>${f[0]}</h3>
+<p>${f[1]}</p>
 </div>
-<div class="note section">${h?
+`).join('')}
+</div>
+
+<div class="note section">
+${h?
 '호쿠레이학원에는 교내 아이스링크가 없습니다. 하키부는 구시로 지역의 공용 빙상장을 이용합니다.':
-'코가학원 아이스 아레나는 교내 선수 전용 시설입니다. 보안 및 안전상의 이유로 외부 대관 및 일반인 이용을 허용하지 않습니다.'}
+'코가학원 아이스 아레나는 교내 선수 전용 시설입니다. 보안 및 안전상의 이유로 외부 대관 및 일반인 이용을 허용하지 않습니다.'
+}
 </div>`;
 }
-if(page==='hockey')return `
+
+if(page==='hockey'){
+return `
 ${sectionTitle(h?'아이스하키부 안내':'THE ICE HOCKEY PROGRAM')}
-<p>${h?'조직적인 수비와 패스, 협동을 중심으로 경기를 운영합니다. 구시로 지역 공용 빙상장에서 훈련합니다.':'빠른 공격과 개인 기량, 과감한 돌파를 강점으로 성장하고 있습니다. 교내 전용 아이스링크에서 훈련합니다.'}</p>
+
+<p>${h?
+'조직적인 수비와 패스, 협동을 중심으로 경기를 운영합니다. 구시로 지역 공용 빙상장에서 훈련합니다.':
+'빠른 공격과 개인 기량, 과감한 돌파를 강점으로 성장하고 있습니다. 교내 전용 아이스링크에서 훈련합니다.'
+}</p>
+
 <table class="table">
 <tr><th>종목</th><td>아이스하키</td></tr>
 <tr><th>감독</th><td>${s.coach} (${s.coachJP}) · ${s.age}세</td></tr>
 <tr><th>주장</th><td>${s.players[0][1]} · #${s.players[0][0]}</td></tr>
-<tr><th>훈련 장소</th><td>${h?'구시로 지역 공용 빙상장':'교내 전용 아이스링크'}</td></tr>
+<tr><th>훈련 장소</th>
+<td>${h?'구시로 지역 공용 빙상장':'교내 전용 아이스링크'}</td></tr>
 </table>
-<section class="section">${sectionTitle(h?'감독 소개':'HEAD COACH')}
-<div class="coach"><strong>${s.coach}</strong>
+
+<section class="section">
+${sectionTitle(h?'감독 소개':'HEAD COACH')}
+<div class="coach">
+<strong>${s.coach}</strong>
 <p>${s.coachJP} · ${s.age}세</p>
-<p>${h?'오랜 기간 호쿠레이학원 선수들을 지도해 왔으며 기본기와 스포츠맨십을 중시합니다.':'2018년 코가학원 하키부 창단 때부터 지도해 왔습니다. 영상 분석과 선수별 전술을 중시합니다.'}</p>
-</div></section>
-<section class="section">${sectionTitle(h?'2020년 주요 선수 명단':'2020 PLAYER ROSTER')}
-<p style="font-size:12px">선수 카드를 누르면 상세 프로필이 나타납니다.</p>
+<p>${h?
+'오랜 기간 호쿠레이학원 선수들을 지도해 왔으며 기본기와 스포츠맨십을 중시합니다.':
+'2018년 코가학원 하키부 창단 때부터 지도해 왔습니다. 영상 분석과 선수별 전술을 중시합니다.'
+}</p>
+</div>
+</section>
+
+<section class="section">
+${sectionTitle(h?'2020년 주요 선수 명단':'2020 PLAYER ROSTER')}
+<p style="font-size:12px">
+선수 카드를 누르면 상세 프로필이 나타납니다.
+</p>
 ${cards(s)}
 </section>
-<section class="section">${sectionTitle(h?'공식 유니폼':'OFFICIAL TEAM KIT')}
-<div class="grid2">${picture('jersey','하키 유니폼 디자인')}${picture('wear','유니폼 착용 예시')}</div>
+
+<section class="section">
+${sectionTitle(h?'공식 유니폼':'OFFICIAL TEAM KIT')}
+<div class="grid2">
+${picture('jersey','하키 유니폼 디자인')}
+${picture('wear','유니폼 착용 예시')}
+</div>
 </section>`;
+}
+
 if(page==='map')return mapPage();
+
 return '';
 }
+
+/* =====================================
+   지도 페이지
+===================================== */
+
 function mapPage(){
 return `
 ${sectionTitle(sid==='h'?'학교 주변 안내 지도':'EXPLORE / SAPPORO')}
-<p>실제 일본 도시 지형을 바탕으로 가상 장소를 표시한 세계관 지도입니다. 지도 속 시설명과 용도는 창작 설정이며 실제 시설과 관계없습니다.</p>
+
 <div class="real-map-frame">
-<div id="real-map" role="application" aria-label="가상 학교 주변 지도"></div>
-<div id="map-status">지도를 불러오는 중입니다…</div>
+<div id="real-map"
+role="application"
+aria-label="학교 주변 세계관 지도">
 </div>
-<p class="map-legend">드래그 및 확대·축소가 가능합니다. 실제 지도 이름은 숨기고 작품 속 장소명만 표시합니다.</p>
+</div>
+
+<p class="map-note">
+※ 이 지도는 《퍽을 향해!》 세계관을 기반으로 한 가상의 지도입니다.
+실제 지도를 바탕으로 하되, 장소와 위치는 창작 요소입니다.
+</p>
+
+<div class="map-legend">
+${Object.entries(COLORS).map(([name,color])=>`
+<span class="legend-item">
+<span class="legend-dot" style="background:${color}"></span>
+${name}
+</span>
+`).join('')}
+</div>
+
 <section class="section">
 ${sectionTitle(sid==='h'?'주변 장소 목록':'CITY DIRECTORY')}
+
 <div class="place-search">
-<input id="placequery" oninput="renderPlaces()" placeholder="장소 이름 검색">
-<select id="placecat" onchange="renderPlaces()">
+<input id="placequery"
+oninput="renderPlaces()"
+placeholder="장소 이름 검색"
+aria-label="장소 이름 검색">
+
+<select id="placecat"
+onchange="renderPlaces()"
+aria-label="장소 종류 선택">
 <option value="전체">전체 장소</option>
-${['학교','훈련','생활','상점','음식점','교통'].map(c=>`<option>${c}</option>`).join('')}
+${Object.keys(COLORS).map(c=>`
+<option value="${c}">${c}</option>
+`).join('')}
 </select>
 </div>
+
 <div id="places" class="places"></div>
 </section>`;
 }
+
+/* =====================================
+   지도 초기화 및 제거
+===================================== */
+
 function clearMap(){
-mapSession++;
-if(map){map.remove();map=null}
+mapToken++;
+
+if(activePopup){
+activePopup.remove();
+activePopup=null;
+}
+
+if(realMap){
+realMap.remove();
+realMap=null;
+}
+
 markers=[];
 activePlace=null;
 }
-function hideRealLabels(m){
-const style=m.getStyle();
+
+/* =====================================
+   실제 지명 숨김
+
+   symbol 레이어만 숨기므로
+   도로, 건물, 강, 공원은 유지한다.
+===================================== */
+
+function hideRealLabels(map){
+const style=map.getStyle();
 if(!style||!style.layers)return;
-for(const layer of style.layers){
+
+style.layers.forEach(layer=>{
 if(layer.type==='symbol'){
-try{m.setLayoutProperty(layer.id,'visibility','none')}catch(e){}
+try{
+map.setLayoutProperty(
+layer.id,
+'visibility',
+'none'
+);
+}catch(e){}
 }
+});
 }
-}
+
+/* =====================================
+   지도 생성
+
+   위치는 고정된 위도·경도를 사용한다.
+   Nominatim, Geocoding, 별도 검색 요청 없음.
+===================================== */
+
 function initMap(){
+if(!sid||page!=='map')return;
+
+const token=mapToken;
+const container=document.getElementById('real-map');
+
+if(!container)return;
+
 renderPlaces();
-const status=document.getElementById('map-status');
+
 if(typeof maplibregl==='undefined'){
-status.textContent='지도 라이브러리를 불러오지 못했습니다.';
+container.innerHTML=
+'<p style="padding:25px;color:#26323b">지도 라이브러리를 불러오지 못했습니다.</p>';
 return;
 }
-const session=mapSession;
-map=new maplibregl.Map({
+
+realMap=new maplibregl.Map({
 container:'real-map',
 style:'https://tiles.openfreemap.org/styles/liberty',
 center:CENTERS[sid],
 zoom:14.5,
 minZoom:11,
 maxZoom:19,
-attributionControl:true
+pitch:0,
+bearing:0,
+attributionControl:true,
+dragRotate:false,
+touchPitch:false,
+renderWorldCopies:false
 });
-map.addControl(new maplibregl.NavigationControl({showCompass:false}),'bottom-right');
-map.on('style.load',()=>{
-if(session!==mapSession)return;
-hideRealLabels(map);
-status.textContent='실제 장소 위치를 확인하고 있습니다…';
-loadPlaces(session);
-});
-map.on('error',()=>{
-if(session===mapSession&&!markers.length){
-status.textContent='지도 연결에 문제가 발생했습니다. 인터넷 연결을 확인해주세요.';
-}
-});
-}
-function wait(ms){
-return new Promise(resolve=>setTimeout(resolve,ms));
-}
-async function geocode(query){
-if(geoCache[query])return geoCache[query];
-try{
-const u='https://nominatim.openstreetmap.org/search?format=json&limit=1&accept-language=ja&q='+encodeURIComponent(query);
-const response=await fetch(u);
-if(!response.ok)return null;
-const result=await response.json();
-if(result.length){
-const coords=[Number(result[0].lon),Number(result[0].lat)];
-geoCache[query]=coords;
-return coords;
-}
-}catch(e){}
-return null;
-}
-/*
-코가 사용자 첨부 지도 기준:
-파랑 학교 (514,354)
-빨강 기숙사 (681,158)
-노랑 아이스 아레나 (727,253)
 
-학교 검색 좌표를 기준으로 이미지상의 상대 위치를
-근사 변환한다. 정확한 건물 좌표 확정은 별도 검증 필요.
-*/
-function screenshotPoint(base,x,y){
-return [
-base[0]+(x-514)*0.0000159,
-base[1]-(y-354)*0.0000108
-];
+realMap.addControl(
+new maplibregl.NavigationControl({
+showCompass:false,
+showZoom:true
+}),
+'bottom-right'
+);
+
+realMap.on('load',()=>{
+if(token!==mapToken||!realMap)return;
+
+hideRealLabels(realMap);
+
+addAllMarkers();
+
+fitAllMarkers();
+});
+
+realMap.on('styledata',()=>{
+if(token!==mapToken||!realMap)return;
+hideRealLabels(realMap);
+});
 }
-function addMarker(p,coords){
-if(!map||!coords)return;
+
+/* =====================================
+   핀 생성
+
+   MapLibre Marker는 setLngLat()에 지정한
+   지도 좌표를 따라 자동으로 이동한다.
+===================================== */
+
+function markerElement(place){
 const element=document.createElement('button');
+
 element.type='button';
 element.className='fiction-pin';
-element.style.setProperty('--pin',COLORS[p[2]]||'#607080');
-element.title=p[1];
-const dot=document.createElement('span');
-dot.className='pin-dot';
+element.style.setProperty(
+'--pin',
+COLORS[place[2]]||'#607080'
+);
+
+element.title=place[1];
+element.setAttribute(
+'aria-label',
+place[1]+' 위치 보기'
+);
+
 const name=document.createElement('span');
 name.className='pin-name';
-name.textContent=p[1];
-element.append(dot,name);
-element.addEventListener('click',()=>focusPlace(p[0]));
+name.textContent=place[1];
+
+const stem=document.createElement('span');
+stem.className='pin-stem';
+
+const dot=document.createElement('span');
+dot.className='pin-dot';
+
+element.append(name,stem,dot);
+
+element.addEventListener('click',event=>{
+event.stopPropagation();
+focusPlace(place[0]);
+});
+
+return element;
+}
+
+function addAllMarkers(){
+if(!realMap||!sid)return;
+
+markers.forEach(item=>item.marker.remove());
+markers=[];
+
+PLACES[sid].forEach(place=>{
+const coordinates=[
+Number(place[3]),
+Number(place[4])
+];
+
+if(!Number.isFinite(coordinates[0])||
+!Number.isFinite(coordinates[1]))return;
+
+const element=markerElement(place);
+
 const marker=new maplibregl.Marker({
-element,
-anchor:'bottom'
-}).setLngLat(coords).addTo(map);
-markers.push({id:p[0],coords,marker});
+element:element,
+anchor:'bottom',
+offset:[0,0]
+})
+.setLngLat(coordinates)
+.addTo(realMap);
+
+markers.push({
+id:place[0],
+place:place,
+coords:coordinates,
+marker:marker,
+element:element
+});
+});
 }
-async function loadPlaces(session){
-const key=sid;
-const places=PLACES[key];
-const status=document.getElementById('map-status');
-let school=null;
-for(let i=0;i<places.length;i++){
-if(session!==mapSession||!map)return;
-const p=places[i];
-let coords=null;
-if(key==='k'&&(p[0]==='dorm'||p[0]==='rink')){
-if(school){
-coords=screenshotPoint(
-school,
-p[0]==='dorm'?681:727,
-p[0]==='dorm'?158:253
-);
-}
-}else if(p[3]){
-coords=await geocode(p[3]);
-if(p[0]==='school')school=coords;
-if(i<places.length-1)await wait(1100);
-}
-if(session!==mapSession||!map)return;
-if(coords)addMarker(p,coords);
-status.textContent='장소 확인 중 · '+(i+1)+'/'+places.length;
-}
-if(session!==mapSession||!map)return;
-status.textContent=markers.length===places.length?'':'일부 장소는 검색되지 않아 지도에서 생략되었습니다.';
-if(markers.length){
+
+/* =====================================
+   지도 전체 위치 보기
+===================================== */
+
+function fitAllMarkers(){
+if(!realMap||markers.length===0)return;
+
 const bounds=new maplibregl.LngLatBounds();
-markers.forEach(m=>bounds.extend(m.coords));
-map.fitBounds(bounds,{padding:65,maxZoom:15,duration:650});
+
+markers.forEach(item=>{
+bounds.extend(item.coords);
+});
+
+realMap.fitBounds(bounds,{
+padding:{
+top:85,
+bottom:85,
+left:85,
+right:85
+},
+maxZoom:15,
+duration:0
+});
 }
-}
+
+/* =====================================
+   장소 선택
+
+   핀 좌표와 팝업 좌표는 동일하다.
+===================================== */
+
 function focusPlace(id){
+if(!sid)return;
+
+const place=PLACES[sid].find(p=>p[0]===id);
+const item=markers.find(m=>m.id===id);
+
+if(!place)return;
+
 activePlace=id;
-const p=PLACES[sid].find(x=>x[0]===id);
-const m=markers.find(x=>x.id===id);
-if(!p)return;
-if(m&&map){
-map.flyTo({
-center:m.coords,
-zoom:Math.max(map.getZoom(),16),
+
+markers.forEach(m=>{
+m.element.classList.toggle(
+'selected',
+m.id===id
+);
+});
+
+renderPlaces();
+
+if(!realMap||!item)return;
+
+if(activePopup){
+activePopup.remove();
+activePopup=null;
+}
+
+realMap.flyTo({
+center:item.coords,
+zoom:Math.max(realMap.getZoom(),16),
+speed:1.2,
 essential:true
 });
-new maplibregl.Popup({offset:28})
-.setLngLat(m.coords)
-.setHTML('<strong>'+esc(p[1])+'</strong><p style="font-size:12px">'+esc(p[4])+'</p>')
-.addTo(map);
+
+const popupContent=document.createElement('div');
+
+const heading=document.createElement('strong');
+heading.textContent=place[1];
+
+const desc=document.createElement('p');
+desc.textContent=place[5];
+
+popupContent.append(heading,desc);
+
+activePopup=new maplibregl.Popup({
+offset:30,
+closeButton:true,
+closeOnClick:true
+})
+.setLngLat(item.coords)
+.setDOMContent(popupContent)
+.addTo(realMap);
 }
-renderPlaces();
-}
+
+/* =====================================
+   장소 검색 및 목록
+
+   검색은 이미 등록된 가상 장소명만 필터링.
+   외부 서버 요청 없음.
+===================================== */
+
 function renderPlaces(){
 const root=document.getElementById('places');
+
 if(!root||!sid)return;
-const q=(document.getElementById('placequery')?.value||'').toLowerCase().trim();
-const cat=document.getElementById('placecat')?.value||'전체';
-const filtered=PLACES[sid].filter(p=>
-(cat==='전체'||p[2]===cat)&&p[1].toLowerCase().includes(q)
-);
-root.innerHTML=filtered.map(p=>`
-<button class="place ${activePlace===p[0]?'selected':''}" onclick="focusPlace('${p[0]}')">
-<small>${p[2]}</small>
-<strong>${esc(p[1])}</strong>
-<p>${esc(p[4])}</p>
-</button>`).join('')||'<p>검색 결과가 없습니다.</p>';
+
+const query=(
+document.getElementById('placequery')?.value||''
+).toLowerCase().trim();
+
+const category=
+document.getElementById('placecat')?.value||'전체';
+
+const filtered=PLACES[sid].filter(place=>{
+const categoryMatch=
+category==='전체'||place[2]===category;
+
+const nameMatch=
+place[1].toLowerCase().includes(query);
+
+return categoryMatch&&nameMatch;
+});
+
+root.innerHTML=filtered.map(place=>`
+<button
+class="place ${activePlace===place[0]?'selected':''}"
+onclick="focusPlace('${place[0]}')">
+
+<small>${place[2]}</small>
+<strong>${esc(place[1])}</strong>
+<p>${esc(place[5])}</p>
+
+</button>
+`).join('')||'<p>검색 결과가 없습니다.</p>';
 }
+
+/* =====================================
+   시작
+===================================== */
+
 portal();
+
 </script>
 </body>
 </html>
