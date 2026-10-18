@@ -22,8 +22,8 @@ p{line-height:1.85}
 .eyebrow{font-size:11px;letter-spacing:.18em;font-weight:800}
 .grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
 .grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
-.section{margin:60px 0}
-.section-title{font-size:25px;margin:0 0 24px;padding-bottom:17px;border-bottom:1px solid #9daeb8}
+.section{margin:30px 0}
+.section-title{font-size:25px;margin:0 0 14px;padding-bottom:10px;border-bottom:1px solid #9daeb8}
 .panel{border:1px solid #d9e0e3;background:#fff;padding:23px;min-width:0}
 .panel h3{margin-top:0}
 .panel p{font-size:13px;color:#687983}
@@ -34,7 +34,7 @@ p{line-height:1.85}
 .table th,.table td{padding:14px;border-bottom:1px solid #d8e0e4;text-align:left;line-height:1.7}
 .table th{width:135px}
 .note{padding:20px 23px;line-height:1.9;font-size:13px}
-.footer{padding:42px 0;margin-top:70px}
+.footer{padding:22px 0;margin-top:24px}
 .footer p{font-size:12px}
 
 /* ==================================
@@ -42,7 +42,7 @@ p{line-height:1.85}
 ================================== */
 #portal{
 min-height:100svh;
-background:#0d1720;
+background:linear-gradient(105deg,#142e43 0%,#31516a 25%,#47434b 49%,#633b31 68%,#b96027 100%);
 color:#fff;
 position:relative;
 overflow:hidden;
@@ -97,13 +97,13 @@ background:radial-gradient(circle at 50% 44%,#ffffff18,transparent 55%);
 }
 .portal-h::before{
 background:
-linear-gradient(145deg,#102638 0%,#234b68 48%,#6d8992 78%,#e2e1d1 120%);
+linear-gradient(90deg,#142e430a 0%,#142e4300 100%);
 }
 .portal-k::before{
 background:
-linear-gradient(215deg,#090a0d 0%,#222326 37%,#67331f 70%,#ef7d25 125%);
+linear-gradient(90deg,#00000000 0%,#00000012 100%);
 }
-.portal-side+.portal-side{border-left:1px solid #ffffff3d}
+.portal-side+.portal-side{border-left:0}
 .portal-content{
 position:relative;
 z-index:2;
@@ -210,9 +210,9 @@ color:white
 }
 .h-hero h2{font:600 clamp(30px,5vw,52px)/1.5 'Noto Serif JP',serif}
 .h-hero p{font-size:13px}
-.h-title{background:#eceae1;padding:30px 0}
+.h-title{background:#eceae1;padding:20px 0}
 .h-title h2{font:600 32px 'Noto Serif JP',serif;margin:8px 0}
-.h-main{padding:55px 0}
+.h-main{padding:26px 0 12px}
 .h .section-title{font-family:'Noto Serif JP',serif}
 .h .section-title::before{content:"◆";font-size:12px;color:#963e50;margin-right:12px}
 .h .note{background:#eeece4;border-left:4px solid #963e50}
@@ -255,12 +255,12 @@ line-height:1;font-weight:900;letter-spacing:-.08em
 .k-hero h2 em{color:#f47a22;font-style:normal}
 .k-hero p{color:#c1c5c7}
 .k-title{
-padding:55px 0;
+padding:30px 0;
 background:repeating-linear-gradient(-45deg,#1c2022 0 24px,#202426 24px 25px);
 border-bottom:6px solid #f47a22
 }
 .k-title h2{font-size:clamp(35px,5vw,60px);margin:5px 0;font-weight:900}
-.k-main{padding:55px 0}
+.k-main{padding:26px 0 12px}
 .k .panel{background:#1c2022;border-color:#373e41;color:white}
 .k .panel p{color:#afb7bb}
 .k .table th,.k .table td{border-color:#383f42}
@@ -417,6 +417,71 @@ padding:10px 14px;background:white;border:0
 #real-map{height:470px}
 .place-search{flex-direction:column}
 .table th{width:100px}
+.section{margin:18px 0}
+.h-main,.k-main{padding:18px 0 5px}
+.footer{margin-top:12px;padding:15px 0}
+.section-title{margin-bottom:10px;padding-bottom:8px}
+figure{margin:8px 0}
+}
+
+/* 소개와 시설: 테두리 카드 없이 일반 텍스트 */
+.plain-info{padding:0;background:transparent;border:0;align-self:start}
+.plain-info h3{font-size:16px;margin:8px 0}
+.plain-info p{font-size:13px;line-height:1.8;margin:0}
+.facility-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 26px}
+.facility-item{padding:12px 0;border-bottom:1px solid #8b9aa344}
+.facility-item h3{font-size:15px;margin:0 0 4px}
+.facility-item p{font-size:12px;line-height:1.7;margin:0;opacity:.78}
+.facility-notice{margin:20px 0 0;font-size:13px;line-height:1.8}
+.player-portrait{display:block;width:100%;height:145px;object-fit:contain;margin:0 auto 7px;border-radius:4px}
+.player-front:has(.player-portrait) .player-number{font-size:32px}
+.player-front:has(.player-portrait) .player-name{font-size:17px}
+@media(max-width:600px){
+.facility-list{grid-template-columns:1fr}
+.facility-item{padding:10px 0}
+.plain-info{padding:0}
+.player-portrait{height:165px}
+}
+
+/* 선수 카드: 사진은 이름 옆, 뒷면은 상세 설정 전체, 내부 스크롤 없음 */
+.roster{align-items:stretch}
+.player{min-height:0;height:auto;align-self:stretch}
+.player-inner{height:auto;min-height:255px;display:grid;grid-template-columns:minmax(0,1fr);align-items:stretch}
+.player-front,.player-back{position:relative;inset:auto;grid-area:1/1;overflow:visible;min-height:255px;height:100%;padding:18px;min-width:0}
+.player-front{transform:rotateY(0deg)}
+.player-back{transform:rotateY(180deg)}
+.player-front-head{display:flex;align-items:flex-start;gap:10px;justify-content:space-between}
+.player-front-title{min-width:0;flex:1}
+.player-portrait{width:94px;height:118px;flex:0 0 94px;object-fit:cover;object-position:top center;border:1px solid #b3c2ca55;border-radius:0;margin:0;background:#fff}
+.player-front:has(.player-portrait) .player-number{font-size:52px}
+.player-front:has(.player-portrait) .player-name{font-size:20px}
+.player-front .player-role{margin-top:12px}
+.player-playstyle-label,.player-back-label{font-size:12px;font-weight:900;margin:15px 0 4px}
+.player-back-label{margin-top:14px}
+.player-back .player-name{margin:0 0 4px}
+.player-back .player-jp{margin-bottom:10px}
+.player-meta{font-size:12px;font-weight:800;line-height:1.7;opacity:1;margin:7px 0}
+.player-tags{font-size:11px;line-height:1.8;font-weight:800;overflow-wrap:anywhere;margin:12px 0}
+.player-info{font-size:12px;line-height:1.85;overflow-wrap:break-word}
+.player-back .player-info{margin:0}
+.player-hint{display:none!important}
+@media(max-width:600px){.player-front,.player-back{padding:15px}.player-portrait{width:82px;height:104px;flex-basis:82px}.player-front:has(.player-portrait) .player-name{font-size:18px}}
+
+/* 선수 카드: 동일 높이, 사진 확대, 앞면 공간 정돈 */
+.roster{grid-auto-rows:1fr;align-items:stretch}
+.player{height:100%;min-height:0}
+.player-inner{height:100%;min-height:0}
+.player-front,.player-back{height:100%;min-height:0;overflow:visible}
+.player-front{display:flex;flex-direction:column;justify-content:center;gap:12px}
+.player-front-head{align-items:center;gap:16px}
+.player-front .player-role{margin-top:12px}
+.player-front .player-playstyle-label{margin-top:4px}
+.player-front .player-info{margin:0}
+.player-portrait{width:132px;height:176px;flex:0 0 132px;object-fit:cover;object-position:center top}
+.player-back .player-meta{margin-top:0}
+@media(max-width:600px){
+.player-portrait{width:112px;height:152px;flex-basis:112px}
+.player-front-head{gap:10px}
 }
 </style>
 </head>
@@ -496,6 +561,23 @@ players:[
 
   [ID, 장소명, 종류, 경도, 위도, 설명]
 */
+const DETAILS={
+h:{
+'10':['08.18','O','ENFJ','2w1','#든든한주장 #책임감만렙 #다정한리더','가족, 따뜻한 음식, 동료 챙기기','책임 회피, 동료의 고립','13세·10세·7세인 동생 셋을 둔 장남. 어려서부터 동생들을 돌보며 자라 남을 챙기고 책임지는 일에 익숙하다. 하키부에서도 좋은 주장이 되고 싶어 하지만, 정작 자신이 힘들 때 남에게 기대는 법은 잘 모른다.','동료를 살리는 패스와 경기 조율, 협동 중심의 센터 플레이'],
+'17':['11.06','A','ISTJ','1w9','#불굴의근성 #노력파 #원칙주의','새벽 달리기, 규칙, 실력 향상','지각, 무성의, 약속 위반','다섯 살 여동생이 있다. 평소에는 무뚝뚝하고 엄격하지만 어린 여동생 앞에서는 한결 부드러워진다. 고교 마지막 시즌에 그동안 쌓아 온 노력의 성과를 증명하고 싶어 하며, 스스로에게 엄격한 탓에 실패를 쉽게 용납하지 못한다.','꾸준한 압박과 강한 체력, 끝까지 포기하지 않는 윙 플레이'],
+'30':['07.23','B','ENTP','7w8','#능청스러운골리 #장난꾸러기 #강심장','낮잠, 장난, 예상 밖의 반응','지루함, 간섭','삿포로에서 자라다 중학교 시절 구시로로 이주했다. 전학 후 아오이와 리쿠를 만나 친해졌다. 중학생 때부터 아키토의 가족 기업에서 아이스하키 후원을 받고 있다. 아키토를 장난스럽게 ‘도련님’이라 부르며, 후원에 대한 고마움도 농담으로 표현하는 편이다. 자신만의 골리 스타일을 완성하는 것이 목표다.','상대의 허를 찌르는 반응과 과감한 세이브'],
+'4':['09.14','A','ISFJ','9w1','#수줍은수비수 #배려형 #평화주의','따뜻한 음료, 동물, 귀여운 물건','다툼, 무서운 이야기','구시로에서 태어나고 자란 토박이로, 조부모와 함께 생활한다. 리쿠와는 어릴 때부터 함께 자란 소꿉친구이며, 중학교 때 전학 온 나기와도 친해졌다. 다툼을 피하려다 자신의 의견을 참는 일이 많지만, 하키부에서는 누구에게나 믿음직한 수비수가 되고 싶어 한다.','안정적인 위치 선정과 동료를 받쳐 주는 수비'],
+'19':['12.05','O','ESFP','7w6','#인간확성기 #분위기메이커 #외로움쟁이','게임, 간식, 친구들과 떠들기','정적, 잔소리, 외로움','아버지가 돌아가신 뒤 어머니, 스무 살 형과 함께 가족을 이루고 있다. 아오이와는 어릴 때부터 알고 지낸 소꿉친구이며, 중학교 때 나기와도 친해졌다. 외롭거나 진지한 마음이 들 때에도 장난으로 넘기는 편이다. 경기의 결정적인 순간에 팀에 힘이 되는 공격수가 되고 싶어 한다.','빠른 돌파와 즉흥적인 공격 전개'],
+'6':['10.28','AB','INTJ','1w9','#냉정한관찰자 #원칙주의 #도시에서온막내','독서, 정돈, 고요함','무질서, 소란, 비효율','열네 살 여동생이 있다. 아이스하키를 위해 도쿄에서 구시로로 이주해 호쿠레이학원에 진학했다. 같은 팀의 3학년 슈헤이를 존경하며, 실력을 인정받는 주전 수비수가 되는 것이 목표다. 아직 어린 후배로만 취급받는 것이 고민이다.','정확한 판단과 효율적인 수비 전개']},
+k:{
+'9':['07.17','O','ESTP','8w7','#승부욕폭발 #카리스마주장 #칭찬에약함','경쟁, 칭찬, 푸짐한 식사','패배, 무시','삿포로 출신 외동아들로, 다정한 부모님 밑에서 자랐다. 하루와 같은 중학교 출신으로 오랫동안 알고 지낸 선후배 사이다. 현재 코가학원 기숙사에서 1학년 에이스케와 같은 방을 사용한다. 2018년 하키부 창단 때부터 주장을 맡아 왔으며, 팀을 전국 정상으로 이끌고 싶어 한다. 다만 주장으로서 패배에 대한 두려움은 남들에게 드러내지 않는다.','공격적인 경기 운영과 거침없는 돌파'],
+'27':['12.12','AB','ENFJ','3w2','#여우같은도련님 #냉철한전략가 #관찰력만렙','전략 게임, 차, 사람 관찰','무례함, 계획 실패','코가학원을 설립한 기업의 협력사를 운영하는 부유한 집안의 외동아들. 가족 기업은 나기를 비롯한 아이스하키 유망주들을 후원하고 있다. 현재는 가족과 떨어져 학교 밖에서 혼자 생활한다. 뛰어난 전술과 실력으로 승리하는 것이 목표지만, 계산할 수 없는 진심 앞에서는 의외로 약한 모습을 보인다.','상대 움직임을 읽고 경기를 설계하는 전략형 수비'],
+'11':['06.21','B','ENFP','7w6','#반짝이는스타 #칭찬장인 #친화력만렙','패션, SNS, 사진, 디저트','소외, 무관심','삿포로의 본가에서 통학하며, 스물세 살 누나가 있다. 타이가와는 같은 중학교 출신으로, 코가학원에서도 같은 팀에서 뛰고 있다. 후배인 이오리를 자주 챙긴다. 밝고 인기 많은 이미지 때문에 자신의 노력을 가볍게 평가받는 것이 고민이며, 실력으로 인정받는 핵심 공격수가 되고 싶어 한다.','순간적인 스피드와 화려한 공격 전개'],
+'1':['11.19','A','ISTJ','1w2','#철벽골리 #완벽주의 #깔끔쟁이','디저트, 청결, 고요함','소음, 지저분함, 무책임','어머니의 외도로 부모님이 이혼했으며, 아버지와는 관계를 유지하고 있다. 현재 코가학원 기숙사에서 1인실을 사용한다. 아키토와 특히 친하게 지내며, 혼자 조용히 보내는 시간을 좋아한다. 실수와 타인에 대한 신뢰에 민감한 편으로, 어떤 상황에서도 흔들리지 않는 골텐더가 되는 것이 목표다.','침착한 위치 선정과 빈틈없는 골문 방어'],
+'16':['12.24','AB','INTP','5w4','#천재형센터 #분석형두뇌 #숨은경쟁심','퍼즐, 분석, 독서','비논리, 강요','대학교수인 아버지와 의사인 어머니 사이에서 태어난 외동아들. 현재 가족과 떨어져 학교 밖에서 혼자 생활한다. 아키토와 세이와 친하게 지내며, 같은 1학년 에이스케의 예측하기 어려운 재능을 의식하고 있다. 자신만의 경기 방식을 증명하고 싶어 하지만 감정을 이해하거나 표현하는 일에는 서툴다.','상황 분석과 예측을 바탕으로 한 지능형 공격'],
+'10':['08.08','B','ESTP','7w8','#무서운신예 #천부적재능 #거침없는승부사','경쟁, 칭찬, 음식','패배, 무시, 지루한 훈련','평범한 가정에서 자랐으며, 열여덟 살 누나와 열다섯 살 남동생이 있다. 현재 코가학원 기숙사에서 주장 타이가와 같은 방을 사용한다. 타이가를 뛰어넘는 공격수가 되는 것이 목표이며, 타고난 재능뿐 아니라 꾸준히 쌓아 온 노력도 인정받고 싶어 한다.','예측하기 어려운 움직임과 본능적인 득점 감각']}}
+;
+
 const PLACES={
 h:[
 ['school','호쿠레이학원','학교',144.3980305,42.9828376,'1970년 설립된 구시로의 전통 있는 사립 고등학교'],
@@ -630,7 +712,7 @@ alt="코가학원 엠블럼">
 
 </div>
 
-<div class="portal-vs">VS</div>
+
 <div class="portal-bottom">TWO SCHOOLS · ONE ICE</div>
 `;
 
@@ -801,43 +883,41 @@ return `<h2 class="section-title">${t}</h2>`;
 function cards(s){
 return `
 <div class="roster">
-${s.players.map(p=>`
-<div class="player"
-tabindex="0"
-role="button"
+${s.players.map(p=>{
+const d=DETAILS[sid][p[0]];
+const portrait=p[1]==='아사히나 나기'?'아사히나 나기_하키복_증명사진.png':p[1]==='이치노세 아키토'?'이치노세 아키토_하키복_증명사진.jpg':null;
+return `
+<div class="player" tabindex="0" role="button"
 aria-label="${p[1]} 프로필 뒤집기"
 onclick="this.classList.toggle('flipped')"
-onkeydown="if(event.key==='Enter')this.click()">
-
+onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}">
 <div class="player-inner">
-
 <div class="player-front">
+<div class="player-front-head">
+<div class="player-front-title">
 <div class="player-number">${p[0]}</div>
 <div class="player-name">${p[1]}</div>
 <div class="player-jp">${p[2]}</div>
 <div class="player-role">${p[3]} · ${p[4]} · ${p[5]}</div>
-<p class="player-hint">CLICK TO FLIP ↻</p>
 </div>
-
+${portrait?`<img class="player-portrait" src="${BASE+encodeURIComponent(portrait)}" alt="${p[1]} 하키복 증명사진" loading="lazy">`:''}
+</div>
+<div class="player-playstyle-label">플레이 스타일</div>
+<div class="player-info">${d[8]}</div>
+</div>
 <div class="player-back">
-<div class="player-name">${p[1]}</div>
-<div class="player-jp">${p[2]}</div>
-<p class="player-info">
-등번호 · #${p[0]}<br>
-학년 · ${p[3]}<br>
-포지션 · ${p[4]}<br>
-생일 · ${p[6]}<br>
-혈액형 · ${p[7]}<br>
-MBTI · ${p[8]}<br>
-에니어그램 · ${p[9]}
-</p>
-<p class="player-info">${p[10]}</p>
-<p class="player-hint">CLICK TO RETURN ↻</p>
-</div>
-
+<div class="player-meta">${d[0]} · ${d[1]} · ${d[2]} · ${d[3]}</div>
+<div class="player-tags">${d[4]}</div>
+<div class="player-back-label">호</div>
+<div class="player-info">${d[5]}</div>
+<div class="player-back-label">불호</div>
+<div class="player-info">${d[6]}</div>
+<div class="player-back-label">배경</div>
+<div class="player-info">${d[7]}</div>
 </div>
 </div>
-`).join('')}
+</div>`;
+}).join('')}
 </div>`;
 }
 
@@ -916,7 +996,7 @@ ${sectionTitle(h?'학교 개요':'OUR SCHOOL')}
 ${sectionTitle(h?'학교생활':'STUDENT LIFE')}
 <div class="grid2">
 ${picture('uniform','학교 교복 및 체육복')}
-<div class="panel">
+<div class="plain-info">
 <h3>${h?'학교생활 안내':'STUDENT LIFE'}</h3>
 <p>${h?
 '오랜 학교 문화와 지역 공동체의 유대를 중요하게 생각하며 구시로의 겨울철 기후에 맞춘 안전한 학교생활을 지원합니다.':
@@ -948,21 +1028,21 @@ return `
 ${sectionTitle(h?'학교 시설 안내':'CAMPUS FACILITIES')}
 ${picture('campus','학교 전경')}
 
-<div class="grid3" style="margin-top:28px">
+<div class="facility-list" style="margin-top:14px">
 ${facilities.map(f=>`
-<div class="panel">
+<div class="facility-item">
 <h3>${f[0]}</h3>
 <p>${f[1]}</p>
 </div>
 `).join('')}
 </div>
 
-<div class="note section">
+<p class="facility-notice">
 ${h?
 '호쿠레이학원에는 교내 아이스링크가 없습니다. 하키부는 구시로 지역의 공용 빙상장을 이용합니다.':
 '코가학원 아이스 아레나는 교내 선수 전용 시설입니다. 보안 및 안전상의 이유로 외부 대관 및 일반인 이용을 허용하지 않습니다.'
 }
-</div>`;
+</p>`;
 }
 
 if(page==='hockey'){
