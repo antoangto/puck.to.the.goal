@@ -79,6 +79,7 @@ text-align:center;
 overflow:hidden;
 isolation:isolate;
 transition:filter .3s ease;
+background:transparent;
 }
 .portal-side:hover{filter:brightness(1.12)}
 .portal-side::before{
@@ -482,6 +483,23 @@ figure{margin:8px 0}
 @media(max-width:600px){
 .player-portrait{width:112px;height:152px;flex-basis:112px}
 .player-front-head{gap:10px}
+}
+
+/* 선수 카드: 앞면으로 메타·성격 태그 이동 후 높이 압축 */
+.roster{grid-auto-rows:auto;align-items:stretch}
+.player{min-height:0;height:100%}
+.player-inner{min-height:0;height:100%}
+.player-front,.player-back{min-height:0;height:100%;padding:15px 17px}
+.player-front{justify-content:flex-start;gap:0}
+.player-front-head{gap:12px}
+.player-front .player-playstyle-label{margin:10px 0 3px}
+.player-front .player-meta{margin:9px 0 2px;font-size:12px;font-weight:800;opacity:1}
+.player-front .player-tags{margin:3px 0 0;font-weight:800;line-height:1.65}
+.player-back .player-back-label:first-child{margin-top:0}
+@media(max-width:600px){
+.player-front,.player-back{padding:13px}
+.player-front .player-meta{font-size:11px}
+.player-front .player-tags{font-size:11px}
 }
 </style>
 </head>
@@ -904,10 +922,10 @@ ${portrait?`<img class="player-portrait" src="${BASE+encodeURIComponent(portrait
 </div>
 <div class="player-playstyle-label">플레이 스타일</div>
 <div class="player-info">${d[8]}</div>
-</div>
-<div class="player-back">
 <div class="player-meta">${d[0]} · ${d[1]} · ${d[2]} · ${d[3]}</div>
 <div class="player-tags">${d[4]}</div>
+</div>
+<div class="player-back">
 <div class="player-back-label">호</div>
 <div class="player-info">${d[5]}</div>
 <div class="player-back-label">불호</div>
