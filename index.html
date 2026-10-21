@@ -803,6 +803,26 @@ body:has(.k-rail) .section-subnav button:hover{color:#d96313}
 .school-popup-card .school-poster.poster-k-recruit{height:min(430px,53dvh);min-height:0;max-height:min(430px,53dvh)}
 .school-popup{padding:10px}
 }
+/* 2020 school notice: compact mobile dialog and Hokurei welcome text clearance */
+@media(max-width:600px){
+  .school-popup{padding:12px 18px;}
+  .school-popup-card{width:min(390px,100%);max-height:calc(100dvh - 24px);overflow-y:auto;}
+  .school-popup-card .school-poster,
+  .school-popup-card .school-poster.poster-h-welcome,
+  .school-popup-card .school-poster.poster-h-recruit,
+  .school-popup-card .school-poster.poster-k-welcome,
+  .school-popup-card .school-poster.poster-k-recruit{
+    height:min(340px,42dvh);min-height:0;max-height:min(340px,42dvh);
+    padding:20px 25px;
+  }
+  .school-popup-card .school-poster.poster-h-welcome{padding-left:42px;padding-right:24px;}
+  .poster-h-welcome:after{left:12px;}
+  .school-popup-card .poster-kicker{margin-top:18px;}
+  .school-popup-card .poster-big{font-size:clamp(22px,6vw,31px);}
+  .school-popup-card .popup-head{padding:10px 14px;}
+  .school-popup-card .popup-pagination{padding:8px 12px;}
+  .school-popup-card .popup-foot{padding:9px 12px;}
+}
 </style>
 </head>
 <body>
@@ -1531,7 +1551,7 @@ function boardRows(posts){return `<div class="board-list">${posts.map(p=>`<detai
 function filterBoard(){const cat=document.getElementById('board-filter')?.value||'전체';const q=(document.getElementById('board-query')?.value||'').trim().toLowerCase();document.getElementById('board-list').innerHTML=boardRows(allPosts().filter(p=>(cat==='전체'||p[1]===cat)&&p[3].toLowerCase().includes(q)));}
 let popupSlide=0;
 let popupAutoTimer=null;
-const POPUP_INTERVAL_MS=6500;
+const POPUP_INTERVAL_MS=2800;
 function stopPopupAuto(){if(popupAutoTimer!==null){clearInterval(popupAutoTimer);popupAutoTimer=null;}}
 function startPopupAuto(){stopPopupAuto();popupAutoTimer=setInterval(()=>{const root=document.getElementById('school-popup');if(!root||root.classList.contains('hidden')||!sid){stopPopupAuto();return;}popupSlide=(popupSlide+1)%2;renderPopupSlide();},POPUP_INTERVAL_MS);}
 function schoolPosterMarkup(slide){
