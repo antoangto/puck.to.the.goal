@@ -529,7 +529,7 @@ logo:'코가_엠블럼.png',
 campus:'코가_캠퍼스.jpg',
 uniform:'코가_교복·체육복.png',
 jersey:'코가_유니폼.png',
-wear:'코가_유니폼2.jpg'
+wear:'코가_유니폼2.png'
 }
 };
 
@@ -903,7 +903,25 @@ return `
 <div class="roster">
 ${s.players.map(p=>{
 const d=DETAILS[sid][p[0]];
-const portrait=p[1]==='아사히나 나기'?'아사히나 나기_하키복_증명사진.png':p[1]==='이치노세 아키토'?'이치노세 아키토_하키복_증명사진.jpg':null;
+const PORTRAITS={
+h:{
+'10':'후지사와 소우타_하키복_증명사진.png',
+'17':'미야자키 슈헤이_하키복_증명사진.png',
+'30':'아사히나 나기_하키복_증명사진.png',
+'4':'하세가와 아오이_하키복_증명사진.jpg',
+'19':'오가와 리쿠_하키복_증명사진.png',
+'6':'키리시마 레이_하키복_증명사진.png'
+},
+k:{
+'9':'쿠로사키 타이가_하키복_증명사진.png',
+'27':'이치노세 아키토_하키복_증명사진.png',
+'11':'미나미 하루_하키복_증명사진.jpg',
+'1':'쿠라모토 세이_하키복_증명사진.png',
+'16':'츠키시로 이오리_하키복_증명사진.jpg',
+'10':'토도 에이스케_하키복_증명사진.jpg'
+}
+};
+const portrait=PORTRAITS[sid][p[0]];
 return `
 <div class="player" tabindex="0" role="button"
 aria-label="${p[1]} 프로필 뒤집기"
