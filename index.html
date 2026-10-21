@@ -196,11 +196,11 @@ pointer-events:none;
 .h-brand h1{font:600 30px 'Noto Serif JP',serif;margin:0}
 .h-brand p{font-size:11px;letter-spacing:.15em;color:#84929a;margin:6px 0}
 .h-nav{background:#254963;border-bottom:5px solid #8d3a49}
-.h-nav .wrap{display:grid;grid-template-columns:repeat(5,1fr)}
+.h-nav .wrap{display:flex;flex-wrap:wrap;justify-content:center}
 .h-nav button{
 background:none;color:white;border:0;
 border-right:1px solid #ffffff25;
-padding:18px 5px;font-size:13px;font-weight:800
+padding:15px 12px;font-size:12px;font-weight:800;flex:1 1 auto
 }
 .h-nav button.active,.h-nav button:hover{background:#17344b}
 .h-hero{
@@ -227,7 +227,7 @@ color:white
 position:sticky;top:0;height:100vh;
 background:#080a0b;border-right:1px solid #333;
 display:flex;flex-direction:column;
-align-items:center;padding:18px 5px;gap:12px
+align-items:center;padding:18px 5px;gap:9px;overflow-y:auto;scrollbar-width:thin
 }
 .k-rail img{width:60px;height:66px;object-fit:contain}
 .k-rail button{
@@ -236,7 +236,7 @@ color:#aeb2b4;padding:13px 8px;
 font-size:11px;font-weight:900;letter-spacing:.12em
 }
 .k-rail button.active{color:#ff8d36;border-left:3px solid #ff8d36}
-.k-rail .back{margin-top:auto;color:white}
+.k-rail .back{margin-top:auto;color:white;flex-shrink:0}
 .k-head{
 padding:20px 34px;background:#1a1e20;
 display:flex;justify-content:space-between;align-items:center
@@ -501,12 +501,80 @@ figure{margin:8px 0}
 .player-front .player-meta{font-size:11px}
 .player-front .player-tags{font-size:11px}
 }
+
+/* 하키부 대회 실적 클릭 상세 보기 */
+.result-detail summary,.result-feature summary{cursor:pointer;font-weight:800;list-style:none;line-height:1.7}
+.result-detail summary::-webkit-details-marker,.result-feature summary::-webkit-details-marker{display:none}
+.result-detail summary:hover,.result-feature summary:hover{color:var(--accent)}
+.result-more{font-size:10px;opacity:.65;margin-left:6px;white-space:nowrap}
+.result-description{padding:12px 14px;margin-top:10px;background:#8b9ba516;border-left:3px solid var(--accent);line-height:1.85;font-size:12px;font-weight:400}
+.result-feature{border:1px solid #98a6ae60;padding:18px 20px;margin-top:16px}
+.result-feature p{line-height:1.9;font-size:13px;margin:15px 0 0}
+/* 2020 학교 현황·실적·자료실·게시판 */
+.admin-sub{font-size:12px;opacity:.7;margin:8px 0 22px}
+.admin-scroll{width:100%;overflow-x:auto;border-top:2px solid var(--accent)}
+.admin-table{width:100%;border-collapse:collapse;font-size:12px;min-width:500px}
+.admin-table th,.admin-table td{padding:15px 13px;text-align:left;border-bottom:1px solid #9aabb43d;vertical-align:top;line-height:1.7}
+.admin-table thead th{background:#6e84911a;font-weight:900}
+.k .admin-table thead th{background:#ffffff12}
+.status-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:24px 0}
+.status-cards>div{border:1px solid #9aabb450;padding:22px 16px;display:flex;flex-direction:column;gap:6px}
+.status-cards small{font-size:12px;opacity:.75}
+.status-cards strong{font-size:28px;color:var(--accent)}
+.status-cards span{font-size:10px;letter-spacing:.15em;opacity:.5}
+.notice-strip{border-left:4px solid var(--accent);padding:17px 20px;background:#8b9ba516;font-size:12px;line-height:1.85;margin:20px 0}
+.quick-links{display:flex;flex-wrap:wrap;gap:9px}
+.quick-links button{background:transparent;border:1px solid #98a6ae70;color:inherit;padding:13px 16px;font-weight:800;font-size:12px}
+.quick-links button:hover{border-color:var(--accent);color:var(--accent)}
+.board-tools{display:flex;gap:10px;align-items:center;margin:22px 0 16px}
+.board-tools label{font-size:12px;font-weight:800}
+.board-tools select,.board-tools input{background:transparent;border:1px solid #98a6ae80;color:inherit;padding:11px;font-size:12px;min-width:0}
+.board-tools input{flex:1}
+.k .board-tools option{color:#222}
+.board-list{border-top:2px solid var(--accent)}
+.board-post{border-bottom:1px solid #98a6ae50}
+.board-post summary{cursor:pointer;display:flex;align-items:center;gap:13px;padding:17px 8px;font-size:12px;list-style:none}
+.board-post summary::-webkit-details-marker{display:none}
+.board-post summary:hover{background:#8b9ba512}
+.board-category{font-weight:900;color:var(--accent);min-width:40px}
+.board-title{flex:1;font-weight:700}
+.board-post time{opacity:.65;font-size:11px;white-space:nowrap}
+.board-body{background:#8b9ba511;padding:22px;font-size:12px;line-height:1.9}
+.school-popup{position:fixed;inset:0;z-index:990;background:#0009;display:flex;align-items:center;justify-content:center;padding:20px}
+.school-popup-card{width:min(480px,100%);background:#fff;color:#263744;box-shadow:0 25px 80px #0007}
+.popup-head{background:#19374d;color:white;display:flex;justify-content:space-between;align-items:center;padding:16px 20px;font-size:13px;font-weight:900}
+.popup-k .popup-head{background:#111;color:#ff8d36}
+.popup-head button{border:0;background:transparent;color:inherit;font-size:20px}
+.popup-content{padding:32px}
+.popup-content .eyebrow{color:#657e8d}
+.popup-content h2{font-size:34px;line-height:1.2;margin:14px 0}
+.popup-k .popup-content h2{color:#ed7826}
+.popup-content p{font-size:13px;color:#637782}
+.popup-link{display:block;width:100%;text-align:left;margin-top:10px;padding:12px 14px;border:1px solid #c5d0d5;background:#fff;color:#263744;font-weight:800;font-size:12px}
+.popup-link:hover{background:#edf2f4}
+.popup-foot{border-top:1px solid #dce3e7;padding:15px 20px;display:flex;justify-content:space-between;gap:10px;align-items:center;font-size:11px}
+.popup-foot label{display:flex;gap:7px;align-items:center}
+.popup-foot button{background:#263744;color:white;border:0;padding:9px 18px}
+@media(max-width:600px){.status-cards{gap:6px}.status-cards>div{padding:13px 8px}.status-cards strong{font-size:19px}.board-post summary{gap:7px}.board-post time{font-size:9px}.popup-content{padding:24px}.h-nav button{flex:1 1 28%;font-size:10px}}
+
+
+/* 2019 준결승 유효 슈팅·세이브 기록 */
+.match-scorecard{margin-top:14px;font-size:12px}
+.match-label{text-align:center;font-weight:800;opacity:.7;margin-bottom:10px}
+.match-final{display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;font-size:17px;font-weight:800;text-align:center}
+.match-final strong{font-size:30px;color:var(--accent);margin:0 5px}
+.match-vs{opacity:.5}.match-caption{text-align:center;font-size:11px;opacity:.7;line-height:1.7;margin:10px 0 17px}
+.match-scorecard .admin-scroll{margin:12px 0 18px}.match-subhead{font-size:14px;margin:24px 0 8px}
+.match-shots th,.match-shots td{white-space:nowrap}.shot-goal{color:#c05b24}.shot-save{color:var(--accent)}
+@media(max-width:600px){.match-final{font-size:13px;gap:7px}.match-final strong{font-size:25px}.match-shots th,.match-shots td{font-size:11px;padding:9px 7px}}
 </style>
 </head>
 <body>
 
 <div id="portal"></div>
 <div id="site" class="hidden"></div>
+
+<div id="school-popup" class="school-popup hidden" role="dialog" aria-modal="true" aria-label="학교 공지 팝업"></div>
 
 <div id="lightbox" class="lightbox" onclick="closeLightbox()">
 <button onclick="closeLightbox()">닫기 ✕</button>
@@ -754,6 +822,11 @@ return [
 ['about','학교 소개'],
 ['campus','학교 시설'],
 ['hockey','하키부'],
+['status','학교현황'],
+['results','하키부 실적'],
+['schedule','훈련·참가계획'],
+['library','자료실'],
+['board','게시판'],
 ['map','주변 지도']
 ];
 }
@@ -884,6 +957,7 @@ KOGA ACADEMY / SCHOOL GUIDE
 
 window.scrollTo(0,0);
 
+if(page==='home'){requestAnimationFrame(()=>showSchoolPopup());}
 if(page==='map'){
 requestAnimationFrame(()=>{
 if(sid&&page==='map')initMap();
@@ -922,6 +996,11 @@ k:{
 }
 };
 const portrait=PORTRAITS[sid][p[0]];
+const PLAYER_HEIGHT={
+h:{'10':184,'17':185,'30':184,'4':177,'19':187,'6':179},
+k:{'9':185,'27':181,'11':183,'1':186,'16':176,'10':180}
+};
+const height=PLAYER_HEIGHT[sid][p[0]];
 return `
 <div class="player" tabindex="0" role="button"
 aria-label="${p[1]} 프로필 뒤집기"
@@ -940,7 +1019,7 @@ ${portrait?`<img class="player-portrait" src="${BASE+encodeURIComponent(portrait
 </div>
 <div class="player-playstyle-label">플레이 스타일</div>
 <div class="player-info">${d[8]}</div>
-<div class="player-meta">${d[0]} · ${d[1]} · ${d[2]} · ${d[3]}</div>
+<div class="player-meta">${d[0]} · ${d[1]} · ${d[2]} · ${d[3]} · ${height}cm</div>
 <div class="player-tags">${d[4]}</div>
 </div>
 <div class="player-back">
@@ -956,6 +1035,170 @@ ${portrait?`<img class="player-portrait" src="${BASE+encodeURIComponent(portrait
 }).join('')}
 </div>`;
 }
+
+/* ==================================
+   2020년도 세계관 학교 행정·하키부 자료
+   대회 실적은 작품 내 확정된 가상 기록입니다.
+================================== */
+const HOKUREI_RESULTS=[
+[1976,'구시로 지구 고교 아이스하키 대회','3위'],[1978,'구시로 지구 고교 아이스하키 대회','준우승'],[1980,'구시로 지구 고교 아이스하키 대회','우승'],
+[1982,'홋카이도 고교 아이스하키 선수권','8강'],[1984,'홋카이도 고교 아이스하키 선수권','4강'],[1986,'홋카이도 고교 아이스하키 선수권','3위'],[1988,'홋카이도 고교 아이스하키 선수권','준우승'],
+[1990,'홋카이도 고교 아이스하키 선수권','준우승'],[1992,'홋카이도 고교 아이스하키 선수권','우승'],[1994,'전국 고교 아이스하키 선수권','8강'],[1996,'홋카이도 고교 아이스하키 선수권','우승'],[1997,'전국 고교 아이스하키 선수권','4강'],[1999,'홋카이도 고교 아이스하키 선수권','우승'],
+[2000,'전국 고교 아이스하키 선수권','준우승'],[2002,'전국 고교 아이스하키 선수권','4강'],[2003,'홋카이도 고교 아이스하키 선수권','우승'],[2004,'전국 고교 아이스하키 선수권','4강'],
+[2005,'홋카이도 고교 아이스하키 선수권','4강'],[2005,'전국 고교 아이스하키 선수권','8강'],
+[2006,'홋카이도 고교 아이스하키 선수권','준우승'],[2006,'전국 고교 아이스하키 선수권','4강'],
+[2007,'홋카이도 고교 아이스하키 선수권','우승'],[2007,'전국 고교 아이스하키 선수권','8강'],
+[2008,'홋카이도 고교 아이스하키 선수권','준우승'],[2008,'전국 고교 아이스하키 선수권','4강'],
+[2009,'홋카이도 고교 아이스하키 선수권','우승'],[2009,'전국 고교 아이스하키 선수권','4강'],
+[2010,'홋카이도 고교 아이스하키 선수권','우승'],[2010,'전국 고교 아이스하키 선수권','준우승'],
+[2011,'홋카이도 고교 아이스하키 선수권','준우승'],[2011,'전국 고교 아이스하키 선수권','4강'],
+[2012,'홋카이도 고교 아이스하키 선수권','우승'],[2012,'전국 고교 아이스하키 선수권','4강'],
+[2013,'홋카이도 고교 아이스하키 선수권','우승'],[2013,'전국 고교 아이스하키 선수권','준우승'],
+[2014,'홋카이도 고교 아이스하키 선수권','준우승'],[2014,'전국 고교 아이스하키 선수권','4강'],
+[2015,'홋카이도 고교 아이스하키 선수권','우승'],[2015,'전국 고교 아이스하키 선수권','우승'],
+[2016,'홋카이도 고교 아이스하키 선수권','우승'],[2016,'전국 고교 아이스하키 선수권','준우승'],
+[2017,'홋카이도 고교 아이스하키 선수권','4강'],[2017,'전국 고교 아이스하키 선수권','4강'],
+[2018,'홋카이도 고교 아이스하키 선수권','우승'],[2018,'전국 고교 아이스하키 선수권','우승'],
+[2019,'홋카이도 고교 아이스하키 선수권','준우승'],[2019,'전국 고교 아이스하키 선수권','4강']
+];
+const KOGA_RESULTS=[
+[2019,'홋카이도 고교 아이스하키 선수권','4강'],
+[2019,'삿포로 고교 아이스하키 교류대회','준우승']
+];
+const SCHOOL_POSTS={
+h:[
+['H-020','공지','2020.04.08','2020학년도 신입생 학교생활 안내','신입생은 학급별 안내 사항과 학교생활 수칙을 확인해 주시기 바랍니다.'],
+['H-019','하키부','2020.04.03','아이스하키부 신학기 훈련 일정 안내','훈련 장소는 구시로 지역 공용 빙상장입니다. 링크 이용 시간은 지도교사의 안내를 따릅니다.'],
+['H-018','자료','2020.03.25','학교 시설 이용 및 안전수칙','공용 시설 사용 후 정리 정돈과 안전수칙 준수를 부탁드립니다.'],
+['H-017','공지','2020.03.18','2020학년도 학교 교육과정 안내','교육과정 및 세부 일정은 학급별 안내를 확인해 주시기 바랍니다.']],
+k:[
+['K-020','공지','2020.04.08','2020학년도 스포츠 프로그램 운영 안내','학업과 훈련을 병행할 수 있도록 선수별 일정을 운영합니다.'],
+['K-019','하키부','2020.04.03','NEW SEASON · 아이스 아레나 이용 안내','교내 아이스 아레나는 선수 전용이며 외부 대관 및 일반인 출입은 허용하지 않습니다.'],
+['K-018','자료','2020.03.25','기숙사 생활 및 시설 이용 안내','입사 학생은 생활 수칙과 공용 공간 이용 지침을 확인해 주시기 바랍니다.'],
+['K-017','공지','2020.03.18','2020학년도 학사 운영 안내','학사 일정과 체육부 훈련 일정은 담당 교사의 안내에 따릅니다.']]
+};
+const RESOURCE_ITEMS={
+h:[['2020.04.08','신입생 학교생활 안내','학생생활'],['2020.04.03','아이스하키부 훈련 준비물 안내','하키부'],['2020.03.25','시설 이용 안전수칙','안전교육'],['2020.03.18','학교 교육과정 안내','학사']],
+k:[['2020.04.08','스포츠 프로그램 운영 안내','학사'],['2020.04.03','아이스 아레나 안전수칙','하키부'],['2020.03.25','기숙사 생활 안내','학생생활'],['2020.03.18','학사 및 훈련 병행 안내','학사']]
+};
+const TRAINING_ROWS={
+h:[['4월','신입 부원 적응·기초 체력','교내 체육시설','기본기 점검'],['5~6월','패스·포지셔닝·조직 수비','구시로 공용 빙상장','공용 링크 배정에 따라 조정'],['7~8월','체력 강화·팀워크 훈련','학교 및 교외 훈련시설','방학 중 별도 안내'],['9~10월','전술 점검·연습경기 준비','구시로 공용 빙상장','상대팀 및 일정 미확정'],['11~12월','동계 시즌 훈련·대회 준비','구시로 공용 빙상장','대회 참가 여부 추후 공지']],
+k:[['4월','선수별 측정·기초 체력','교내 스포츠 센터','개인별 훈련계획 수립'],['5~6월','스케이팅·슈팅·전술 분석','코가 아이스 아레나','영상 분석 병행'],['7~8월','집중 훈련·포지션별 프로그램','교내 아이스 아레나','훈련 일정 별도 안내'],['9~10월','공격 전술·연습경기 준비','코가 아이스 아레나','상대팀 및 일정 미확정'],['11~12월','동계 시즌 실전 대비','코가 아이스 아레나','대회 참가 여부 추후 공지']]
+};
+function adminTable(headers,rows){
+return `<div class="admin-scroll"><table class="admin-table"><thead><tr>${headers.map(x=>`<th>${esc(x)}</th>`).join('')}</tr></thead><tbody>${rows.map(r=>`<tr>${r.map(x=>`<td>${esc(x)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+}
+function schoolStatus(s){
+const h=sid==='h';
+return `${sectionTitle(h?'2020학년도 학교현황':'SCHOOL FACTS / 2020')}
+<p class="admin-sub">기준 연도: 2020년 · 《퍽을 향해!》 세계관의 가상 학교 자료</p>
+<div class="status-cards">
+<div><small>설립 연도</small><strong>${s.year}</strong><span>ESTABLISHED</span></div>
+<div><small>소재 지역</small><strong>${h?'구시로':'삿포로'}</strong><span>HOKKAIDO</span></div>
+<div><small>운영 형태</small><strong>사립</strong><span>HIGH SCHOOL</span></div>
+</div>
+<section class="section">${sectionTitle('학교 기본현황')}
+${adminTable(['구분','현황'],[['학교명',s.jp],['학교 유형','사립 고등학교'],['설립 연도',s.year+'년'],['소재지',s.address],['상징',h?'독수리':'호랑이'],['교육 방향',h?'전통·협동·지역사회와의 유대':'학업과 스포츠의 균형·도전·성장']])}</section>
+<section class="section">${sectionTitle('학생·교직원 현황')}
+${adminTable(['항목','1학년','2학년','3학년','합계'],[['학급 수','집계 중','집계 중','집계 중','집계 중'],['학생 수','집계 중','집계 중','집계 중','집계 중']])}
+<p class="admin-sub">※ 학급 수·학생 수·교직원 수는 작품 설정이 확정되지 않아 임의로 기입하지 않았습니다.</p></section>
+<section class="section">${sectionTitle('주요 시설 현황')}
+${adminTable(['시설','운영 현황'],(h?[['본관·교실','운영'],['도서실','운영'],['체육관·운동장','운영'],['하키부실','운영'],['교내 아이스링크','미설치'],['구시로 공용 빙상장','교외 시설 이용']]:[['교사동','운영'],['스포츠 센터','운영'],['분석실','운영'],['학생 기숙사','운영'],['교내 아이스 아레나','선수 전용·외부 대관 불가']]))}</section>`;
+}
+// 2019년 준결승: 경기 총계는 공식 통계 형식, 아래 타임라인은 주요 장면 발췌
+// 1970년 개교, 1973년 첫 졸업을 1기로 계산하면 2020년 3월 졸업생은 48기
+const MATCH_GRAD_A='히무로 아이슈 (氷室 愛秀 · 48기 졸업)';
+const MATCH_GRAD_B='시라토리 하기 (白鳥 羽希 · 48기 졸업)';
+const MATCH_SHOTS=[
+[1,'02:14','코가','타이가','나기 선방'],
+[1,'05:38','호쿠레이','소우타','세이 선방'],
+[1,'11:06','호쿠레이',MATCH_GRAD_A,'골'],
+[1,'14:22','코가','아키토','골'],
+[1,'17:49','코가','하루','나기 선방'],
+[2,'01:31','호쿠레이','슈헤이','골'],
+[2,'04:16','코가','하루','골'],
+[2,'07:42','호쿠레이','리쿠','세이 선방'],
+[2,'09:58','코가','타이가','나기 선방'],
+[2,'13:24','호쿠레이',MATCH_GRAD_B,'골'],
+[2,'17:08','호쿠레이','아오이','세이 선방'],
+[3,'04:11','호쿠레이','소우타','골'],
+[3,'10:36','코가','타이가','나기 선방'],
+[3,'18:05','호쿠레이','슈헤이','세이 선방']
+];
+const MATCH_PLAYER_SHOTS={
+h:[['소우타','9','1'],['슈헤이','8','1'],['아오이','3','0'],['리쿠','5','0'],[MATCH_GRAD_A,'6','1'],[MATCH_GRAD_B,'5','1']],
+k:[['타이가','13','0'],['아키토','7','1'],['하루','9','1']]
+};
+function matchScorecard(){
+const shotRows=MATCH_SHOTS.map(([period,time,team,shooter,result])=>{
+const goal=result==='골';
+return `<tr><td>${period}P ${time}</td><td>${team}</td><td>${esc(shooter)}</td><td><strong class="${goal?'shot-goal':'shot-save'}">${goal?'🥅 골': '🧤 '+esc(result)}</strong></td></tr>`;
+}).join('');
+return `<div class="match-scorecard"><div class="match-label">2019 홋카이도 고교 아이스하키 선수권 · 준결승</div>
+<div class="match-final"><span>호쿠레이학원 <strong>4</strong></span><span class="match-vs">:</span><span><strong>2</strong> 코가학원</span></div>
+<p class="match-caption">호쿠레이 결승 진출 · 코가 4강</p>
+${adminTable(['구분','1P','2P','3P','합계'],[['호쿠레이','1','2','1','4'],['코가','1','1','0','2']])}
+${adminTable(['경기 통계','호쿠레이','코가'],[['득점','4','2'],['유효 슈팅','36','29'],['골리 세이브','27 (나기)','32 (세이)'],['골리 세이브율','93.1% (나기)','88.9% (세이)']])}
+<h4 class="match-subhead">선수별 유효 슈팅 · 득점</h4>
+<p class="match-caption">2019년 당시 출전 가능한 재학생 및 2020년 3월 졸업생 기준 · 각 팀의 슈팅 합계는 경기 통계와 일치합니다.</p>
+${adminTable(['호쿠레이 선수','유효 슈팅','득점'],MATCH_PLAYER_SHOTS.h)}
+${adminTable(['코가 선수','유효 슈팅','득점'],MATCH_PLAYER_SHOTS.k)}
+<h4 class="match-subhead">주요 슈팅 장면 · 시간순</h4>
+<p class="match-caption">각 피리어드 시작 기준 시간 · 전체 유효 슈팅 65개 중 골 6개와 주요 선방 8개를 발췌했습니다.</p>
+<div class="admin-scroll"><table class="admin-table match-shots"><thead><tr><th>시간</th><th>공격팀</th><th>슈팅 선수</th><th>결과</th></tr></thead><tbody>${shotRows}</tbody></table></div>
+<p class="match-caption">※ 경기 시각·선수별 슈팅 수·졸업생 이름은 작품을 위해 구성한 가상 기록입니다. 48기는 1973년 첫 졸업을 1기로 가정한 표기입니다.</p></div>`;
+}
+function hockeyResults(){
+const h=sid==='h';
+const records=(h?HOKUREI_RESULTS:KOGA_RESULTS).slice().reverse();
+const matchDetail='2019년 홋카이도 고교 아이스하키 선수권 준결승에서 호쿠레이학원과 코가학원이 맞붙었습니다. 호쿠레이학원이 코가학원을 꺾고 결승에 진출했으며, 결승에서는 다른 학교에 패해 준우승을 기록했습니다. 코가학원은 첫 공식 대회 출전에서 4강에 올랐습니다. 최종 점수는 4:2이며, 경기 시간별 유효 슈팅과 골리 세이브 기록을 확인할 수 있습니다.';
+const rows=records.map(([year,name,result])=>{
+const derby=year===2019&&name==='홋카이도 고교 아이스하키 선수권';
+const detail=derby?matchDetail:(h?`${year}년 ${name}에서 ${result} 성적을 거두었습니다.`:`${year}년 ${name}에서 ${result} 성적을 거두었습니다.`);
+return `<tr><td>${year}</td><td><details class="result-detail"><summary>${esc(name)} <span class="result-more">상세 보기 ↗</span></summary><div class="result-description">${esc(detail)}${derby?matchScorecard():''}</div></details></td><td><strong>${esc(result)}</strong></td></tr>`;
+}).join('');
+return `${sectionTitle(h?'아이스하키부 역대 대회 실적':'ICE HOCKEY / RESULTS')}
+<p class="admin-sub">1976~2019년 주요 실적 · 2020년 기준 · 대회명을 누르면 상세 기록을 확인할 수 있습니다.</p>
+${h?'<div class="notice-strip"><strong>호쿠레이학원 하키부</strong> · 1976년 첫 입상 이후 단계적으로 성장하여 홋카이도 최강 명문으로 자리 잡았습니다. 2005~2019년 홋카이도 선수권 15년 연속 4강 이상, 2012~2019년 우승 5회·준우승 2회·4강 1회.</div>':'<div class="notice-strip"><strong>코가학원 하키부</strong> · 2018년 창단 당시 1학년 선수들로 구성되어 공식 대회에 참가하지 않았습니다. 2019년 첫 공식 대회에서 홋카이도 선수권 준결승에 진출했습니다.</div>'}
+<div class="admin-scroll"><table class="admin-table"><thead><tr><th>연도</th><th>대회명 · 클릭하여 상세 확인</th><th>성적</th></tr></thead><tbody>${rows}</tbody></table></div>
+<section class="section">${sectionTitle('2019 홋카이도 선수권 · 준결승 맞대결')}
+<details class="result-feature"><summary>호쿠레이학원 VS 코가학원 · 경기 기록 보기 ↗</summary><p>${esc(matchDetail)}</p>${matchScorecard()}</details></section>
+<p class="admin-sub">※ 모든 실적은 《퍽을 향해!》의 가상 세계관 설정입니다. 2020년 대회 결과는 포함하지 않았습니다.</p>`;
+}
+function trainingSchedule(){
+const h=sid==='h';
+return `${sectionTitle(h?'2020년도 훈련 및 참가계획':'TRAINING / EVENT PLAN 2020')}
+<p class="admin-sub">아이스하키부 연간 훈련 운영계획 · 세부 일정은 변경될 수 있습니다.</p>
+${adminTable(['기간','훈련 내용','장소','비고'],TRAINING_ROWS[sid])}
+<section class="section">${sectionTitle('대회 및 교류전 참가계획')}
+${adminTable(['구분','시기','참가 내용','진행 상황'],[['교외 연습경기','2020년 중','상대 학교와 일정 협의','미확정'],['동계 대회','2020년 동계 시즌','참가 여부 및 대회명 추후 공지','미확정'],['합동 훈련','추후 공지','학교별 협의 후 운영','미확정']])}</section>
+<div class="notice-strip">${h?'※ 교외 공용 빙상장 사용 일정은 시설 운영 및 배정에 따라 달라질 수 있습니다.':'※ 교내 아이스 아레나의 외부 대관 및 일반인 이용은 허용하지 않습니다.'}</div>`;
+}
+function resourceLibrary(){
+return `${sectionTitle(sid==='h'?'학교 자료실':'RESOURCE LIBRARY')}
+<p class="admin-sub">2020학년도 학교생활·훈련 관련 자료 목록</p>
+${adminTable(['등록일','자료명','분류','첨부'],RESOURCE_ITEMS[sid].map(x=>[x[0],x[1],x[2],'준비 중']))}
+<div class="notice-strip">자료실은 세계관 연출용입니다. 실제 다운로드 파일은 등록되지 않았습니다.</div>`;
+}
+function schoolBoard(){
+const posts=SCHOOL_POSTS[sid];
+return `${sectionTitle(sid==='h'?'학교 게시판':'NOTICE BOARD')}
+<p class="admin-sub">학교 공지 및 하키부 안내 · 제목을 누르면 내용을 볼 수 있습니다.</p>
+<div class="board-tools"><label for="board-filter">분류</label><select id="board-filter" onchange="filterBoard()"><option value="전체">전체</option><option value="공지">공지</option><option value="하키부">하키부</option><option value="자료">자료</option></select><input id="board-query" oninput="filterBoard()" placeholder="제목 검색" aria-label="게시글 제목 검색"></div>
+<div id="board-list">${boardRows(posts)}</div>
+<p class="admin-sub">※ 본 게시판은 읽기 전용 가상 게시판입니다. 글쓰기 및 실제 서버 저장 기능은 없습니다.</p>`;
+}
+function boardRows(posts){return `<div class="board-list">${posts.map(p=>`<details class="board-post"><summary><span class="board-category">${esc(p[1])}</span><span class="board-title">${esc(p[3])}</span><time>${esc(p[2])}</time></summary><div class="board-body">${esc(p[4])}</div></details>`).join('')||'<p>검색 결과가 없습니다.</p>'}</div>`;}
+function filterBoard(){const cat=document.getElementById('board-filter')?.value||'전체';const q=(document.getElementById('board-query')?.value||'').trim().toLowerCase();document.getElementById('board-list').innerHTML=boardRows(SCHOOL_POSTS[sid].filter(p=>(cat==='전체'||p[1]===cat)&&p[3].toLowerCase().includes(q)));}
+function showSchoolPopup(){
+if(page!=='home'||!sid)return;
+const key='puck-school-popup-2020-'+sid;
+if(sessionStorage.getItem(key))return;
+const h=sid==='h';const root=document.getElementById('school-popup');
+root.innerHTML=`<div class="school-popup-card ${h?'popup-h':'popup-k'}"><div class="popup-head"><span>${h?'北嶺学園 · 학교 알림':'虎牙学園 · SCHOOL NOTICE'}</span><button onclick="closeSchoolPopup()" aria-label="팝업 닫기">✕</button></div><div class="popup-content"><span class="eyebrow">2020 SCHOOL INFORMATION</span><h2>${h?'2020학년도<br>학교생활 안내':'NEW SEASON<br>2020'}</h2><p>${h?'신입생 학교생활과 하키부 훈련 일정을 확인해 주세요.':'하키부 훈련계획 및 교내 아이스 아레나 이용 안내를 확인하세요.'}</p><button class="popup-link" onclick="closeSchoolPopup();go('board')">공지사항 바로가기 ↗</button><button class="popup-link" onclick="closeSchoolPopup();go('schedule')">훈련계획 보기 ↗</button></div><div class="popup-foot"><label><input id="popup-today" type="checkbox"> 이번 방문 동안 다시 보지 않기</label><button onclick="closeSchoolPopup()">닫기</button></div></div>`;
+root.classList.remove('hidden');
+}
+function closeSchoolPopup(){const root=document.getElementById('school-popup');if(document.getElementById('popup-today')?.checked&&sid)sessionStorage.setItem('puck-school-popup-2020-'+sid,'1');root.classList.add('hidden');root.innerHTML='';}
 
 /* ==================================
    각 페이지 콘텐츠
@@ -1010,7 +1253,8 @@ onclick="go('${x[1]}')">
 </button>
 `).join('')}
 </div>
-</section>`;
+</section>
+<section class="section">${sectionTitle(h?'학교 홈페이지 바로가기':'SCHOOL INFORMATION')}<div class="quick-links">${[['학교현황','status'],['하키부 실적','results'],['훈련·참가계획','schedule'],['자료실','library'],['게시판','board']].map(([label,id])=>`<button onclick="go('${id}')">${label} ↗</button>`).join('')}</div></section>`;
 }
 
 if(page==='about'){
@@ -1127,6 +1371,11 @@ ${picture('wear','유니폼 착용 예시')}
 </section>`;
 }
 
+if(page==='status')return schoolStatus(s);
+if(page==='results')return hockeyResults();
+if(page==='schedule')return trainingSchedule();
+if(page==='library')return resourceLibrary();
+if(page==='board')return schoolBoard();
 if(page==='map')return mapPage();
 
 return '';
