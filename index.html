@@ -840,6 +840,12 @@ body:has(.k-rail) .section-subnav button:hover{color:#d96313}
 .k-name-home{color:inherit;text-decoration:none;cursor:pointer}
 .k-name-home:hover,.k-name-home:focus-visible{color:#e77927}
 @media(max-width:600px){.h-brand-home{gap:14px}}
+
+/* 학교 선택으로 돌아가기: 화살표 없이 밑줄 링크 */
+.h-top .school-return-link, .k-rail .school-return-link{
+  text-decoration:underline; text-underline-offset:4px; text-decoration-thickness:1px;
+  background:transparent; border:0; cursor:pointer;
+}
 </style>
 </head>
 <body>
@@ -1052,7 +1058,7 @@ alt="호쿠레이학원 엠블럼">
 <h2>北嶺学園</h2>
 <div class="school-en">HOKUREI GAKUEN</div>
 <p class="school-copy">전통과 협동 · 구시로의 푸른 독수리</p>
-<span class="portal-enter">호쿠레이학원 입장 ↗</span>
+<span class="portal-enter">공식 홈페이지</span>
 </div>
 </button>
 
@@ -1065,7 +1071,7 @@ alt="코가학원 엠블럼">
 <h2>虎牙学園</h2>
 <div class="school-en">KOGA GAKUEN</div>
 <p class="school-copy">도전과 야망 · 삿포로의 검은 호랑이</p>
-<span class="portal-enter">코가학원 입장 ↗</span>
+<span class="portal-enter">공식 홈페이지</span>
 </div>
 </button>
 
@@ -1094,9 +1100,9 @@ const MAIN_NAV=[
 ['notice','알림마당',[['letters','가정통신문'],['calendar','학사일정'],['meals','학교급식'],['health','보건소식']]],
 ['library','자료실',[]],['board','게시판',[]],['administration','행정정보',[]],['map','찾아오시는 길',[]]
 ];
-const PAGE_GROUP={home:'',about:'school',greeting:'school',history:'school',status:'school',curriculum:'school',campus:'school',hockey:'',map:'map',letters:'notice',calendar:'notice',meals:'notice',health:'notice',library:'library',board:'board',results:'board',schedule:'board',administration:'administration'};
+const PAGE_GROUP={home:'',admission:'notice',about:'school',greeting:'school',history:'school',status:'school',curriculum:'school',campus:'school',hockey:'',map:'map',letters:'notice',calendar:'notice',meals:'notice',health:'notice',library:'library',board:'board',results:'board',schedule:'board',administration:'administration'};
 function currentGroup(){return PAGE_GROUP[page]??'school';}
-function currentTitle(){for(const [id,title,subs] of MAIN_NAV){if(page===id)return title;const hit=subs.find(x=>x[0]===page);if(hit)return hit[1];}return {home:'홈',hockey:'아이스하키부',results:'하키부 실적·훈련계획',campus:'학교 시설',map:'찾아오시는 길',about:'학교소개'}[page]||'학교안내';}
+function currentTitle(){for(const [id,title,subs] of MAIN_NAV){if(page===id)return title;const hit=subs.find(x=>x[0]===page);if(hit)return hit[1];}return {home:'홈',admission:'동계스포츠 특기생 사전 모집',hockey:'아이스하키부',results:'하키부 실적·훈련계획',campus:'학교 시설',map:'찾아오시는 길',about:'학교소개'}[page]||'학교안내';}
 function mainNavigation(){return MAIN_NAV.map(([id,label,subs])=>`<div class="nav-group ${currentGroup()===id?'selected':''}"><button class="main-nav-button ${currentGroup()===id?'active':''}" onclick="go('${subs.length?subs[0][0]:id}')">${label}</button>${subs.length?`<div class="nav-submenu">${subs.map(([subId,name])=>`<button class="${page===subId?'active':''}" onclick="go('${subId}')">${name}</button>`).join('')}</div>`:''}</div>`).join('');}
 function sectionNavigation(){if(['hockey','results','campus','map'].includes(page))return '';const group=MAIN_NAV.find(x=>x[0]===currentGroup());if(!group||!group[2].length)return '';return `<nav class="section-subnav" aria-label="${group[1]} 소분류">${group[2].map(([id,label])=>`<button class="${page===id?'active':''}" onclick="go('${id}')">${label}</button>`).join('')}</nav>`;}
 
@@ -1121,7 +1127,7 @@ site.innerHTML=`
 <div class="h-top">
 <div class="wrap">
 <span>北海道 · 釧路市 · EST. 1970</span>
-<button onclick="portal()">학교 선택으로 돌아가기 ↗</button>
+<button class="school-return-link" onclick="portal()">학교 선택으로 돌아가기</button>
 </div>
 </div>
 
@@ -1177,7 +1183,7 @@ site.innerHTML=`
 
 ${mainNavigation()}
 
-<button class="back" onclick="portal()">EXIT ↗</button>
+<button class="back school-return-link" onclick="portal()">학교 선택으로 돌아가기</button>
 </aside>
 
 <div>
@@ -1595,7 +1601,7 @@ return `<div class="school-poster ${variant} ${recruit?'poster-recruit':''}">
 function renderPopupSlide(){const h=sid==='h';const root=document.getElementById('school-popup');root.innerHTML=`<div class="school-popup-card ${h?'popup-h':'popup-k'}"><div class="popup-head"><span>${h?'北嶺学園高等学校':'虎牙学園高等学校'} · 2020 알림</span><button onclick="closeSchoolPopup()" aria-label="팝업 닫기">✕</button></div>
 ${schoolPosterMarkup(popupSlide)}
 <div class="popup-pagination"><button onclick="changePopupSlide(0)" class="${popupSlide===0?'active':''}" aria-label="첫 번째 공지">01</button><button onclick="changePopupSlide(1)" class="${popupSlide===1?'active':''}" aria-label="두 번째 공지">02</button><span>${popupSlide+1} / 2</span><button onclick="changePopupSlide(${popupSlide===0?1:0})">${popupSlide===0?'다음 공지 ❯':'❮ 이전 공지'}</button></div>
-<div class="poster-actions"><button onclick="closeSchoolPopup();go('${(sid==='h'?popupSlide===1:popupSlide===0)?'hockey':'board'}')">${(sid==='h'?popupSlide===1:popupSlide===0)?'아이스하키부 안내 보기 ↗':'관련 공지사항 확인 ↗'}</button></div>
+<div class="poster-actions"><button onclick="closeSchoolPopup();go('${(sid==='h'?popupSlide===1:popupSlide===0)?(sid==='h'?'hockey':'admission'):'board'}')">${(sid==='h'?popupSlide===1:popupSlide===0)?(sid==='h'?'아이스하키부 안내 보기 ↗':'모집 안내 보기 ↗'):'관련 공지사항 확인 ↗'}</button></div>
 <div class="popup-foot"><label><input id="popup-today" type="checkbox" ${popupDismiss?'checked':''} onchange="popupDismiss=this.checked"> 이번 방문 동안 다시 보지 않기</label><button onclick="closeSchoolPopup()">닫기</button></div></div>`;}
 let popupDismiss=false;
 function changePopupSlide(index){popupDismiss=!!document.getElementById('popup-today')?.checked;popupSlide=index;renderPopupSlide();startPopupAuto();}
@@ -1642,7 +1648,7 @@ function openHomePost(id){go('board');requestAnimationFrame(()=>{const el=docume
 function homePostLinks(team,count){return homePosts(team,count).map((p,i)=>`<button class="dash-post" onclick="openHomePost('${p[0]}')"><span class="dash-post-tag">${esc(p[1])}</span><span class="dash-post-title">${esc(p[3])}</span><time>${p[2].slice(5)}</time></button>`).join('');}
 function hokureiDashboard(s){return `<div class="hokurei-dashboard">
 <section class="h-dash-intro"><div><span class="dash-eyebrow">北嶺学園 · 2020 SCHOOL NEWS</span><h2>함께 배우고, 함께 성장하는<br>50년의 호쿠레이</h2><p>학교의 오늘과 학생들의 소식을 전합니다.</p></div><button onclick="go('history')">학교연혁 보기 ↗</button></section>
-<div class="h-dash-quick">${[['학사일정','calendar','calendar-days'],['가정통신문','letters','mail'],['학교급식','meals','utensils'],['하키부','hockey','trophy'],['학교시설','campus','building-2'],['찾아오시는 길','map','map-pin']].map(([label,id],i)=>`<button onclick="go('${id}')"><span class="h-quick-symbol">${['▦','✉','♨','🏒','⌂','⌖'][i]}</span><strong>${label}</strong></button>`).join('')}</div>
+<div class="h-dash-quick">${[['학사일정','calendar','calendar-days'],['가정통신문','letters','mail'],['학교급식','meals','utensils'],['하키부','hockey','trophy'],['학교시설','campus','building-2'],['찾아오시는 길','map','map-pin']].map(([label,id],i)=>`<button onclick="go('${id}')"><span class="h-quick-symbol">${['📅','📰','🍴','🏒','🏫','🗺️'][i]}</span><strong>${label}</strong></button>`).join('')}</div>
 <div class="h-dash-grid"><section class="dash-pane"><div class="dash-pane-title"><h3>공지사항 · 학교소식</h3><button onclick="go('board')" aria-label="전체 게시판">더보기 ＋</button></div>${homePostLinks('h',5)}</section><section class="dash-pane"><div class="dash-pane-title"><h3>학사일정</h3><button onclick="go('calendar')">전체 일정 ↗</button></div><div id="home-calendar">${calendarHTML('h')}</div></section></div>
 <div class="h-dash-bottom"><section class="dash-pane"><div class="dash-pane-title"><h3>호쿠레이 포토갤러리</h3><button onclick="go('campus')">학교시설 ↗</button></div><div class="h-gallery-grid"><button onclick="go('campus')"><img src="${assetUrl('campus')}" alt="호쿠레이 캠퍼스"><span>우리 학교의 풍경</span></button><button onclick="go('hockey')"><img src="${assetUrl('jersey')}" alt="호쿠레이 하키부 유니폼"><span>전통의 아이스하키부</span></button></div></section><section class="h-hockey-banner"><span>北嶺 ICE HOCKEY CLUB</span><h3>전통의 명문,<br>다음 우승을 향하여</h3><p>2021학년도 아이스하키부 신입생 사전 모집 안내</p><button onclick="go('hockey')">하키부 바로가기 ↗</button><button onclick="go('results')">대회 실적·훈련계획 ↗</button></section></div>
 </div>`;}
@@ -1653,13 +1659,29 @@ function kogaAgenda(){
 }
 function kogaDashboard(s){return `<div class="koga-dashboard k-reimagined">
 <div class="k-main-stage"><section class="k-stage-feature"><div class="k-stage-top"><span>虎牙学園 · ATHLETIC CAMPUS</span><span>EST. 2018</span></div><div class="k-stage-copy"><span>2020 SCHOOL YEAR</span><h2>BUILD THE<br>FUTURE.</h2><p>훈련과 배움이 만나는 곳.<br>코가학원의 새로운 도전이 시작됩니다.</p><button onclick="go('hockey')">아이스하키부 알아보기 ↗</button></div><div class="k-stage-image" style="background-image:linear-gradient(0deg,#0e1217dd,#0e121700 65%),url('${assetUrl('campus')}')"></div></section>
-<aside class="k-stage-rail"><section class="k-rail-admission"><span>2021 / EARLY RECRUITMENT</span><h3>동계스포츠<br>특기생 사전 모집</h3><p>교내 전용 아이스링크 · 전문 훈련 프로그램</p><button onclick="go('hockey')">모집 안내 보기 ↗</button></section><section class="k-rail-news"><div class="k-rail-heading"><strong>최근 학교 소식</strong><button onclick="go('board')">전체보기 ＋</button></div>${homePostLinks('k',4)}</section></aside></div>
-<div class="k-action-strip"><div class="k-strip-title"><small>KOGA QUICK ACCESS</small><strong>자주 찾는 서비스</strong></div>${[['하키부','hockey','🏒'],['대회 실적','results','🏆'],['스포츠 시설','campus','⌂'],['학교급식','meals','♨'],['찾아오시는 길','map','⌖']].map(([label,id,sym])=>`<button onclick="go('${id}')"><b>${sym}</b><span>${label}</span></button>`).join('')}</div>
+<aside class="k-stage-rail"><section class="k-rail-admission"><span>2021 / EARLY RECRUITMENT</span><h3>동계스포츠<br>특기생 사전 모집</h3><p>교내 전용 아이스링크 · 전문 훈련 프로그램</p><button onclick="go('admission')">모집 안내 보기 ↗</button></section><section class="k-rail-news"><div class="k-rail-heading"><strong>최근 학교 소식</strong><button onclick="go('board')">전체보기 ＋</button></div>${homePostLinks('k',4)}</section></aside></div>
+<div class="k-action-strip"><div class="k-strip-title"><small>KOGA QUICK ACCESS</small><strong>자주 찾는 서비스</strong></div>${[['하키부','hockey','🏒'],['대회 실적','results','🏆'],['스포츠 시설','campus','🏫'],['학교급식','meals','🍴'],['찾아오시는 길','map','🗺️']].map(([label,id,sym])=>`<button onclick="go('${id}')"><b>${sym}</b><span>${label}</span></button>`).join('')}</div>
 <div class="k-lower-stage"><section class="k-athletics-spotlight"><div class="k-spotlight-image"><img src="${assetUrl('jersey')}" alt="코가 아이스하키부 유니폼"></div><div class="k-spotlight-copy"><span>SPORTS REPORT / ICE HOCKEY</span><h3>얼음 위의 새로운 강호</h3><p>창단 이후 빠르게 성장하는 코가학원 아이스하키부. 선수 명단과 훈련·대회 기록을 확인하세요.</p><button onclick="go('results')">대회 기록 살펴보기 →</button></div></section>
 <section class="k-agenda-panel"><div class="k-agenda-title"><div><small>ACADEMIC SCHEDULE</small><h3>이달의 주요 일정</h3></div><button onclick="go('calendar')">학사일정 전체보기 ↗</button></div><div id="home-calendar">${kogaAgenda()}</div></section></div>
 <div class="k-bottom-gallery"><button onclick="go('campus')"><img src="${assetUrl('campus')}" alt="코가 캠퍼스"><span>시설 안내 ↗</span></button><button onclick="go('board')"><span class="k-bottom-text"><small>CAMPUS BULLETIN</small><strong>학생 활동 · 학교 행사 소식</strong><em>게시판으로 이동 ↗</em></span></button></div>
 </div>`;}
 
+
+function kogaAdmission(){return `${sectionTitle('2021학년도 동계스포츠 특기생 사전 모집 안내')}
+<p class="admin-sub">虎牙学園高等学校 · 체육교육부 / 2020학년도 사전 안내</p>
+<div class="notice-strip"><strong>2021학년도 입학 예정자를 위한 사전 모집 안내</strong><br>본 안내는 지원 희망자에게 전형 개요를 미리 알리는 자료입니다. 최종 모집 요강과 일정은 추후 학교 공지사항을 통해 안내합니다.</div>
+<section class="section"><h3 class="admin-group-title">01 · 모집 대상 및 종목</h3>
+${adminTable(['구분','내용'],[['지원 대상','2021학년도 고등학교 입학 예정자 중 동계스포츠 선수 활동을 희망하는 학생'],['안내 종목','아이스하키 · 피겨스케이팅 · 스피드스케이팅 · 컬링'],['선발 기준','종목별 경기 경험 및 기초 역량, 학업 이수 의지, 면담 등을 종합 검토'],['모집 인원','종목별 운영 계획에 따라 추후 공지']])}</section>
+<section class="section"><h3 class="admin-group-title">02 · 지원 절차</h3>
+${adminTable(['단계','진행 내용'],[['① 사전 안내 확인','학교 홈페이지에서 모집 종목 및 교육·훈련 환경 확인'],['② 지원 의사 접수','추후 공지되는 신청 기간에 지정된 방식으로 지원'],['③ 서류 확인 및 상담','지원 서류 검토, 종목별 지도자 상담 및 필요시 기초 역량 평가'],['④ 결과 안내','학교에서 정한 전형 일정에 따라 개별 또는 공지사항으로 안내']])}</section>
+<section class="section"><h3 class="admin-group-title">03 · 제출 서류 (예정)</h3>
+<p>입학 지원서, 재학·졸업 예정 관련 서류, 선수 활동 및 대회 참가 경력 자료(해당자), 보호자 동의서 등. 정확한 서식과 제출 방법은 정식 모집 요강을 확인해 주시기 바랍니다.</p></section>
+<section class="section"><h3 class="admin-group-title">04 · 교육 및 훈련 안내</h3>
+<p>코가학원은 정규 수업과 종목별 전문 훈련의 병행을 원칙으로 하며, 학생선수의 학습권과 안전한 훈련 환경을 중시합니다. 교내 전용 아이스 아레나는 학교 교육 및 선수 훈련 목적으로 운영되며 외부 대관은 진행하지 않습니다.</p></section>
+<section class="section"><h3 class="admin-group-title">05 · 일정 및 문의</h3>
+${adminTable(['항목','안내'],[['사전 안내','2020년 4월'],['원서 접수 기간','추후 공지'],['종목별 평가·면담','추후 공지'],['문의','코가학원 체육교육부 · 학교 게시판 공지사항 확인']])}
+<div class="quick-links"><button onclick="go('board')">학교 공지사항 확인 ↗</button><button onclick="go('campus')">학교 시설 안내 ↗</button></div></section>
+<p class="admin-sub">※ 본 페이지는 작품 세계관을 위한 가상 학교의 모집 안내입니다. 실제 학교 입학 전형이 아닙니다.</p>`;}
 
 function pageContent(s){
 const h=sid==='h';
@@ -1674,6 +1696,7 @@ if(page==='health')return schoolHealth();
 if(page==='administration')return schoolAdministration();
 
 if(page==='home')return sid==='h'?hokureiDashboard(s):kogaDashboard(s);
+if(page==='admission')return sid==='k'?kogaAdmission():schoolBoard();
 
 if(page==='about'){
 return `
